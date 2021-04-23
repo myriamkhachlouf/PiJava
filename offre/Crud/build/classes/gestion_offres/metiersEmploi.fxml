@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="fils1" prefHeight="809.0" prefWidth="536.0" stylesheets="@dark_theme_1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_offres.MetiersEmploiController">
+   <children>
+      <ImageView fitHeight="809.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/background.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="Btn_precedent" layoutX="23.0" layoutY="27.0" onAction="#precedent" prefHeight="33.0" prefWidth="115.0" text="Précédent" />
+      <TableView fx:id="table" layoutX="101.0" layoutY="346.0" prefHeight="320.0" prefWidth="310.0" rotate="5.0">
+         <columns>
+            <TableColumn fx:id="idemploi" prefWidth="59.41594123840332" text="id" />
+            <TableColumn fx:id="idoffreemploi" prefWidth="71.05706787109375" text="id_offre" />
+            <TableColumn fx:id="salaireemploi" prefWidth="84.1214828491211" text="salaire" />
+            <TableColumn fx:id="typeemploi" prefWidth="97.15556335449219" text="type_contrat" />
+         </columns>
+      </TableView>
+      <Button fx:id="Btn_supprimeremploi" layoutX="401.0" layoutY="756.0" onAction="#supprimer_emploi" prefHeight="33.0" prefWidth="125.0" text="Supprimer" />
+      <TextField fx:id="search" layoutX="194.0" layoutY="273.0" onKeyTyped="#recherche" prefHeight="19.0" prefWidth="174.0" promptText="Search" rotate="5.0" />
+      <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="142.0" layoutY="261.0" rotate="15.0">
+         <image>
+            <Image url="@../images/magnifying-glass.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="TRIASC" layoutX="425.0" layoutY="415.0" onAction="#TRIASC" prefHeight="34.0" prefWidth="115.0" text="TRI ASC" />
+      <Button fx:id="TRIDESC" layoutX="425.0" layoutY="478.0" onAction="#TRIDESC" prefHeight="34.0" prefWidth="115.0" text="TRI DESC" />
+      <Button fx:id="Btn_supprimeremploi1" layoutX="178.0" layoutY="729.0" onAction="#stat" prefHeight="33.0" prefWidth="125.0" text="Statistiques" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="fils" prefHeight="820.0" prefWidth="497.0" stylesheets="@dark_theme_1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_offres.Metier_stageController">
+   <children>
+      <ImageView fitHeight="809.0" fitWidth="700.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/background.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="Btn_precedent2" layoutX="33.0" layoutY="37.0" onAction="#precedent2" prefHeight="33.0" prefWidth="115.0" text="Précédent" />
+      <TableView fx:id="tablest" layoutX="78.0" layoutY="312.0" prefHeight="360.0" prefWidth="373.0" rotate="5.0">
+         <columns>
+            <TableColumn fx:id="idstage" prefWidth="40.468647480010986" text="id" />
+            <TableColumn fx:id="id_ooffre" prefWidth="72.48966979980469" text="id_Offre" />
+            <TableColumn fx:id="date_debut" prefWidth="70.68510437011719" text="date_debut" />
+            <TableColumn fx:id="date_fin" prefWidth="55.48216247558594" text="date_fin" />
+            <TableColumn fx:id="typestage" prefWidth="66.90565490722656" text="type" />
+            <TableColumn fx:id="nomencadrant" prefWidth="66.90565490722656" text="Nom Encadrant" />
+         </columns>
+      </TableView>
+      <Button fx:id="Btn_supprimer2" layoutX="403.0" layoutY="744.0" onAction="#supprimer_stage2" prefHeight="33.0" prefWidth="125.0" text="Supprimer" />
+      <Button fx:id="offre" layoutX="403.0" layoutY="37.0" mnemonicParsing="false" onAction="#suivantoffre2" prefHeight="33.0" prefWidth="125.0" text="Offre" />
+      <Button fx:id="Emploi2" layoutX="403.0" layoutY="82.0" mnemonicParsing="false" onAction="#suivantEmploi2" prefHeight="33.0" prefWidth="125.0" text="Emploi" />
+      <TextField fx:id="search" layoutX="204.0" layoutY="270.0" onKeyTyped="#recherche" prefHeight="19.0" prefWidth="174.0" promptText="Search" rotate="5.0" />
+      <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="148.0" layoutY="262.0">
+         <image>
+            <Image url="@../images/magnifying-glass.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="TRIASC" layoutX="435.0" layoutY="570.0" onAction="#TRIASC" prefHeight="34.0" prefWidth="115.0" text="TRI ASC" />
+      <Button fx:id="TRIDESC" layoutX="435.0" layoutY="641.0" onAction="#TRIDESC" prefHeight="34.0" prefWidth="115.0" text="TRI DESC" />
+   </children>
+</AnchorPane>
