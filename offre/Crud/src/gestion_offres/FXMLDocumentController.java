@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package gestion_offres;
-
+import javaapplication1.entities.users;
 import Entities.Offres;
 import Service.ServiceOffres;
 import Utils.Maconnexion;
@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javaapplication1.services.UsersService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -54,7 +55,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField tfnom_offre;
     @FXML
-    private ComboBox<String> idpromotion_offre;
+    private ComboBox<users> idpromotion_offre;
     private TextField tfimage_offre;
     @FXML
     private ComboBox<String> idtype_offre;
@@ -74,8 +75,11 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
     }
-    ServiceOffres serv=new ServiceOffres();
-   // ObservableList<String> data = FXCollections.observableArrayList("1","2","3","4","5","6");
+    UsersService serv=new UsersService();
+      private void afficherCombo() {
+      ObservableList<users> data = FXCollections.observableArrayList(serv.getAll());
+        idpromotion_offre.setItems(data);
+    }
     ObservableList<String> data2 = FXCollections.observableArrayList("stage","emploi");
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -83,11 +87,7 @@ public class FXMLDocumentController implements Initializable {
        
         List<Integer>  list =new ArrayList<>();
         
-            for(Offres a : serv.afficherOffre())
-            {
-                idpromotion_offre.getItems().addAll(String.valueOf(a.getEntreprise_id()));
-            }
-        
+          afficherCombo();
         //idpromotion_offre.setItems(data);
         idtype_offre.setItems(data2);
     }    
@@ -106,7 +106,7 @@ public class FXMLDocumentController implements Initializable {
         if (!rs.next()) {
             if ((!tfnom_offre.getText().matches("[\\\\!\"#$%&()*+,./:;<=>?@\\[\\]^_{|}~]+"))
                     ) {
-                String req = "insert into offre (id,entreprise_id,nom_offre,image_name,type)values('" + tfid_offre.getText() + "','" + idpromotion_offre.getValue() + "','" + tfnom_offre.getText() + "' ,'" + urlInserted + "','" + idtype_offre.getValue() + "','')";
+                String req = "insert into offre (id,entreprise_id,nom_offre,image_name,type)values('" + tfid_offre.getText() + "','" + idpromotion_offre.getValue().getId() + "','" + tfnom_offre.getText() + "' ,'" + urlInserted + "','" + idtype_offre.getValue() + "','')";
                
                try {
                     st = cnx.createStatement();
@@ -123,7 +123,7 @@ public class FXMLDocumentController implements Initializable {
 
             Offres a = new Offres();
             a.setId(Integer.parseInt(tfid_offre.getText()));
-            a.setEntreprise_id(Integer.parseInt(idpromotion_offre.getValue()));
+            a.setEntreprise_id(idpromotion_offre.getValue().getId());
             a.setNom_offre(tfnom_offre.getText());
             a.setImage_name(urlInserted);
             a.setType(idtype_offre.getValue());
@@ -156,7 +156,7 @@ public class FXMLDocumentController implements Initializable {
         int id;
         id = Integer.parseInt(tfid_offre.getText());
         a.setId(Integer.parseInt(tfid_offre.getText()));
-            a.setEntreprise_id(Integer.parseInt(idpromotion_offre.getValue()));
+            a.setEntreprise_id(idpromotion_offre.getValue().getId());
             a.setNom_offre(tfnom_offre.getText());
             a.setImage_name(urlInserted);
             a.setType(idtype_offre.getValue());

@@ -47,6 +47,6 @@
       <Button fx:id="Btn_precedent4" layoutX="23.0" layoutY="34.0" onAction="#precedent4" prefHeight="33.0" prefWidth="124.0" text="Précédent" />
       <DatePicker fx:id="date_candidature" layoutX="193.0" layoutY="566.0" prefHeight="22.0" prefWidth="165.0" rotate="5.0" />
       <Label layoutX="105.0" layoutY="559.0" prefHeight="21.0" prefWidth="91.0" rotate="5.0" text="Date Candidature" />
-      <ComboBox fx:id="id_candidat" layoutX="211.0" layoutY="438.0" prefHeight="43.0" prefWidth="146.0" rotate="5.0" styleClass="table-view" />
+      <ComboBox fx:id="idcandidat" layoutX="211.0" layoutY="438.0" prefHeight="43.0" prefWidth="146.0" rotate="5.0" styleClass="table-view" />
    </children>
 </AnchorPane>

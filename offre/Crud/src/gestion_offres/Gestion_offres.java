@@ -19,7 +19,7 @@ public class Gestion_offres extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/javaapplication1/Auth.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Candidature.fxml"));
         
         Scene scene = new Scene(root);
         

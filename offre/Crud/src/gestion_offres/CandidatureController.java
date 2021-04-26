@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package gestion_offres;
-
+import javaapplication1.entities.users;
 import Entities.Candidature;
 import Entities.Offres;
 import Entities.Stage;
@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javaapplication1.services.UsersService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -68,13 +69,19 @@ public class CandidatureController implements Initializable {
     @FXML
     private DatePicker date_candidature;
     ServiceOffres AC= new ServiceOffres();
+  
+    UsersService DC= new UsersService();
     @FXML
-    private TextField tfid_candidat;
+    private ComboBox<users> idcandidat;
+    private void afficherCombo1() {
+      ObservableList<users> data = FXCollections.observableArrayList(DC.getAll());
+        idcandidat.setItems(data);
+    }
     private void afficherCombo() {
       ObservableList<Offres> data = FXCollections.observableArrayList(AC.afficherOffre());
         idoffre_candidature.setItems(data);
     }
-     Image img=new Image("/images/icon.png");
+     Image img=new Image("/images/icon 1.png");
     /**
      * Initializes the controller class.
      */
@@ -82,6 +89,7 @@ public class CandidatureController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          afficherCombo();
+         afficherCombo1();
     }    
 
     @FXML
@@ -89,7 +97,7 @@ public class CandidatureController implements Initializable {
          ServiceCandidature sr = new ServiceCandidature();
            int id = Integer.parseInt(tfid_candidature.getText());
         int offre_id = idoffre_candidature.getValue().getId();
-        int candidat_id =Integer.parseInt(tfid_candidature.getText());
+        int candidat_id =idcandidat.getValue().getId();
         String pdf = tfpdf.getText();
         LocalDate date = date_candidature.getValue();
         String Date = date.toString();
@@ -116,7 +124,7 @@ public class CandidatureController implements Initializable {
     private void ajouter_candidature(ActionEvent event) throws SQLException {
         int id = Integer.parseInt(tfid_candidature.getText());
         int offre_id = idoffre_candidature.getValue().getId();
-        int candidat_id =Integer.parseInt(tfid_candidature.getText());
+        int candidat_id =idcandidat.getValue().getId();
         String pdf = tfpdf.getText();
         LocalDate date = date_candidature.getValue();
         String Date = date.toString();
@@ -130,6 +138,7 @@ public class CandidatureController implements Initializable {
         alert.showAndWait();
         aS.afficherCandidature();
         afficherCombo();
+        afficherCombo1();
         }else{
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erreur");
@@ -138,6 +147,7 @@ public class CandidatureController implements Initializable {
         alert.showAndWait();
         aS.afficherCandidature();
         afficherCombo();
+        afficherCombo1();
 
         }
            
