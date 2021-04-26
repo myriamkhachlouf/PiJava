@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="428.0" prefWidth="668.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaapplication1.UserInterfaceController">
+    <stylesheets>
+        <URL value="@userinterface.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="table" layoutX="12.0" layoutY="161.0" prefHeight="197.0" prefWidth="595.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="161.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="55.0" text="id" />
+          <TableColumn fx:id="col_nom" onEditCommit="#changeNomCellEvent" prefWidth="69.0" text="nom" />
+            <TableColumn fx:id="col_email" onEditCommit="#changeEmailCellEvent" prefWidth="61.0" text="email" />
+            <TableColumn fx:id="col_telephone" onEditCommit="#changeTelephoneCellEvent" prefWidth="92.0" text="telephone" />
+            <TableColumn fx:id="col_adresse" onEditCommit="#changeAdresseCellEvent" prefWidth="67.0" text="adresse" />
+            <TableColumn fx:id="col_domaine" onEditCommit="#changeDomaineCellEvent" prefWidth="83.0" text="domaine" />
+            <TableColumn fx:id="col_role" prefWidth="84.0" text="role" />
+        </columns>
+      </TableView>
+      <Button fx:id="DeleteUserBTN" layoutX="586.0" layoutY="115.0" mnemonicParsing="false" onAction="#DeleteUser" text="Delete" />
+      <ImageView fx:id="printBtn" fitHeight="40.0" fitWidth="40.0" layoutX="446.0" layoutY="56.0" onDragDetected="#print" onMouseClicked="#print">
+         <image>
+            <Image url="@gui/Print-512.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="393.0" layoutY="60.0" onDragDetected="#refreshTable" onMouseClicked="#refreshTable">
+         <image>
+            <Image url="@gui/61444.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="23.0" layoutY="21.0" text="connected User" />
+      <Label fx:id="username" layoutX="136.0" layoutY="21.0" prefHeight="18.0" prefWidth="257.0" text="John Smith" />
+      <TextField fx:id="filterField" layoutX="236.0" layoutY="128.0" prefHeight="25.0" prefWidth="196.0" />
+      <Label layoutX="181.0" layoutY="132.0" prefHeight="17.0" prefWidth="68.0" text="Search :" />
+      <Button fx:id="statisticsBtn" layoutX="287.0" layoutY="389.0" mnemonicParsing="false" onAction="#showStatistics" text="Show statistics" />
+   </children>
+</AnchorPane>
