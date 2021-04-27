@@ -135,14 +135,35 @@ public class PannelAdminFXMLController implements Initializable {
 
     @FXML
     private void gest_form(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/formateur.fxml"));       
+            Parent root = loader.load();
+            container_admin.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
     }
 
     @FXML
     private void gest_event(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/event.fxml"));       
+            Parent root = loader.load();
+            container_admin.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
     }
 
     @FXML
     private void StatForm(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/formation.fxml"));       
+            Parent root = loader.load();
+            container_admin.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
     }
 
     @FXML

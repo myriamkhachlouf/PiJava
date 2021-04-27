@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fillWidth="false" prefHeight="990" prefWidth="1980" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.khedmtech.controller.PannelEntrepriseController">
+<VBox fillWidth="false" prefHeight="990" prefWidth="1980" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.khedmtech.controller.PannelEntrepriseController">
    <children>
       <HBox prefHeight="89.0" prefWidth="1980.0">
          <children>
@@ -51,7 +51,8 @@
                               <MenuButton mnemonicParsing="false" prefHeight="30.0" prefWidth="500.0" style="-fx-background-color: #FFFFFF;" text="Gérer offres">
                                  <items>
                                     <MenuItem mnemonicParsing="false" onAction="#StageOffre" text="De Stage" />
-                                    <MenuItem mnemonicParsing="false" onAction="#TravailOffre" text="De travail" />
+                                    <MenuItem mnemonicParsing="false" onAction="#TravailOffre" text="D' emploi" />
+                                    <MenuItem mnemonicParsing="false" onAction="#offre" text="Des Offres" />
                                  </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />
@@ -63,8 +64,9 @@
                            <children>
                               <MenuButton mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Gérer Events">
                                  <items>
-                                    <MenuItem fx:id="btEvent" mnemonicParsing="false" onAction="#loadEvent" text="Events" />
+                                    <MenuItem fx:id="btEvent" mnemonicParsing="false" onAction="#loadEvent" text="Evenement" />
                                     <MenuItem fx:id="btForm" mnemonicParsing="false" onAction="#loadFormation" text="Formations" />
+                                    <MenuItem fx:id="btForm2" mnemonicParsing="false" onAction="#loadFormateur" text="Formateur" />
                                  </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />
@@ -76,8 +78,9 @@
                            <children>
                               <MenuButton mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Gérer Entretiens">
                                  <items>
-                                    <MenuItem fx:id="btEvent1" mnemonicParsing="false" onAction="#loadEvent" text="Events" />
-                                    <MenuItem fx:id="btForm1" mnemonicParsing="false" onAction="#loadFormation" text="Formations" />
+                                    <MenuItem fx:id="btEvententr" mnemonicParsing="false" onAction="#loadentr" text="Gerer Entretiens" />
+                                    <MenuItem fx:id="btrec" mnemonicParsing="false" onAction="#loadrecruteur" text="Gerer Recruteur" />
+                                    <MenuItem fx:id="btngrille" mnemonicParsing="false" onAction="#loadGrille" text="Gerer Grille" />
                                  </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />

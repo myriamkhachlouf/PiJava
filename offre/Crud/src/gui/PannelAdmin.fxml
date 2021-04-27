@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="920.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PannelAdminFXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="920.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PannelAdminFXMLController">
    <children>
       <AnchorPane layoutX="-1.0" layoutY="-6.0" prefHeight="64.0" prefWidth="1080.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0">
          <children>
@@ -83,7 +83,7 @@
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Button>
-                              <Button fx:id="FormStat" layoutX="21.0" layoutY="63.0" mnemonicParsing="false" onAction="#StatForm" prefHeight="32.0" prefWidth="217.0" text="Statistiques">
+                              <Button fx:id="FormStat" layoutX="21.0" layoutY="63.0" mnemonicParsing="false" onAction="#StatForm" prefHeight="32.0" prefWidth="217.0" text="Les Formateur">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Button>
