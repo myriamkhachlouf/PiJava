@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="920.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PannelAdminFXMLController">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="-6.0" prefHeight="64.0" prefWidth="1080.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="238.0" AnchorPane.leftAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="54.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="870.0" prefHeight="87.0" prefWidth="330.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="84.0" fitWidth="92.0" onMouseClicked="#accueilAdmin" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/21.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="28.0" prefWidth="146.0" text="Administrateur" textFill="#031251">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin></Label>
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="87.0" prefWidth="69.0">
+                     <children>
+                        <Hyperlink onAction="#Logout" prefHeight="23.0" prefWidth="67.0" text="Log Out" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="-1.0" layoutY="172.0" prefHeight="548.0" prefWidth="330.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Accordion prefHeight="398.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF;">
+              <panes>
+                  <TitledPane fx:id="GestionPart" animated="false" layoutX="10.0" layoutY="228.0" prefHeight="162.0" prefWidth="377.0" style="-fx-background-color: #FFFFFF;" text="Gestion Utilisateurs" textFill="#031251">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <Button fx:id="ListeUsers" layoutX="-8.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Listeusers" prefHeight="32.0" prefWidth="217.0" text="Liste des Utilisateurs" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="ListePartner1" layoutX="14.0" layoutY="32.0" mnemonicParsing="false" onAction="#ListePartner" prefHeight="32.0" prefWidth="217.0" text="Statistique des Utilisateurs" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     
+                  </TitledPane>
+                  <TitledPane fx:id="GestionEvent" animated="false" layoutX="10.0" layoutY="10.0" prefHeight="44.0" prefWidth="334.0" text="Gestion Evenements" textFill="#031251">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="121.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <Button fx:id="btnStand" layoutX="32.0" layoutY="-2.0" mnemonicParsing="false" onAction="#gest_form" prefHeight="32.0" prefWidth="217.0" text="Les formations" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="btnEvent" layoutX="32.0" layoutY="30.0" mnemonicParsing="false" onAction="#gest_event" prefHeight="32.0" prefWidth="217.0" text="Les Evenements">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="FormStat" layoutX="21.0" layoutY="63.0" mnemonicParsing="false" onAction="#StatForm" prefHeight="32.0" prefWidth="217.0" text="Statistiques">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                    
+                  </TitledPane>
+                <TitledPane fx:id="GestionOffre" animated="false" prefHeight="0.0" prefWidth="208.0" text="Gestion offres" textFill="#031251">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="70.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <Button fx:id="AjoutOff" layoutX="38.0" layoutY="-2.0" mnemonicParsing="false" onAction="#AjoutOffre" prefHeight="32.0" prefWidth="217.0" text="Ajouter offre">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="ConsulterOffres" layoutX="38.0" layoutY="30.0" mnemonicParsing="false" onAction="#ConsulterOffres" prefHeight="32.0" prefWidth="217.0" text="Consulter des offres">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                    
+                </TitledPane>
+                <TitledPane fx:id="GestionEntre" animated="false" prefHeight="479.0" prefWidth="208.0" style="-fx-background-color: #ffffef;" text="Gestion entretiens" textFill="#031251">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <Button fx:id="ListEntr" layoutX="28.0" layoutY="-2.0" mnemonicParsing="false" onAction="#ListeEntre" prefHeight="32.0" prefWidth="217.0" text="Liste des entretiens" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="StatEntr" layoutX="28.0" layoutY="30.0" mnemonicParsing="false" onAction="#StatEntre" prefHeight="32.0" prefWidth="218.0" text="Statistiques">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                    
+                </TitledPane>
+                <TitledPane fx:id="GestionReclam" animated="false" prefHeight="162.0" prefWidth="208.0" text="Gestion Reclamations" textFill="#031251">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="90.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <Button fx:id="ListRecl" layoutX="14.0" layoutY="-2.0" mnemonicParsing="false" onAction="#ListRecl" prefHeight="32.0" prefWidth="217.0" text="Liste des reclamations">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="StatRecl" layoutX="14.0" layoutY="30.0" mnemonicParsing="false" onAction="#StatRecl" prefHeight="32.0" prefWidth="217.0" text="Statistiques de reclamations">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                    
+                </TitledPane>
+                  <TitledPane fx:id="GestionPubl" animated="false" layoutX="10.0" layoutY="5.0" prefHeight="138.0" prefWidth="200.0" text="Gestion des publications" textFill="#031251">
+                     <content>
+                        <AnchorPane layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <Button fx:id="ListPub" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#ListPub" prefHeight="32.0" prefWidth="217.0" text="Liste des publications">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="StatPubl" layoutX="7.0" layoutY="47.0" mnemonicParsing="false" onAction="#StatPubli" prefHeight="32.0" prefWidth="217.0" text="Statistiques">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     
+                  </TitledPane>
+              </panes>
+               <effect>
+                  <ColorAdjust brightness="0.48" contrast="1.0" />
+               </effect>
+            </Accordion>
+         </children></VBox>
+      <AnchorPane layoutX="286.0" layoutY="82.0" prefHeight="837.0" prefWidth="914.0" style="-fx-background-color: CEE3F6;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="286.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="82.0">
+         <children>
+            <AnchorPane fx:id="container_admin" layoutX="24.0" layoutY="33.0" prefHeight="781.0" prefWidth="868.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="33.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

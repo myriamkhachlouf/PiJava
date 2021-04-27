@@ -41,7 +41,7 @@
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <ComboBox fx:id="idtype_emploi" layoutX="205.0" layoutY="504.0" prefHeight="43.0" prefWidth="146.0" rotate="5.0" styleClass="table-view" />
+      <ComboBox fx:id="idtype_emploi" layoutX="205.0" layoutY="504.0" onAction="#tt" prefHeight="43.0" prefWidth="146.0" rotate="5.0" styleClass="table-view" />
       <Button fx:id="Btn_suivant" layoutX="410.0" layoutY="34.0" onAction="#Suivant" prefHeight="33.0" prefWidth="103.0" text="Suivant" />
       <Button fx:id="Btn_ajouter" layoutX="410.0" layoutY="697.0" onAction="#ajouter_emploi" prefHeight="33.0" prefWidth="103.0" text="Ajouter" />
       <Button fx:id="Btn_precedent1" layoutX="23.0" layoutY="34.0" onAction="#precedentt" prefHeight="33.0" prefWidth="124.0" text="Précédent" />
