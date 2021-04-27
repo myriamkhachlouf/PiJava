@@ -5,8 +5,10 @@
  */
 package Service;
 import Entities.Candidature;
-import Entities.Stage;
+import javaapplication1.entities.users;
 import Utils.Maconnexion;
+import com.gargoylesoftware.htmlunit.javascript.host.Map;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,10 +16,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import java.io.File;
+import java.util.HashMap;
 /**
  *
  * @author azizs
@@ -142,6 +165,131 @@ cnx =Maconnexion.getInstance().getConnection();
     }
         return liste; 
  }
+       public String QR (Candidature A, int id){
+        
+         Connection cnx =null;
+        Statement st = null;
+        ResultSet rs = null;
+        String requette = "SELECT * FROM users Where id="+id+"";
+        try {
+            cnx = Maconnexion.getInstance().getConnection();
+            st = cnx.createStatement();
+            rs = st.executeQuery(requette);
+            int a;
+            while (rs.next()){
+              
+             try {
+            String qrCodeData = "Candidature "+A.getDate()+"Client "+rs.getString("username")+"";
+            String filePath = "C:\\Users\\21628\\Desktop\\PackAndGo\\src\\images\\"+A.getDate()+rs.getString("username")+".png";
+            String charset = "UTF-8"; // or "ISO-8859-1"
+            Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
+            hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+            BitMatrix matrix = new MultiFormatWriter().encode(
+                new String(qrCodeData.getBytes(charset), charset),
+                BarcodeFormat.QR_CODE, 200, 200, hintMap);
+            MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
+                .lastIndexOf('.') + 1), new File(filePath));
+            System.out.println("QR Code image created successfully!");
+            return filePath;
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+               
+            }
+            
+            
+           
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally {
+   
+    if (st != null) {
+        try {
+            st.close();
+        } catch (SQLException e) { /* Ignored */}
+    }
+    }
+        
+    }
+       public void sendRes(Candidature A, int id) throws IOException {
+      
+         Connection cnx =null;
+        Statement st = null;
+        ResultSet rs = null;
+        String requette = "SELECT * FROM users Where id="+id+"";
+        try {
+            cnx = Maconnexion.getInstance().getConnection();
+            st = cnx.createStatement();
+            rs = st.executeQuery(requette);
+            int a;
+            while (rs.next()){
+              
+           
+                
+                
+                
+                final String username ="khedmtech@gmail.com";
+        final String password ="azerty123123";
+        String from = "khedmtech@gmail.com";
+        String to = rs.getString("email");
+
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator(){
+        
+           protected PasswordAuthentication getPasswordAuthentication(){
+               return new PasswordAuthentication(username,password);
+           }
+        });
+        MimeMessage msg =new MimeMessage(session);
+        try{
+            msg.setFrom("khedmtech@gmail.com");
+            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            msg.setSubject("Candidature Plan "+A.getDate()+"");
+            Multipart con = new MimeMultipart();
+            MimeBodyPart text =new MimeBodyPart();
+            text.setText("Présentez ce QRcode le jour du plan");
+            MimeBodyPart img = new MimeBodyPart();
+            img.attachFile("C:/Users/21628/Desktop/PackAndGo/src/images/"+A.getSujet()+rs.getString("username")+".png");
+            con.addBodyPart(text);
+            con.addBodyPart(img);
+            msg.setContent(con);
+            
+            Transport.send(msg);
+        }catch(MessagingException e){}
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+               
+            }
+            
+            
+           
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally {
+   
+    if (st != null) {
+        try {
+            st.close();
+        } catch (SQLException e) { /* Ignored */}
+    }
+    }
+     
+ } 
 
     
 }

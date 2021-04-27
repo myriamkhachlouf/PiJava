@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Crud.jar" size="5378902" download="eager" />
+    <jar href="Crud.jar" size="5381531" download="eager" />
     <jar href="lib\AnimateFX-1.2.0.jar" size="85823" download="eager" />
     <jar href="lib\AnimateFX-1.2.1.jar" size="94267" download="eager" />
     <jar href="lib\Bulk_SMS_Library.jar" size="3292" download="eager" />
@@ -46,14 +46,23 @@
     <jar href="lib\controlsfx-8.40.13.jar" size="1213306" download="eager" />
     <jar href="lib\controlsfx-8.40.14.jar" size="1215643" download="eager" />
     <jar href="lib\controlsfx-8.40.15.jar" size="1402490" download="eager" />
+    <jar href="lib\controlsfx-8.40.16.jar" size="1416162" download="eager" />
     <jar href="lib\controlsfx-8.40.17.jar" size="1434958" download="eager" />
     <jar href="lib\controlsfx-8.40.18.jar" size="1436095" download="eager" />
     <jar href="lib\controlsfx-samples-8.40.15.jar" size="792003" download="eager" />
     <jar href="lib\curvesapi-1.06.jar" size="111875" download="eager" />
     <jar href="lib\en_us.jar" size="866598" download="eager" />
+    <jar href="lib\flexganttfx-core-8.12.0.jar" size="10058" download="eager" />
+    <jar href="lib\flexganttfx-extras-8.12.0.jar" size="222608" download="eager" />
+    <jar href="lib\flexganttfx-model-8.12.0.jar" size="109700" download="eager" />
+    <jar href="lib\flexganttfx-view-8.12.0.jar" size="454868" download="eager" />
+    <jar href="lib\fontawesomefx-8.0.13.jar" size="116904" download="eager" />
     <jar href="lib\fontawesomefx-8.1.jar" size="179086" download="eager" />
     <jar href="lib\fontawesomefx-8.2.jar" size="180341" download="eager" />
+    <jar href="lib\fontawesomefx-8.4.jar" size="169129" download="eager" />
     <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\fontawesomefx-commons-9.1.2.jar" size="24064" download="eager" />
+    <jar href="lib\fontawesomefx-fontawesome-4.7.0-9.1.2.jar" size="137226" download="eager" />
     <jar href="lib\fontawesomefx-glyphsbrowser-all-1.0.jar" size="1662483" download="eager" />
     <jar href="lib\forms-7.0.7.jar" size="71499" download="eager" />
     <jar href="lib\freetts-jsapi10.jar" size="56313" download="eager" />
@@ -105,6 +114,7 @@
     <jar href="lib\jxl.jar" size="725735" download="eager" />
     <jar href="lib\kernel-7.1.15.jar" size="1227067" download="eager" />
     <jar href="lib\layout-7.1.15.jar" size="532475" download="eager" />
+    <jar href="lib\license4j-1.4.0.jar" size="13936" download="eager" />
     <jar href="lib\log4j-over-slf4j-1.7.6.jar" size="23330" download="eager" />
     <jar href="lib\logback-classic-1.1.2.jar" size="270750" download="eager" />
     <jar href="lib\logback-classic-1.2.1.jar" size="310442" download="eager" />
@@ -154,6 +164,8 @@
     <jar href="lib\styled-xml-parser-7.1.15.jar" size="557143" download="eager" />
     <jar href="lib\svg-7.1.15.jar" size="166733" download="eager" />
     <jar href="lib\unirest-java-1.4.9.jar" size="44604" download="eager" />
+    <jar href="lib\view-8.5.0.jar" size="759043" download="eager" />
+    <jar href="lib\view-8.6.1.jar" size="762277" download="eager" />
     <jar href="lib\xmlbeans-4.0.0.jar" size="2493024" download="eager" />
     <jar href="lib\xmlbeans-xmlpublic-2.3.0.jar" size="428169" download="eager" />
     <jar href="lib\zxing-core-2.0.jar" size="432773" download="eager" />
