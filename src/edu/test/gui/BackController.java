@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author asus
+ * @author pc
  */
 public class BackController implements Initializable {
 
@@ -35,6 +35,7 @@ public class BackController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
     }    
+    
     private void loadUi(String ui) {
         Parent root = null;
         try {
@@ -46,17 +47,7 @@ public class BackController implements Initializable {
     }
 
 
-    private void profileAction(ActionEvent event) {
-        loadUi("Guide");
-    }
-
-    private void eventAction(ActionEvent event) {
-        loadUi("Event");
-    }
-
-    private void produitAction(ActionEvent event) {
-         loadUi("participant");
-    } 
+  
 
     @FXML
     private void decoOnAction(ActionEvent event) throws IOException {
@@ -66,10 +57,6 @@ public class BackController implements Initializable {
             appStage.setScene(scene);
             appStage.show();
             System.out.println("deco");
-    }
-
-    private void produitssAction(ActionEvent event) {
-          loadUi("produit");
     }
 
     @FXML

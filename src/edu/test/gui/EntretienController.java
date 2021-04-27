@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 import edu.test.entities.Recruteur;
 import edu.test.services.ServiceEntretien;
 import edu.test.utils.DataBase;
+import edu.test.utils.JavaMail;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -96,6 +97,8 @@ public class EntretienController implements Initializable {
     private TextField txtetat;
     @FXML
     private Button excel;
+    @FXML
+    private Button mail;
 
     /**
      * Initializes the controller class
@@ -273,12 +276,11 @@ public class EntretienController implements Initializable {
         data2 = e.getSelectionModel().getSelectedItems();
         Connection cnx = DataBase.getInstance().getConnection();
         
-        
         ServiceEntretien sr = new ServiceEntretien();
         entretien t = new entretien();
         LocalDate ld = LocalDate.now(ZoneId.of("Europe/Paris"));
         int id;
-        id = data2.get(0).getId();
+        id = data.get(0).getId();
         System.out.println(id);
         
         t.setIdc(Integer.parseInt(txtidc.getText()));
@@ -485,5 +487,35 @@ public class EntretienController implements Initializable {
                    
     }
     
+    
+    
+    @FXML
+    public void notifier(ActionEvent event) throws SQLException, Exception {
+    String mailquery = "SELECT email FROM users WHERE id = ( SELECT candidat_id From candidature where id = "+txtidc.getText() +")"; // remplacer 1 avec le user connecter
+    Connection cnx = DataBase.getInstance().getConnection();
+        Statement st;
+       
+        ResultSet mailing;
+                               System.out.println(mailquery);
+    
+    
+    PreparedStatement stm1l = cnx.prepareStatement(mailquery);
+                            mailing = stm1l.executeQuery(mailquery);
+                            
+                            
+                            
+                            if (mailing.next()) {
+                                String Email = mailing.getString("email");
+                                 
+                                System.out.println(mailquery);
+                                System.out.println(Email); // debug
+                            
+
+                                JavaMail.sendMail(Email);
+                                //showevent2();
+                            }
+}
+    
+
     
 }

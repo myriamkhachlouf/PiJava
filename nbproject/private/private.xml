@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/fac/Desktop/testpi/src/edu/test/gui/Testpi.java</file>
+            <file>file:/C:/Users/fac/Desktop/testpi/src/edu/test/utils/JavaMail.java</file>
             <file>file:/C:/Users/fac/Desktop/testpi/src/edu/test/gui/EntretienController.java</file>
-            <file>file:/C:/Users/fac/Desktop/testpi/src/edu/test/gui/CategoriesController.java</file>
-            <file>file:/C:/Users/fac/Desktop/testpi/src/edu/test/services/ServiceEntretien.java</file>
-            <file>file:/C:/Users/fac/Desktop/testpi/src/edu/test/entities/entretien.java</file>
+            <file>file:/C:/Users/fac/Desktop/testpi/src/edu/test/gui/PannelEntrepriseController.java</file>
+            <file>file:/C:/Users/fac/Desktop/testpi/src/edu/test/gui/BackController.java</file>
+            <file>file:/C:/Users/fac/Desktop/testpi/src/pidev/edu/khedmtech/controller/PannelEntrepriseController.java</file>
         </group>
     </open-files>
 </project-private>
