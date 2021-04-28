@@ -71,7 +71,7 @@ public class NewPasswordController implements Initializable {
             // do what you have to do
             stage.close();
             
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Auth.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/singnin.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             //MaConnexion.useremail =u.getEmail(); 
 

@@ -100,7 +100,7 @@ public class UserInterfaceController implements Initializable {
     @FXML
     private Button DeleteUserBTN;
     @FXML
-    private ImageView printBtn;
+    private Button printBtn;
     @FXML
     private Label username;
     @FXML
@@ -146,7 +146,7 @@ public class UserInterfaceController implements Initializable {
     
     
     public void initialize(URL url, ResourceBundle rb) {
-        /*UsersService US=new UsersService();
+       /*UsersService US=new UsersService();
         UserSession USE= new UserSession();
         String Email=USE.getuserEmail();
         System.out.print(Email);
@@ -274,7 +274,6 @@ public class UserInterfaceController implements Initializable {
     }
 
 
-    @FXML
     private void print(MouseEvent event) {
         try {
              
@@ -371,7 +370,6 @@ public class UserInterfaceController implements Initializable {
     }
     }
 
-    @FXML
     private void refreshTable(MouseEvent event) {
             LoadData();
     }
@@ -391,6 +389,109 @@ public class UserInterfaceController implements Initializable {
 
             ChartLib chartLib = new ChartLib();
             chartLib.demo(dialog);
+    }
+
+    @FXML
+    private void refreshTable(ActionEvent event) {
+                    LoadData();
+
+    }
+
+    @FXML
+    private void print(ActionEvent event) {
+         try {
+             
+      File htmlf = File.createTempFile("userlist", ".html", new File("c:\\temp"));
+      
+       // deletes file when the virtual machine terminate
+       htmlf.deleteOnExit();
+         
+      System.out.println("File created: " + htmlf.getName());
+      
+      FileWriter myWriter = new FileWriter(htmlf.getAbsolutePath());
+      
+      myWriter.write("<h1 style=\"text-align:center\"><strong>Liste des utilisateurs enregistr&eacute;s</strong></h1>");
+      DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yy HH:mm");  
+       LocalDateTime now = LocalDateTime.now();   
+      myWriter.write("<h2>Date : ");
+      myWriter.write(dtf.format(now));
+      myWriter.write("</h2>\n" +
+"\n" +
+"<p>&nbsp;</p>\n" +
+"\n" +
+"<table class=\"editorDemoTable\" style=\"width:100%\">\n" +
+"	<thead>\n" +
+"		<tr>\n" +
+"			<th style=\"width: 30px; background-color: rgb(51, 51, 153);\"><span style=\"color:#ffffff\">ID</span></th>\n" +
+"			<th style=\"width: 120px; background-color: rgb(51, 51, 153);\"><span style=\"color:#ffffff\">Nom</span></th>\n" +
+"			<th style=\"width: 197px; background-color: rgb(51, 51, 153);\"><span style=\"color:#ffffff\">Email</span></th>\n" +
+"			<th style=\"width: 203px; background-color: rgb(51, 51, 153);\"><span style=\"color:#ffffff\">Telephone</span></th>\n" +
+"			<th style=\"width: 227px; background-color: rgb(51, 51, 153);\"><span style=\"color:#ffffff\">Adresse</span></th>\n" +
+"			<th style=\"width: 241px; background-color: rgb(51, 51, 153);\"><span style=\"color:#ffffff\">Domaine</span></th>\n" +
+"			<th style=\"width: 125px; background-color: rgb(51, 51, 153);\"><span style=\"color:#ffffff\">Role</span></th>\n" +
+"		</tr>\n" +
+"	</thead>\n" +
+"	<tbody>");
+      
+      //getall
+      ArrayList<users> p=new UsersService().getAll();
+      for (users u:p){
+          myWriter.write ("<tr>\n" +
+"			<td style=\"width:30px\">");
+          myWriter.write (String.valueOf(u.getId()));
+          myWriter.write ("</td>\n" +
+"			<td style=\"width:120px\">");
+          myWriter.write (u.getNom());
+          myWriter.write ("</td>\n" +
+"			<td style=\"width:197px\">");
+          myWriter.write (u.getEmail());
+          myWriter.write ("</td>\n" +
+"			<td style=\"width:203px\">");
+          myWriter.write (u.getTelephone());
+          myWriter.write ("</td>\n" +
+"			<td style=\"width:227px\">");
+          myWriter.write (u.getAdresse());
+          myWriter.write ("</td>\n" +
+"			<td style=\"width:241px\">");
+          myWriter.write (u.getDomaine());
+          myWriter.write ("</td>\n" +
+"			<td style=\"width:125px\">");
+          myWriter.write (u.getRoles());
+          myWriter.write ("</td>\n" +
+"		</tr>");
+      }        
+      
+      myWriter.write ("</tbody>\n" +
+"</table>\n" +
+"\n" +
+"<p><strong>&nbsp;</strong></p>\n" +
+"\n" +
+"<p>&nbsp;</p>\n" +
+"\n" +
+"<p><strong>&nbsp;</strong></p>");
+      
+      
+      myWriter.close();
+
+      File pdff = File.createTempFile("userlist", ".pdf", new File("c:\\temp"));
+      //samplePDF(outputFileName);
+      PDFLib pdflib = new PDFLib();
+      
+      pdflib.htmltopdf(htmlf.getAbsolutePath(), pdff.getAbsolutePath());
+      Application a = new Application() {
+
+                    @Override
+                    public void start(Stage stage)
+                    {
+                    }
+                };
+      HostServices hostServices = a.getHostServices();
+      hostServices.showDocument(pdff.getAbsolutePath());
+
+    } catch (IOException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
     }
 
    
