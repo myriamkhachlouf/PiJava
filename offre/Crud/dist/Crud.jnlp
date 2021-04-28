@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Crud.jar" size="5381531" download="eager" />
+    <jar href="Crud.jar" size="5650455" download="eager" />
     <jar href="lib\AnimateFX-1.2.0.jar" size="85823" download="eager" />
     <jar href="lib\AnimateFX-1.2.1.jar" size="94267" download="eager" />
     <jar href="lib\Bulk_SMS_Library.jar" size="3292" download="eager" />
@@ -91,10 +91,10 @@
     <jar href="lib\jackson-core-2.8.8.jar" size="282438" download="eager" />
     <jar href="lib\jackson-databind-2.8.8.jar" size="1238590" download="eager" />
     <jar href="lib\java-mail-1.4.4.jar" size="494975" download="eager" />
-    <jar href="lib\javafx.base.jar" size="749889" download="eager" />
-    <jar href="lib\javafx.controls.jar" size="2511137" download="eager" />
-    <jar href="lib\javafx.fxml.jar" size="127395" download="eager" />
-    <jar href="lib\javafx.graphics.jar" size="4295861" download="eager" />
+    <jar href="lib\javafx.base.jar" size="745586" download="eager" />
+    <jar href="lib\javafx.controls.jar" size="2530159" download="eager" />
+    <jar href="lib\javafx.fxml.jar" size="128845" download="eager" />
+    <jar href="lib\javafx.graphics.jar" size="4298389" download="eager" />
     <jar href="lib\javax.mail-1.4.4.jar" size="495041" download="eager" />
     <jar href="lib\javax.mail-1.6.2.jar" size="659031" download="eager" />
     <jar href="lib\javax.mail.jar" size="659033" download="eager" />
@@ -168,6 +168,7 @@
     <jar href="lib\view-8.6.1.jar" size="762277" download="eager" />
     <jar href="lib\xmlbeans-4.0.0.jar" size="2493024" download="eager" />
     <jar href="lib\xmlbeans-xmlpublic-2.3.0.jar" size="428169" download="eager" />
+    <jar href="lib\zxing-1.7-javase.jar" size="22002" download="eager" />
     <jar href="lib\zxing-core-2.0.jar" size="432773" download="eager" />
     <jar href="lib\zxing-j2se-1.7.jar" size="22051" download="eager" />
   </resources>

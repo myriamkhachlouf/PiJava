@@ -7,7 +7,7 @@ package gestion_offres;
 
 import Entities.Emplois;
 import Entities.Offres;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -74,7 +74,7 @@ public class MetiersEmploiController implements Initializable {
         
      public void showemploi() {
         try {
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM emploi";
             Statement st;
             ResultSet rs;
@@ -102,7 +102,7 @@ public class MetiersEmploiController implements Initializable {
      public void showemploi2() {
        emploiList.removeAll(emploiList);
         try {
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM emploi";
             Statement st;
             ResultSet rs;
@@ -143,7 +143,7 @@ public class MetiersEmploiController implements Initializable {
     @FXML
     private void supprimer_emploi(ActionEvent event) {
          emploiList2=table.getSelectionModel().getSelectedItems();
-         Connection cnx = Maconnexion.getInstance().getConnection();
+         Connection cnx = MaConnexion.getInstance().getConnection();
             int id;
             id=emploiList2.get(0).getIdemploi();
             System.out.println(id);
@@ -171,7 +171,7 @@ public class MetiersEmploiController implements Initializable {
          
         try {
             rech.removeAll(rech);
-         Connection cnx = Maconnexion.getInstance().getConnection();
+         Connection cnx = MaConnexion.getInstance().getConnection();
          String x = search.getText();
                      System.out.println(x);
 
@@ -204,7 +204,7 @@ public class MetiersEmploiController implements Initializable {
     private void TRIASC(ActionEvent event) {
         try {
             emploiList.removeAll(emploiList);
-         Connection cnx = Maconnexion.getInstance().getConnection();
+         Connection cnx = MaConnexion.getInstance().getConnection();
          String x = search.getText();
                      System.out.println(x);
 
@@ -236,7 +236,7 @@ public class MetiersEmploiController implements Initializable {
     private void TRIDESC(ActionEvent event) {
         try {
             emploiList.removeAll(emploiList);
-         Connection cnx = Maconnexion.getInstance().getConnection();
+         Connection cnx = MaConnexion.getInstance().getConnection();
          String x = search.getText();
                      System.out.println(x);
 

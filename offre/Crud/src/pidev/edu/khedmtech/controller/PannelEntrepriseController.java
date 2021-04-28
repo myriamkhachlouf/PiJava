@@ -58,6 +58,8 @@ public class PannelEntrepriseController implements Initializable {
     private Label iduser;
     @FXML
     private MenuItem btForm2;
+    @FXML
+    private Button info;
 
     /**
      * Initializes the controller class.
@@ -189,6 +191,16 @@ public class PannelEntrepriseController implements Initializable {
     private void offre(ActionEvent event) {
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/FXMLDocument.fxml"));       
+            Parent root = loader.load();
+            container_client.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
+    }
+    @FXML
+    private void info(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/UserInterface.fxml"));       
             Parent root = loader.load();
             container_client.getChildren().setAll(root);
         } catch (IOException ex) {

@@ -40,10 +40,6 @@ public class PannelEntrepriseController implements Initializable {
     @FXML
     private MenuItem btForm;
     @FXML
-    private MenuItem btEvent1;
-    @FXML
-    private MenuItem btForm1;
-    @FXML
     private Button forum;
     @FXML
     private HBox hboximage;
@@ -57,6 +53,16 @@ public class PannelEntrepriseController implements Initializable {
     private AnchorPane container_client;
     @FXML
     private Label iduser;
+    @FXML
+    private MenuItem btForm2;
+    @FXML
+    private MenuItem btEvententr;
+    @FXML
+    private MenuItem btrec;
+    @FXML
+    private MenuItem btngrille;
+    @FXML
+    private Button info;
 
     /**
      * Initializes the controller class.
@@ -165,7 +171,7 @@ public class PannelEntrepriseController implements Initializable {
         @FXML
     private void loadentr(ActionEvent event) {
     try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/test/entretien.fxml"));       
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/test/gui/entretien.fxml"));       
             Parent root = loader.load();
             container_client.getChildren().setAll(root);
         } catch (IOException ex) {
@@ -176,7 +182,7 @@ public class PannelEntrepriseController implements Initializable {
     @FXML
     private void loadrecruteur(ActionEvent event) {
      try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/test/Recruteur.fxml"));       
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/test/gui/Recruteur.fxml"));       
             Parent root = loader.load();
             container_client.getChildren().setAll(root);
         } catch (IOException ex) {
@@ -187,7 +193,7 @@ public class PannelEntrepriseController implements Initializable {
     @FXML
     private void loadGrille(ActionEvent event) {
          try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/test/grille.fxml"));       
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/test/gui/grille.fxml"));       
             Parent root = loader.load();
             container_client.getChildren().setAll(root);
         } catch (IOException ex) {
@@ -209,6 +215,17 @@ public class PannelEntrepriseController implements Initializable {
     private void offre(ActionEvent event) {
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/FXMLDocument.fxml"));       
+            Parent root = loader.load();
+            container_client.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
+    }
+
+    @FXML
+    private void info(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/UserInterface.fxml"));       
             Parent root = loader.load();
             container_client.getChildren().setAll(root);
         } catch (IOException ex) {

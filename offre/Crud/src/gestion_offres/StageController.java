@@ -11,7 +11,7 @@ import Entities.Stage;
 import Service.ServiceEmplois;
 import Service.ServiceOffres;
 import Service.ServiceStage;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;

@@ -25,8 +25,8 @@ import javafx.scene.text.Text;
 import Entities.Commentaire;
 import Entities.Publication;
 import Service.CommentaireService;
-import javaapplication1.services.UsersService;
-import javaapplication1.utils.MaConnexion;
+import Service.UsersService;
+import utils.MaConnexion;
 
 /**
  * FXML Controller class

@@ -7,7 +7,7 @@ package gestion_offres;
 
 import Entities.Stage;
 import Entities.Offres;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -84,7 +84,7 @@ ObservableList<Stage> stageList = FXCollections.observableArrayList();
      */
     public void showstage() {
         try {
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM stage";
             Statement st;
             ResultSet rs;
@@ -114,7 +114,7 @@ ObservableList<Stage> stageList = FXCollections.observableArrayList();
      public void showstage2() {
        stageList.removeAll(stageList);
         try {
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM emploi";
             Statement st;
             ResultSet rs;
@@ -156,7 +156,7 @@ ObservableList<Stage> stageList = FXCollections.observableArrayList();
     @FXML
     private void supprimer_stage2(ActionEvent event) {
          stageList2=tablest.getSelectionModel().getSelectedItems();
-         Connection cnx = Maconnexion.getInstance().getConnection();
+         Connection cnx = MaConnexion.getInstance().getConnection();
             int id;
             id=stageList2.get(0).getId();
             System.out.println(id);
@@ -194,7 +194,7 @@ ObservableList<Stage> stageList = FXCollections.observableArrayList();
     @FXML
     private void recherche(KeyEvent event) {
          try {            rech.removeAll(rech);
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
            String x = search.getText();
                      System.out.println(x);
 
@@ -229,7 +229,7 @@ ObservableList<Stage> stageList = FXCollections.observableArrayList();
     @FXML
     private void TRIASC(ActionEvent event) {
          try {stageList.removeAll(stageList);
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM stage ORDER BY type_du_stage ASC";
             Statement st;
             ResultSet rs;
@@ -261,7 +261,7 @@ ObservableList<Stage> stageList = FXCollections.observableArrayList();
     private void TRIDESC(ActionEvent event) {
          try {
              stageList.removeAll(stageList);
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM stage ORDER BY type_du_stage DESC";
             Statement st;
             ResultSet rs;

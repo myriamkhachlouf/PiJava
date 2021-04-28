@@ -10,7 +10,7 @@ import Entities.Emplois;
 import Entities.Offres;
 import Service.ServiceEmplois;
 import Service.ServiceOffres;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;

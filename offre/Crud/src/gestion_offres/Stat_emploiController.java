@@ -5,7 +5,7 @@
  */
 package gestion_offres;
 
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -59,7 +59,7 @@ public class Stat_emploiController implements Initializable {
 
         piechartdata = FXCollections.observableArrayList();
 
-        Connection con = Maconnexion.getInstance().getConnection();
+        Connection con = MaConnexion.getInstance().getConnection();
 
         try {
 

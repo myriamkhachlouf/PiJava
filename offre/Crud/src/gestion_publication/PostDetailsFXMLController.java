@@ -36,8 +36,8 @@ import Entities.Publication;
 import Service.CommentaireService;
 import Service.PublicationService;
 import Service.UserServices;
-import javaapplication1.services.UsersService;
-import javaapplication1.utils.MaConnexion;
+import Service.UsersService;
+import utils.MaConnexion;
 
 /**
  * FXML Controller class

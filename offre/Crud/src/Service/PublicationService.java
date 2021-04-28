@@ -17,13 +17,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Entities.Publication;
 import Services.IServiceBlog;
-import javaapplication1.utils.MaConnexion;
+import utils.MaConnexion;
 /**
  *
  * @author Mahmoud
  */
 public class PublicationService implements IServiceBlog<Publication> {
-Connection cnx = MaConnexion.getInstance().getCnx();
+Connection cnx = MaConnexion.getInstance().getConnection();
     @Override
     public int add(Publication entity) {
        try{

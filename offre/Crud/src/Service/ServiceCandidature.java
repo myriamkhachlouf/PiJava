@@ -5,8 +5,7 @@
  */
 package Service;
 import Entities.Candidature;
-import javaapplication1.entities.users;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -54,7 +53,7 @@ public class ServiceCandidature {
     private PreparedStatement pre;
     private Statement ste;
     public ServiceCandidature() {
-cnx =Maconnexion.getInstance().getConnection();
+cnx =MaConnexion.getInstance().getConnection();
         }  
     
    public boolean AddCandidature(Candidature e) throws SQLException  {
@@ -64,7 +63,7 @@ cnx =Maconnexion.getInstance().getConnection();
          Connection cnx =null;
         Statement st = null;
          try {
-            cnx = Maconnexion.getInstance().getConnection();
+            cnx = MaConnexion.getInstance().getConnection();
             st = cnx.createStatement();
             st.executeUpdate(req);
             return true;
@@ -142,7 +141,7 @@ cnx =Maconnexion.getInstance().getConnection();
         String requette = "SELECT * FROM Candidature";
 
         try {
-            cnx = Maconnexion.getInstance().getConnection();
+            cnx = MaConnexion.getInstance().getConnection();
             st = cnx.createStatement();
             rs = st.executeQuery(requette);
             Candidature candidature;
@@ -175,7 +174,7 @@ cnx =Maconnexion.getInstance().getConnection();
         ResultSet rs = null;
         String requette = "SELECT * FROM users Where id="+id+"";
         try {
-            cnx = Maconnexion.getInstance().getConnection();
+            cnx = MaConnexion.getInstance().getConnection();
             st = cnx.createStatement();
             rs = st.executeQuery(requette);
             int a;
@@ -243,7 +242,7 @@ cnx =Maconnexion.getInstance().getConnection();
         Statement st = null;
         ResultSet rs = null;
         String requette = "SELECT * FROM users Where id="+id+"";
-            cnx = Maconnexion.getInstance().getConnection();
+            cnx = MaConnexion.getInstance().getConnection();
             st = cnx.createStatement();
             rs = st.executeQuery(requette);
              while (rs.next()){

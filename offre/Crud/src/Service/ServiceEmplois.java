@@ -6,7 +6,7 @@
 package Service;
 
 import Entities.Emplois;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,7 +30,7 @@ public class ServiceEmplois  {
     private PreparedStatement pre;
     private Statement ste;
     public ServiceEmplois() {
-cnx =Maconnexion.getInstance().getConnection();
+cnx =MaConnexion.getInstance().getConnection();
         }  
     
    public boolean AddEmploi(Emplois e) throws SQLException  {
@@ -39,7 +39,7 @@ cnx =Maconnexion.getInstance().getConnection();
          Connection cnx =null;
         Statement st = null;
          try {
-            cnx = Maconnexion.getInstance().getConnection();
+            cnx = MaConnexion.getInstance().getConnection();
             st = cnx.createStatement();
             st.executeUpdate(req);
             return true;
@@ -65,7 +65,7 @@ cnx =Maconnexion.getInstance().getConnection();
         String requette = "SELECT * FROM emploi";
 
         try {
-            cnx = Maconnexion.getInstance().getConnection();
+            cnx = MaConnexion.getInstance().getConnection();
             st = cnx.createStatement();
             rs = st.executeQuery(requette);
             Emplois CandidatureStages;

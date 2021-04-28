@@ -17,13 +17,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Entities.Publication;
 import Services.IServiceBlog;
-import javaapplication1.utils.MaConnexion;
+import utils.MaConnexion;
 /**
  *
  * @author Mahmoud
  */
 public class CommentaireService {
-    Connection cnx = MaConnexion.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getConnection();
 public int getUser_id(int comment_id){
     String req = "SELECT postedby_id FROM commentaire WHERE id="+comment_id;
      try {

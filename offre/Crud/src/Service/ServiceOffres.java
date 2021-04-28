@@ -6,7 +6,7 @@
 package Service;
 
 import Entities.Offres;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +35,7 @@ private static ServiceOffres instance;
     private PreparedStatement pre;
     private Statement ste;
     public ServiceOffres() {
-cnx =Maconnexion.getInstance().getConnection();
+cnx =MaConnexion.getInstance().getConnection();
         }  
     public Offres displayById(int id) {
            String req="SELECT * FROM offre where id = '" + id + "'";

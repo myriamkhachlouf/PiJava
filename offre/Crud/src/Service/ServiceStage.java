@@ -7,7 +7,7 @@ package Service;
 
 import Entities.Emplois;
 import Entities.Stage;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +32,7 @@ public class ServiceStage  {
     private Statement ste;
     DatePicker date;
     public ServiceStage() {
-cnx =Maconnexion.getInstance().getConnection();
+cnx =MaConnexion.getInstance().getConnection();
         }  
     
    public boolean AddStage(Stage e) throws SQLException  {
@@ -41,7 +41,7 @@ cnx =Maconnexion.getInstance().getConnection();
          Connection cnx =null;
         Statement st = null;
          try {
-            cnx = Maconnexion.getInstance().getConnection();
+            cnx = MaConnexion.getInstance().getConnection();
             st = cnx.createStatement();
             st.executeUpdate(req);
             return true;
@@ -67,7 +67,7 @@ cnx =Maconnexion.getInstance().getConnection();
         String requette = "SELECT * FROM stage";
 
         try {
-            cnx = Maconnexion.getInstance().getConnection();
+            cnx = MaConnexion.getInstance().getConnection();
             st = cnx.createStatement();
             rs = st.executeQuery(requette);
             Stage Stages;

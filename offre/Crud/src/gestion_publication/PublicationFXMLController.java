@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javaapplication1.services.UsersService;
+import Service.UsersService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,7 +48,7 @@ import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import Entities.Publication;
 import Service.PublicationService;
-import javaapplication1.utils.MaConnexion;
+import utils.MaConnexion;
 
 import javax.mail.Session;
 import Utils.SendMail;

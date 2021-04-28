@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package gestion_offres;
-import javaapplication1.entities.users;
+import Entities.users;
 import Entities.Candidature;
 import Entities.Offres;
 import Entities.Stage;
 import Service.ServiceCandidature;
 import Service.ServiceOffres;
 import Service.ServiceStage;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javaapplication1.services.UsersService;
+import Service.UsersService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

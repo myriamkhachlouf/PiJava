@@ -7,7 +7,7 @@ package gestion_offres;
 
 import Entities.Offres;
 import Service.ServiceOffres;
-import Utils.Maconnexion;
+import utils.MaConnexion;
 import java.io.IOException;
 import static java.lang.Math.round;
 import java.net.URL;
@@ -88,7 +88,7 @@ public class MetiersController implements Initializable {
         
      public void showaliment() {
         try {
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM offre";
             Statement st;
             ResultSet rs;
@@ -116,7 +116,7 @@ public class MetiersController implements Initializable {
      public void showaliment2() {
        offreList.removeAll(offreList);
          try {
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM offre";
             Statement st;
             ResultSet rs;
@@ -155,7 +155,7 @@ public class MetiersController implements Initializable {
     @FXML
     private void supprimer_offre(ActionEvent event) {
          offreList2=table.getSelectionModel().getSelectedItems();
-         Connection cnx = Maconnexion.getInstance().getConnection();
+         Connection cnx = MaConnexion.getInstance().getConnection();
             int id;
             id=offreList2.get(0).getId();
             System.out.println(id);
@@ -221,7 +221,7 @@ public class MetiersController implements Initializable {
     private void recherche(KeyEvent event) {
         try {
             rech.removeAll(rech);
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
            String x = search.getText();
             String query = "SELECT * FROM offre  WHERE nom_offre LIKE '%"+x+"%'";
             Statement st;
@@ -251,7 +251,7 @@ public class MetiersController implements Initializable {
     @FXML
     private void TRIASC(ActionEvent event) {
         try {offreList.removeAll(offreList);
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM offre ORDER BY nom_offre ASC";
             Statement st;
             ResultSet rs;
@@ -280,7 +280,7 @@ public class MetiersController implements Initializable {
     @FXML
     private void TRIDESC(ActionEvent event) {
         try {offreList.removeAll(offreList);
-            Connection cnx = Maconnexion.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM offre ORDER BY nom_offre DESC";
             Statement st;
             ResultSet rs;
