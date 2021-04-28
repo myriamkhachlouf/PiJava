@@ -119,6 +119,15 @@ public class PannelClientController implements Initializable {
 
     @FXML
     private void forum(ActionEvent event) {
+           
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_publication/BlogHomeFXML.fxml"));
+            Parent root = loader.load();
+              
+           forum.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML

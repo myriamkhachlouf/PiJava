@@ -39,7 +39,6 @@ public class PannelEntrepriseController implements Initializable {
     private MenuItem btEvent;
     @FXML
     private MenuItem btForm;
-    @FXML
     private Button forum;
     @FXML
     private HBox hboximage;
@@ -58,11 +57,13 @@ public class PannelEntrepriseController implements Initializable {
     @FXML
     private MenuItem info;
     @FXML
-    private MenuItem btEvententr1;
+    private MenuItem btEvententr11;
     @FXML
-    private MenuItem btrec1;
+    private MenuItem btrec11;
     @FXML
-    private MenuItem btngrille1;
+    private MenuItem btngrille11;
+    @FXML
+    private MenuItem pub;
 
     /**
      * Initializes the controller class.
@@ -149,9 +150,6 @@ public class PannelEntrepriseController implements Initializable {
     }
 
 
-    @FXML
-    private void forum(ActionEvent event) {
-    }
 
     @FXML
     private void logDirection(MouseEvent event) {
@@ -226,6 +224,17 @@ public class PannelEntrepriseController implements Initializable {
     private void info(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/SimpleUserInterface.fxml"));       
+            Parent root = loader.load();
+            container_client.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
+    }
+
+    @FXML
+    private void loadpublication(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_publication/publicationFXML.fxml"));       
             Parent root = loader.load();
             container_client.getChildren().setAll(root);
         } catch (IOException ex) {

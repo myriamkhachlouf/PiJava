@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="o" prefHeight="462.0" prefWidth="706.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.PublicationFXMLController">
+<AnchorPane id="AnchorPane" fx:id="o" prefHeight="462.0" prefWidth="706.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_publication.PublicationFXMLController">
     <stylesheets>
         <URL value="@publicationfxml.css" />
     </stylesheets>
@@ -41,12 +41,12 @@
       <Button fx:id="newHome" layoutX="641.0" layoutY="14.0" mnemonicParsing="false" onAction="#newHome" text="Home" />
       <ImageView fx:id="refreshicon" fitHeight="26.0" fitWidth="30.0" layoutX="666.0" layoutY="50.0" onMouseClicked="#LoadData" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/icons8_reset_48px.png" />
+            <Image url="@../image_publication/icons8_reset_48px.png" />
          </image>
       </ImageView>
       <ImageView fx:id="moredetails" fitHeight="29.0" fitWidth="32.0" layoutY="420.0" onMouseClicked="#MoreDetails" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/icons8_more_info_48px_1.png" />
+            <Image url="@../image_publication/icons8_more_info_48px_1.png" />
          </image>
       </ImageView>
       <Text fx:id="textreasons" layoutX="18.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason for deleting this Post :">
@@ -57,7 +57,7 @@
       <TextArea fx:id="tareasons" layoutX="37.0" layoutY="373.0" prefHeight="78.0" prefWidth="342.0" />
       <ImageView fx:id="sendmail" fitHeight="26.0" fitWidth="20.0" layoutX="389.0" layoutY="372.0" onMouseClicked="#SendMail" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/send_email_48px.png" />
+            <Image url="@../image_publication/send_email_48px.png" />
          </image>
       </ImageView>
       <TextField fx:id="filterBar" layoutX="209.0" layoutY="35.0" prefHeight="26.0" prefWidth="262.0" promptText="Search for a Post" />

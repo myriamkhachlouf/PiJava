@@ -78,9 +78,9 @@
                            <children>
                               <MenuButton mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Gérer Entretiens">
                                  <items>
-                                    <MenuItem fx:id="btEvententr1" mnemonicParsing="false" onAction="#loadentr" text="Gerer Entretiens" />
-                                    <MenuItem fx:id="btrec1" mnemonicParsing="false" onAction="#loadrecruteur" text="Gerer Recruteur" />
-                                    <MenuItem fx:id="btngrille1" mnemonicParsing="false" onAction="#loadGrille" text="Gerer Grille" />
+                                    <MenuItem fx:id="btEvententr11" mnemonicParsing="false" onAction="#loadentr" text="Gerer Entretiens" />
+                                    <MenuItem fx:id="btrec11" mnemonicParsing="false" onAction="#loadrecruteur" text="Gerer Recruteur" />
+                                    <MenuItem fx:id="btngrille11" mnemonicParsing="false" onAction="#loadGrille" text="Gerer Grille" />
                                  </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />
@@ -89,11 +89,14 @@
                            </children></VBox>
                         <VBox alignment="CENTER" prefHeight="91.0" prefWidth="126.0">
                            <children>
-                              <Button fx:id="forum" mnemonicParsing="false" onAction="#forum" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: #FFFFFF;" text="Gérer Blog">
+                              <MenuButton mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Gérer Blog">
+                                 <items>
+                                    <MenuItem fx:id="pub" mnemonicParsing="false" onAction="#loadpublication" text="Gerer Publication" />
+                                 </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
-                              </Button>
+                              </MenuButton>
                            </children>
                         </VBox>
                         <MenuButton mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Gérer Compte">

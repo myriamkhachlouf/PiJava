@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="909.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#D91F4E,#FF854C);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.PostDashBoardFXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="909.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#D91F4E,#FF854C);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_publication.PostDashBoardFXMLController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="910.0" BorderPane.alignment="CENTER">
          <children>

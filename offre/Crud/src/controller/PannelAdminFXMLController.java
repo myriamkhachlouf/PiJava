@@ -222,6 +222,14 @@ public class PannelAdminFXMLController implements Initializable {
 
     @FXML
     private void ListPub(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_publication/publicationFXML.fxml"));       
+            Parent root = loader.load();
+            container_admin.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
+        
     }
 
     @FXML
