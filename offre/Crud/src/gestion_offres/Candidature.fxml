@@ -6,47 +6,34 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="filss" prefHeight="809.0" prefWidth="536.0" stylesheets="@dark_theme_1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_offres.CandidatureController">
+<AnchorPane id="AnchorPane" fx:id="filss" prefHeight="852.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_offres.CandidatureController">
    <children>
       <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <ImageView fitHeight="809.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/background.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="134.0" layoutY="298.0" prefHeight="21.0" prefWidth="48.0" rotate="6.0" text="id:">
+      <Label layoutX="236.0" layoutY="309.0" prefHeight="21.0" prefWidth="48.0" text="id:">
          <rotationAxis>
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <TextField fx:id="tfid_candidature" layoutX="229.0" layoutY="303.0" prefHeight="37.0" prefWidth="143.0" rotate="5.0" />
-      <Button fx:id="Btn_modifier4" layoutX="410.0" layoutY="737.0" onAction="#modifier_candidature" text="Modifier" />
-      <Label layoutX="126.0" layoutY="359.0" prefHeight="21.0" prefWidth="69.0" rotate="7.0" text="id offre:">
+      <TextField fx:id="tfid_candidature" layoutX="322.0" layoutY="301.0" prefHeight="37.0" prefWidth="143.0" />
+      <Button fx:id="Btn_modifier4" layoutX="88.0" layoutY="624.0" onAction="#modifier_candidature" text="Modifier" />
+      <Label layoutX="215.0" layoutY="381.0" prefHeight="21.0" prefWidth="69.0" text="id offre:">
          <rotationAxis>
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <TextField fx:id="tfpdf" layoutX="212.0" layoutY="507.0" prefHeight="37.0" prefWidth="143.0" rotate="5.0" />
-      <ComboBox fx:id="idoffre_candidature" layoutX="222.0" layoutY="362.0" prefHeight="43.0" prefWidth="146.0" rotate="5.0" styleClass="table-view" />
-      <Label layoutX="115.0" layoutY="434.0" prefHeight="21.0" prefWidth="98.0" rotate="8.0" text="id Candidat">
+      <TextField fx:id="tfpdf" layoutX="322.0" layoutY="455.0" prefHeight="37.0" prefWidth="143.0" />
+      <ComboBox fx:id="idoffre_candidature" layoutX="321.0" layoutY="370.0" prefHeight="43.0" prefWidth="146.0" styleClass="table-view" />
+      <Label layoutX="169.0" layoutY="463.0" prefHeight="21.0" prefWidth="91.0" text="PDF">
          <rotationAxis>
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <Label layoutX="107.0" layoutY="501.0" prefHeight="21.0" prefWidth="91.0" rotate="8.0" text="PDF">
-         <rotationAxis>
-            <Point3D x="1.0" y="1.0" z="1.0" />
-         </rotationAxis>
-      </Label>
-      <Button fx:id="Btn_suivant4" layoutX="410.0" layoutY="34.0" onAction="#Suivant4" prefHeight="33.0" prefWidth="103.0" text="Suivant" />
-      <Button fx:id="Btn_ajouter4" layoutX="410.0" layoutY="697.0" onAction="#ajouter_candidature" prefHeight="33.0" prefWidth="103.0" text="Ajouter" />
-      <Button fx:id="Btn_precedent4" layoutX="23.0" layoutY="34.0" onAction="#precedent4" prefHeight="33.0" prefWidth="124.0" text="Précédent" />
-      <DatePicker fx:id="date_candidature" layoutX="193.0" layoutY="566.0" prefHeight="22.0" prefWidth="165.0" rotate="5.0" />
-      <Label layoutX="105.0" layoutY="559.0" prefHeight="21.0" prefWidth="91.0" rotate="5.0" text="Date Candidature" />
-      <ComboBox fx:id="idcandidat" layoutX="211.0" layoutY="438.0" prefHeight="43.0" prefWidth="146.0" rotate="5.0" styleClass="table-view" />
+      <Button fx:id="Btn_ajouter4" layoutX="692.0" layoutY="623.0" onAction="#ajouter_candidature" prefHeight="33.0" prefWidth="103.0" text="Ajouter" />
+      <DatePicker fx:id="date_candidature" layoutX="322.0" layoutY="533.0" prefHeight="22.0" prefWidth="165.0" />
+      <Label layoutX="102.0" layoutY="538.0" prefHeight="21.0" prefWidth="133.0" text="Date Candidature" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="347.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

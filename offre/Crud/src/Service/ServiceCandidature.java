@@ -54,6 +54,7 @@ public class ServiceCandidature {
     private Statement ste;
     public ServiceCandidature() {
 cnx =MaConnexion.getInstance().getConnection();
+        
         }  
     
    public boolean AddCandidature(Candidature e) throws SQLException  {
@@ -204,10 +205,10 @@ cnx =MaConnexion.getInstance().getConnection();
         try{
             msg.setFrom(from);
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            msg.setSubject("Réservation Plan "+A.getDate()+"");
+            msg.setSubject("Votre Candidature  "+A.getDate()+"");
             Multipart con = new MimeMultipart();
             MimeBodyPart text =new MimeBodyPart();
-            text.setText("Présentez ce QRcode le jour du plan");
+            text.setText("Présentez ce QRcode le jour de votre entretient");
             MimeBodyPart img = new MimeBodyPart();
             img.attachFile(path);
             con.addBodyPart(text);

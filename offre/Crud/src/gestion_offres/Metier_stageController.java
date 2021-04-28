@@ -74,11 +74,7 @@ ObservableList<Stage> stageList = FXCollections.observableArrayList();
     @FXML
     private Button TRIDESC;
     @FXML
-    private Button Btn_rate;
-    @FXML
-    private Rating rating;
-    @FXML
-    private Button Btn_showrating;
+    private Button postuler;
     /**
      * Initializes the controller class.
      */
@@ -290,11 +286,10 @@ ObservableList<Stage> stageList = FXCollections.observableArrayList();
     }
 
     @FXML
-    private void rate(ActionEvent event) {
+    private void postuler(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/gestion_offres/Candidature.fxml"));
+         fils.getChildren().setAll(pane);
     }
 
-    @FXML
-    private void showrating(ActionEvent event) {
-    }
     
 }

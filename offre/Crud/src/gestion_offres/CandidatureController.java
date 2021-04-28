@@ -63,22 +63,16 @@ public class CandidatureController implements Initializable {
     @FXML
     private ComboBox<Offres> idoffre_candidature;
     @FXML
-    private Button Btn_suivant4;
-    @FXML
     private Button Btn_ajouter4;
-    @FXML
-    private Button Btn_precedent4;
     @FXML
     private DatePicker date_candidature;
     ServiceOffres AC= new ServiceOffres();
   
     UsersService DC= new UsersService();
-    @FXML
+    int user_id =MaConnexion.getInstance().connectedUserID;
+      String role=new UsersService().getUserByID(user_id).getRoles();
     private ComboBox<users> idcandidat;
-    private void afficherCombo1() {
-      ObservableList<users> data = FXCollections.observableArrayList(DC.getAll());
-        idcandidat.setItems(data);
-    }
+    
     private void afficherCombo() {
       ObservableList<Offres> data = FXCollections.observableArrayList(AC.afficherOffre());
         idoffre_candidature.setItems(data);
@@ -91,7 +85,6 @@ public class CandidatureController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          afficherCombo();
-         afficherCombo1();
     }    
 
     @FXML
@@ -99,7 +92,7 @@ public class CandidatureController implements Initializable {
          ServiceCandidature sr = new ServiceCandidature();
            int id = Integer.parseInt(tfid_candidature.getText());
         int offre_id = idoffre_candidature.getValue().getId();
-        int candidat_id =idcandidat.getValue().getId();
+        int candidat_id =user_id;
         String pdf = tfpdf.getText();
         LocalDate date = date_candidature.getValue();
         String Date = date.toString();
@@ -118,15 +111,12 @@ public class CandidatureController implements Initializable {
                 notificationBuilder.show();
     }
 
-    @FXML
-    private void Suivant4(ActionEvent event) {
-    }
 
     @FXML
     private void ajouter_candidature(ActionEvent event) throws SQLException, IOException, AddressException {
         int id = Integer.parseInt(tfid_candidature.getText());
         int offre_id = idoffre_candidature.getValue().getId();
-        int candidat_id =idcandidat.getValue().getId();
+        int candidat_id =user_id;
         String pdf = tfpdf.getText();
         LocalDate date = date_candidature.getValue();
         String Date = date.toString();
@@ -140,7 +130,6 @@ public class CandidatureController implements Initializable {
         alert.showAndWait();
         aS.afficherCandidature();
         afficherCombo();
-        afficherCombo1();
         }else{
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erreur");
@@ -149,7 +138,6 @@ public class CandidatureController implements Initializable {
         alert.showAndWait();
         aS.afficherCandidature();
         afficherCombo();
-        afficherCombo1();
 
         }
            
@@ -163,12 +151,9 @@ public class CandidatureController implements Initializable {
                 .position(Pos.BOTTOM_RIGHT);
         notificationBuilder.darkStyle();
                 notificationBuilder.show();
-                 String qr=aS.QR(A,35);
-                aS.sendRes(A, 35, qr);
+                 String qr=aS.QR(A,user_id);
+                aS.sendRes(A, user_id, qr);
     }
 
-    @FXML
-    private void precedent4(ActionEvent event) {
-    }
     
 }

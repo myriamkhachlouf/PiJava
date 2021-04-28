@@ -103,10 +103,26 @@ public class PannelClientController implements Initializable {
 
     @FXML
     private void StageOffre(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/Stage.fxml"));
+            Parent root = loader.load();
+              
+           container_client.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void TravailOffre(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/Emploi.fxml"));
+            Parent root = loader.load();
+              
+           container_client.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -124,7 +140,7 @@ public class PannelClientController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_publication/BlogHomeFXML.fxml"));
             Parent root = loader.load();
               
-           forum.getScene().setRoot(root);
+           container_client.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
         }

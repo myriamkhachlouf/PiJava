@@ -164,5 +164,9 @@ public class EmploiController implements Initializable {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/gestion_offres/metiers.fxml"));
          filss.getChildren().setAll(pane);
     }
+
+    @FXML
+    private void tt(ActionEvent event) {
+    }
     
 }

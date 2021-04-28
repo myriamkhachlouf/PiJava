@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Crud.jar" size="5683686" download="eager" />
+    <jar href="Crud.jar" size="5683521" download="eager" />
     <jar href="lib\AnimateFX-1.2.0.jar" size="85823" download="eager" />
     <jar href="lib\AnimateFX-1.2.1.jar" size="94267" download="eager" />
     <jar href="lib\Bulk_SMS_Library.jar" size="3292" download="eager" />

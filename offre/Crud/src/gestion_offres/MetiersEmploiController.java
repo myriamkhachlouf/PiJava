@@ -71,6 +71,8 @@ public class MetiersEmploiController implements Initializable {
     private Button TRIDESC;
     @FXML
     private Button Btn_supprimeremploi1;
+    @FXML
+    private Button post;
         
      public void showemploi() {
         try {
@@ -267,6 +269,12 @@ public class MetiersEmploiController implements Initializable {
     @FXML
     private void stat(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/gestion_offres/Stat_emploi.fxml"));
+         fils1.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void postuler(ActionEvent event) throws IOException {
+         AnchorPane pane = FXMLLoader.load(getClass().getResource("/gestion_offres/Candidature.fxml"));
          fils1.getChildren().setAll(pane);
     }
 
