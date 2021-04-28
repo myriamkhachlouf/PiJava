@@ -200,7 +200,7 @@ public class PannelEntrepriseController implements Initializable {
     @FXML
     private void info(ActionEvent event) {
          try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/UserInterface.fxml"));       
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/SimpleUserInterface.fxml"));       
             Parent root = loader.load();
             container_client.getChildren().setAll(root);
         } catch (IOException ex) {

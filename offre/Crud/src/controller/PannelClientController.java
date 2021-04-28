@@ -52,6 +52,10 @@ public class PannelClientController implements Initializable {
     private AnchorPane container_client;
     @FXML
     private Label iduser;
+    @FXML
+    private MenuItem stageaff;
+    @FXML
+    private MenuItem info;
 
     /**
      * Initializes the controller class.
@@ -131,6 +135,17 @@ public class PannelClientController implements Initializable {
            forum.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void info(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/SimpleUserInterface.fxml"));       
+            Parent root = loader.load();
+            container_client.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
         }
     }
     

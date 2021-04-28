@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fillWidth="false" prefHeight="990" prefWidth="1980" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.khedmtech.controller.PannelClientController">
+<VBox fillWidth="false" prefHeight="990" prefWidth="1980" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PannelClientController">
    <children>
       <HBox prefHeight="89.0" prefWidth="1980.0">
          <children>
@@ -84,6 +84,14 @@
                            </children>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="91.0" prefWidth="67.0" />
+                        <MenuButton mnemonicParsing="false" prefHeight="30.0" prefWidth="172.0" style="-fx-background-color: #FFFFFF;" text="Mon Profil">
+                           <items>
+                              <MenuItem fx:id="info" mnemonicParsing="false" onAction="#info" text="Modifier Mes Info" />
+                           </items>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </MenuButton>
                      </children>
                   </HBox>
                   <HBox fx:id="hboximage" layoutX="14.0" layoutY="14.0" prefHeight="64.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0">

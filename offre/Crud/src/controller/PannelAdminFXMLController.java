@@ -127,6 +127,13 @@ public class PannelAdminFXMLController implements Initializable {
 
     @FXML
     private void Listeusers(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/UserInterface.fxml"));       
+            Parent root = loader.load();
+            container_admin.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
     }
 
     @FXML

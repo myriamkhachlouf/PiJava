@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,17 +10,15 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="1401.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.khedmtech.controller.SignupController">
+<AnchorPane id="AnchorPane" fx:id="pane_signup" prefHeight="576.0" prefWidth="1401.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupController">
    <children>
       <ImageView fitHeight="534.0" fitWidth="1401.0" layoutY="48.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/sign up-recrutement.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7c7b7b" height="500.0" layoutX="219.0" layoutY="49.0" opacity="0.59" stroke="#7c7b7b" strokeType="INSIDE" width="463.0" />
-      <TextField fx:id="email" layoutX="436.0" layoutY="234.0" onKeyReleased="#controlEmail" prefHeight="25.0" prefWidth="163.0" promptText="Foulen@email.com" />
-      <TextField fx:id="username" layoutX="436.0" layoutY="200.0" onKeyPressed="#controlUsername" prefHeight="25.0" prefWidth="163.0" />
-      <Label layoutX="264.0" layoutY="237.0" text="Email :" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7c7b7b" height="500.0" layoutX="228.0" layoutY="33.0" opacity="0.59" stroke="#7c7b7b" strokeType="INSIDE" width="463.0" />
+      <Label layoutX="299.0" layoutY="246.0" text="Email :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
@@ -29,41 +26,27 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label layoutX="259.0" layoutY="285.0" text="Mot de Passe :" textFill="WHITE">
+      <Label layoutX="273.0" layoutY="286.0" text="Mot de Passe :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <TextField fx:id="num" layoutX="436.0" layoutY="372.0" onKeyPressed="#controlNumero" prefHeight="25.0" prefWidth="163.0" />
-      <Label layoutX="257.0" layoutY="327.0" text="Confirmer Mot de Passe :" textFill="WHITE">
+      <Label layoutX="289.0" layoutY="326.0" text="Numero :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label layoutX="264.0" layoutY="373.0" text="Numero :" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <Button fx:id="signup" layoutX="402.0" layoutY="510.0" mnemonicParsing="false" onAction="#signup" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #ab1919;" text="s'inscrire" textFill="WHITE">
+      <Button fx:id="AddUserBTN" layoutX="475.0" layoutY="465.0" mnemonicParsing="false" onAction="#addusers" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #ab1919;" text="s'inscrire" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
-         <graphic>
-            <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
-         </graphic></Button>
-      <Hyperlink layoutX="32.0" layoutY="59.0" onAction="#precedent" text="&lt;&lt;" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Hyperlink>
-      <Label layoutX="267.0" layoutY="424.0" text="Adresse : " textFill="WHITE">
+         </Button>
+      <Label layoutX="288.0" layoutY="367.0" text="Adresse : " textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="address" layoutX="438.0" layoutY="426.0" prefHeight="25.0" prefWidth="163.0" />
       <Label fx:id="labelemail" layoutX="436.0" layoutY="213.0" prefHeight="18.0" prefWidth="242.0" textFill="#ff0707" />
       <Label fx:id="labelusername" layoutX="436.0" layoutY="256.0" prefHeight="18.0" prefWidth="242.0" textFill="#ff0707" />
       <Label fx:id="labelNum" layoutX="436.0" layoutY="403.0" prefHeight="18.0" prefWidth="242.0" textFill="#ff0707" />
-      <Label fx:id="labeldate" layoutX="438.0" layoutY="493.0" prefHeight="17.0" prefWidth="163.0" textFill="#ff0707" />
       <ImageView fx:id="emailTick" fitHeight="25.0" fitWidth="31.0" layoutX="601.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/1_Approved-check-checkbox-confirm-green-success-tick-512.png" />
@@ -94,19 +77,23 @@
             <Image url="@../Images/1_Approved-check-checkbox-confirm-green-success-tick-512.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="mdp" layoutX="436.0" layoutY="281.0" onKeyReleased="#controlMDP" prefHeight="25.0" prefWidth="163.0" />
-      <PasswordField fx:id="cmdp" layoutX="436.0" layoutY="325.0" onKeyReleased="#controlMDP2" prefHeight="25.0" prefWidth="163.0" />
       <Label fx:id="labelcmdp" layoutX="438.0" layoutY="352.0" prefHeight="17.0" prefWidth="163.0" />
       <Label layoutX="389.0" layoutY="63.0" prefHeight="47.0" prefWidth="190.0" text="Inscription" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Bodoni MT" size="38.0" />
          </font>
       </Label>
-      <Label layoutX="269.0" layoutY="471.0" text="Domaine:" textFill="WHITE">
+      <Label layoutX="289.0" layoutY="402.0" text="Domaine:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="domaine" layoutX="438.0" layoutY="468.0" prefHeight="25.0" prefWidth="163.0" />
+      <ComboBox fx:id="type_up" layoutX="423.0" layoutY="158.0" prefHeight="25.0" prefWidth="200.0" promptText="Choisir type" />
+      <TextField fx:id="txt_nom_up" layoutX="423.0" layoutY="201.0" prefHeight="30.0" prefWidth="200.0" promptText="Entrer votre nom" />
+      <TextField fx:id="txt_domaine_up" layoutX="423.0" layoutY="398.0" prefHeight="30.0" prefWidth="200.0" promptText="Entrer votre domaine" />
+      <TextField fx:id="txt_email_up" layoutX="423.0" layoutY="241.0" prefHeight="30.0" prefWidth="200.0" promptText="Entrer votre email" />
+      <TextField fx:id="txt_password_up" layoutX="423.0" layoutY="281.0" prefHeight="30.0" prefWidth="200.0" promptText="Entrer votre mot de passe" />
+      <TextField fx:id="txt_telephone_up" layoutX="423.0" layoutY="321.0" prefHeight="30.0" prefWidth="200.0" promptText="Entrer votre telephone" />
+      <TextField fx:id="txt_adresse_up" layoutX="423.0" layoutY="362.0" prefHeight="30.0" prefWidth="200.0" promptText="Entrer votre adresse" />
    </children>
 </AnchorPane>

@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="428.0" prefWidth="668.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaapplication1.UserInterfaceController">
+<AnchorPane id="AnchorPane" prefHeight="428.0" prefWidth="668.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.UserInterfaceController">
     <stylesheets>
         <URL value="@userinterface.css" />
     </stylesheets>

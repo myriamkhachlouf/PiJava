@@ -78,9 +78,9 @@
                            <children>
                               <MenuButton mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Gérer Entretiens">
                                  <items>
-                                    <MenuItem fx:id="btEvententr" mnemonicParsing="false" onAction="#loadentr" text="Gerer Entretiens" />
-                                    <MenuItem fx:id="btrec" mnemonicParsing="false" onAction="#loadrecruteur" text="Gerer Recruteur" />
-                                    <MenuItem fx:id="btngrille" mnemonicParsing="false" onAction="#loadGrille" text="Gerer Grille" />
+                                    <MenuItem fx:id="btEvententr1" mnemonicParsing="false" onAction="#loadentr" text="Gerer Entretiens" />
+                                    <MenuItem fx:id="btrec1" mnemonicParsing="false" onAction="#loadrecruteur" text="Gerer Recruteur" />
+                                    <MenuItem fx:id="btngrille1" mnemonicParsing="false" onAction="#loadGrille" text="Gerer Grille" />
                                  </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />
@@ -96,15 +96,14 @@
                               </Button>
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="91.0" prefWidth="126.0">
-                           <children>
-                              <Button fx:id="info" mnemonicParsing="false" onAction="#info" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #FFFFFF;" text="Mes Informations">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </VBox>
+                        <MenuButton mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Gérer Compte">
+                           <items>
+                              <MenuItem fx:id="info" mnemonicParsing="false" onAction="#info" text="Afficher Info" />
+                           </items>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </MenuButton>
                      </children>
                   </HBox>
                   <HBox fx:id="hboximage" layoutX="14.0" layoutY="14.0" prefHeight="64.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0">
