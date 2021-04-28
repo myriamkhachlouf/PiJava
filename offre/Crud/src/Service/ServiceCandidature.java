@@ -7,7 +7,6 @@ package Service;
 import Entities.Candidature;
 import javaapplication1.entities.users;
 import Utils.Maconnexion;
-import com.gargoylesoftware.htmlunit.javascript.host.Map;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,11 +35,15 @@ import javax.mail.internet.MimeMultipart;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.Map;
+import javax.mail.internet.AddressException;
 /**
  *
  * @author azizs
@@ -165,53 +168,7 @@ cnx =Maconnexion.getInstance().getConnection();
     }
         return liste; 
  }
-       public String QR (Candidature A, int id){
-        
-         Connection cnx =null;
-        Statement st = null;
-        ResultSet rs = null;
-        String requette = "SELECT * FROM users Where id="+id+"";
-        try {
-            cnx = Maconnexion.getInstance().getConnection();
-            st = cnx.createStatement();
-            rs = st.executeQuery(requette);
-            int a;
-            while (rs.next()){
-              
-             try {
-            String qrCodeData = "Candidature "+A.getDate()+"Client "+rs.getString("username")+"";
-            String filePath = "C:\\Users\\21628\\Desktop\\PackAndGo\\src\\images\\"+A.getDate()+rs.getString("username")+".png";
-            String charset = "UTF-8"; // or "ISO-8859-1"
-            Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
-            hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
-            BitMatrix matrix = new MultiFormatWriter().encode(
-                new String(qrCodeData.getBytes(charset), charset),
-                BarcodeFormat.QR_CODE, 200, 200, hintMap);
-            MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
-                .lastIndexOf('.') + 1), new File(filePath));
-            System.out.println("QR Code image created successfully!");
-            return filePath;
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-               
-            }
-            
-            
-           
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }finally {
-   
-    if (st != null) {
-        try {
-            st.close();
-        } catch (SQLException e) { /* Ignored */}
-    }
-    }
-        
-    }
-       public void sendRes(Candidature A, int id) throws IOException {
+       public void sendRes(Candidature A, int id,String path) throws IOException, AddressException {
       
          Connection cnx =null;
         Statement st = null;
@@ -230,7 +187,7 @@ cnx =Maconnexion.getInstance().getConnection();
                 
                 final String username ="khedmtech@gmail.com";
         final String password ="azerty123123";
-        String from = "khedmtech@gmail.com";
+        InternetAddress from = new InternetAddress("khedmtech@gmail.com");
         String to = rs.getString("email");
 
         Properties properties = new Properties();
@@ -246,34 +203,20 @@ cnx =Maconnexion.getInstance().getConnection();
         });
         MimeMessage msg =new MimeMessage(session);
         try{
-            msg.setFrom("khedmtech@gmail.com");
+            msg.setFrom(from);
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            msg.setSubject("Candidature Plan "+A.getDate()+"");
+            msg.setSubject("Réservation Plan "+A.getDate()+"");
             Multipart con = new MimeMultipart();
             MimeBodyPart text =new MimeBodyPart();
             text.setText("Présentez ce QRcode le jour du plan");
             MimeBodyPart img = new MimeBodyPart();
-            img.attachFile("C:/Users/21628/Desktop/PackAndGo/src/images/"+A.getSujet()+rs.getString("username")+".png");
+            img.attachFile(path);
             con.addBodyPart(text);
             con.addBodyPart(img);
             msg.setContent(con);
             
             Transport.send(msg);
         }catch(MessagingException e){}
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-               
             }
             
             
@@ -290,6 +233,55 @@ cnx =Maconnexion.getInstance().getConnection();
     }
      
  } 
-
+ 
+    public String QR (Candidature A, int id) {
+        
+      try {
+                    
+               String  qr="";    
+         Connection cnx =null;
+        Statement st = null;
+        ResultSet rs = null;
+        String requette = "SELECT * FROM users Where id="+id+"";
+            cnx = Maconnexion.getInstance().getConnection();
+            st = cnx.createStatement();
+            rs = st.executeQuery(requette);
+             while (rs.next()){
+                 qr=help(A,rs.getString("nom"));
+             }
+             return qr;
+      
+      } catch (Exception e) {
+            System.err.println(e);
+            return "vide";
+        }
+        
+       }
+    
+    
+    
+    
+    
+    
+    public String help(Candidature A, String id){
+         
+              String filePath = "D:\\wamp64\\www\\copy java 4\\PiJava\\offre\\Crud\\src\\images\\"+A.getDate()+id+".png";
+             try{
+            String qrCodeData = "Votre candidature est le  "+A.getDate()+"Client "+id+"";
+            String charset = "UTF-8"; // or "ISO-8859-1"
+            Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
+            hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+            BitMatrix matrix = new MultiFormatWriter().encode(
+                new String(qrCodeData.getBytes(charset), charset),
+                BarcodeFormat.QR_CODE, 200, 200, hintMap);
+            MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
+                .lastIndexOf('.') + 1), new File(filePath));
+            System.out.println("QR Code image created successfully!");
+             }catch (Exception e){}
+             
+                return filePath;
+            
+    } 
+   
     
 }

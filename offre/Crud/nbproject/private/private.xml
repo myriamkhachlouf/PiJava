@@ -3,33 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/pidev/edu/khedmtech/controller/PannelEntrepriseController.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gestion_offres/Gestion_offres.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Entities/Candidature.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Service/UploadServices.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gui/PannelEntrepriseFXML.fxml</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Entities/Offres.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Service/ServiceRecruteur.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Service/ServiceEntretien.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/edu/test/entities/grille.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gestion_offres/CandidatureController.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/edu/test/services/ServiceRecruteur.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Service/ServiceCandidature.java</file>
             <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/API/pdf.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/javaapplication1/utils/MaConnexion.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Utils/Maconnexion.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/pidev/edu/khedmtech/controller/PannelEntrepriseController.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/controller/PannelClientController.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gui/PannelEntrepriseFXML.fxml</file>
             <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/edu/test/gui/RecruteurController.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Service/ServiceOffres.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/controller/PannelAdminFXMLController.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gestion_offres/FXMLDocumentController.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/controller/PannelEntrepriseController.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gestion_offres/EmploiController.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Service/ServiceEntretien.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Service/UploadServices.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gestion_offres/Emploi.fxml</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gui/NewFXMain.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Entities/Candidature.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/edu/test/utils/DataBase.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Service/ServiceCandidature.java</file>
+            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/edu/test/services/ServiceRecruteur.java</file>
             <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Utils/MyConnection.java</file>
             <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Service/ServiceGrille.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/controller/PannelClientController.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gui/NewFXMain.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gestion_offres/Emploi.fxml</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/Utils/Maconnexion.java</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/gui/PannelAdmin.fxml</file>
-            <file>file:/D:/wamp64/www/PiJava/offre/Crud/src/javaapplication1/utils/MaConnexion.java</file>
         </group>
     </open-files>
 </project-private>

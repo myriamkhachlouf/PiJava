@@ -12,6 +12,7 @@ import Service.ServiceCandidature;
 import Service.ServiceOffres;
 import Service.ServiceStage;
 import Utils.Maconnexion;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -39,6 +40,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import javax.mail.internet.AddressException;
 import org.controlsfx.control.Notifications;
 
 /**
@@ -121,7 +123,7 @@ public class CandidatureController implements Initializable {
     }
 
     @FXML
-    private void ajouter_candidature(ActionEvent event) throws SQLException {
+    private void ajouter_candidature(ActionEvent event) throws SQLException, IOException, AddressException {
         int id = Integer.parseInt(tfid_candidature.getText());
         int offre_id = idoffre_candidature.getValue().getId();
         int candidat_id =idcandidat.getValue().getId();
@@ -161,6 +163,8 @@ public class CandidatureController implements Initializable {
                 .position(Pos.BOTTOM_RIGHT);
         notificationBuilder.darkStyle();
                 notificationBuilder.show();
+                 String qr=aS.QR(A,35);
+                aS.sendRes(A, 35, qr);
     }
 
     @FXML
