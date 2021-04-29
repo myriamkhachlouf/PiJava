@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package edu.test.gui;
+import Entities.Candidature;
+import Service.ServiceCandidature;
 import com.codename1.l10n.DateFormat;
 import com.codename1.l10n.SimpleDateFormat;
 import edu.test.entities.entretien; 
@@ -11,8 +13,10 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import edu.test.entities.Recruteur;
 import edu.test.services.ServiceEntretien;
-import Utils.DataBase;
+import utils.MaConnexion;
 import Utils.JavaMail;
+import com.jfoenix.controls.JFXComboBox;
+import edu.test.services.ServiceRecruteur;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -67,7 +71,7 @@ public class EntretienController implements Initializable {
   ObservableList<entretien> data2;
     ServiceEntretien sec = new ServiceEntretien();
     @FXML
-    private TextField txtidc;
+    private JFXComboBox<Candidature> txtidc;
     @FXML
     private JFXTextField searchTF;
     @FXML
@@ -87,7 +91,7 @@ public class EntretienController implements Initializable {
     @FXML
     private TableColumn<entretien, Integer> id;
     @FXML
-    private TextField txtidr;
+    private JFXComboBox<Recruteur> txtidr;
     @FXML
     private TextField txtlieu;
     @FXML
@@ -104,12 +108,23 @@ public class EntretienController implements Initializable {
     /**
      * Initializes the controller class
      */
-    
-    
+    ServiceRecruteur DC= new ServiceRecruteur();
+    ServiceCandidature AC= new ServiceCandidature();
+    private void afficherCombo() {
+      ObservableList<Candidature> data1 = FXCollections.observableArrayList(AC.afficherCandidature());
+        txtidc.setItems(data1);
+         
+    }
+    private void afficherCombo1() {
+      ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll());
+        txtidr.setItems(data9);
+         
+    }
      @Override
     public void initialize(URL url, ResourceBundle rb) {  
-    
+    afficherCombo();
         Afficher();
+        afficherCombo1();
         
 
         e.getSelectionModel().selectedItemProperty().addListener(new ChangeListener(){
@@ -119,10 +134,12 @@ public class EntretienController implements Initializable {
               if (e.getSelectionModel().getSelectedItem() != null) {
                     edu.test.entities.entretien entretien = (edu.test.entities.entretien) e.getSelectionModel().getSelectedItem();
                     
-                    
+                   
+ObservableList<Candidature> data1 = FXCollections.observableArrayList(AC.afficherCandidature());    
+ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll());
                     System.out.println();
-                    txtidc.setText(String.valueOf(entretien.getIdc()));
-                    txtidr.setText(String.valueOf(entretien.getIdr()));
+                    txtidc.setItems(data1);
+                    txtidr.setItems(data9);
                     txtdate.setValue(entretien.getDate().toLocalDate());
                     txtlieu.setText(String.valueOf(entretien.getLieu()));
                     txtconfirmation.setText(Integer.toString(entretien.getConfirmation()));
@@ -138,7 +155,7 @@ public class EntretienController implements Initializable {
     
       public void Afficher() {
         try {
-            Connection cnx = DataBase.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM entretien";
             Statement st;
             ResultSet rs;
@@ -146,7 +163,7 @@ public class EntretienController implements Initializable {
             rs = st.executeQuery(query);
             entretien entretien;
             while (rs.next()) {
-                entretien = new entretien(rs.getInt("Id"),rs.getInt("Idc"),rs.getInt("Idr"), rs.getDate("date"), rs.getString("lieu"), rs.getInt("confirmation"), rs.getInt("etat"));
+                entretien = new entretien(rs.getInt("Id"),rs.getInt("cadidature_id"),rs.getInt("recruteur_id"), rs.getDate("date"), rs.getString("lieu"), rs.getInt("confirmation"), rs.getInt("etat"));
                 data.add(entretien);
             }
 
@@ -155,8 +172,8 @@ public class EntretienController implements Initializable {
             System.out.println("Error on Building Data");
         }
         id.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        EIdc.setCellValueFactory(new PropertyValueFactory<>("Idc"));
-        EIdr.setCellValueFactory(new PropertyValueFactory<>("Idr"));
+        EIdc.setCellValueFactory(new PropertyValueFactory<>("cadidature_id"));
+        EIdr.setCellValueFactory(new PropertyValueFactory<>("recruteur_id"));
         Edate.setCellValueFactory(new PropertyValueFactory<>("date"));
         Elieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));
         Econfirmation.setCellValueFactory(new PropertyValueFactory<>("confirmation"));
@@ -169,7 +186,7 @@ public class EntretienController implements Initializable {
     public void Refresh() {
         data.removeAll(data);
         try {
-            Connection cnx = DataBase.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM entretien";
             Statement st;
             ResultSet rs;
@@ -177,7 +194,7 @@ public class EntretienController implements Initializable {
             rs = st.executeQuery(query);
             entretien entretien;
             while (rs.next()) {
-               entretien = new entretien(rs.getInt("Id"),rs.getInt("Idc"),rs.getInt("Idr"), rs.getDate("date"), rs.getString("lieu"), rs.getInt("confirmation"), rs.getInt("etat"));
+               entretien = new entretien(rs.getInt("Id"),rs.getInt("cadidature_id"),rs.getInt("recruteur_id"), rs.getDate("date"), rs.getString("lieu"), rs.getInt("confirmation"), rs.getInt("etat"));
                 data.add(entretien);
             }
 
@@ -186,8 +203,8 @@ public class EntretienController implements Initializable {
             System.out.println("Error on Building Data");
         }
         id.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        EIdc.setCellValueFactory(new PropertyValueFactory<>("Idc"));
-        EIdr.setCellValueFactory(new PropertyValueFactory<>("Idr"));
+        EIdc.setCellValueFactory(new PropertyValueFactory<>("cadidature_id"));
+        EIdr.setCellValueFactory(new PropertyValueFactory<>("recruteur_id"));
         Edate.setCellValueFactory(new PropertyValueFactory<>("date"));
         Elieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));
         Econfirmation.setCellValueFactory(new PropertyValueFactory<>("confirmation"));
@@ -211,7 +228,7 @@ public class EntretienController implements Initializable {
          
          ServiceEntretien aa = new ServiceEntretien();
         Scanner sc = new Scanner(System.in);
-        Connection cnx = DataBase.getInstance().getConnection();
+        Connection cnx = MaConnexion.getInstance().getConnection();
         Statement st;
         ResultSet rs;
         st = cnx.createStatement();
@@ -219,9 +236,10 @@ public class EntretienController implements Initializable {
         
         
          entretien t = new entretien();
-        
-            t.setIdc(Integer.parseInt(txtidc.getText()));
-            t.setIdr(Integer.parseInt(txtidc.getText()));
+        afficherCombo();
+        afficherCombo1();
+            t.setIdc((txtidc.getValue().getId()));
+            t.setIdr(txtidr.getValue().getId());
             t.setDate(Date.valueOf(txtdate.getValue()));
             t.setLieu(txtlieu.getText());
             t.setConfirmation(Integer.parseInt(txtconfirmation.getText()));
@@ -232,7 +250,7 @@ public class EntretienController implements Initializable {
             LocalDate ld = LocalDate.now(ZoneId.of("Europe/Paris"));
             
             if(
-                    txtidc.getText().isEmpty() || txtidr.getText().isEmpty() || txtlieu.getText().isEmpty() || txtetat.getText().isEmpty() || txtconfirmation.getText().isEmpty()
+                     txtlieu.getText().isEmpty() || txtetat.getText().isEmpty() || txtconfirmation.getText().isEmpty()
                     ) 
             {
                 Alert alert = new Alert(AlertType.WARNING);
@@ -258,8 +276,8 @@ public class EntretienController implements Initializable {
                else {
                     sec.ajouterpp(t);
                     Refresh();
-                    txtidc.clear();
-                    txtidr.clear();
+                    txtidc.getSelectionModel().clearSelection();
+                    txtidr.getSelectionModel().clearSelection();
                     txtdate.getEditor().clear();
                     txtlieu.clear();
                     txtconfirmation.clear();
@@ -275,7 +293,7 @@ public class EntretienController implements Initializable {
     @FXML
     public void modifier(ActionEvent event) throws SQLException {
         data2 = e.getSelectionModel().getSelectedItems();
-        Connection cnx = DataBase.getInstance().getConnection();
+        Connection cnx = MaConnexion.getInstance().getConnection();
         
         ServiceEntretien sr = new ServiceEntretien();
         entretien t = new entretien();
@@ -283,9 +301,10 @@ public class EntretienController implements Initializable {
         int id;
         id = data.get(0).getId();
         System.out.println(id);
-        
-        t.setIdc(Integer.parseInt(txtidc.getText()));
-        t.setIdr(Integer.parseInt(txtidr.getText()));
+        afficherCombo1();
+        afficherCombo();
+        t.setIdc(txtidc.getValue().getId());
+        t.setIdr(txtidr.getValue().getId());
         t.setLieu(txtlieu.getText());
         t.setDate(Date.valueOf(txtdate.getValue()));
         t.setConfirmation(Integer.parseInt(txtconfirmation.getText()));
@@ -294,7 +313,7 @@ public class EntretienController implements Initializable {
         
         
         if(
-                    txtidc.getText().isEmpty() || txtidr.getText().isEmpty() || txtlieu.getText().isEmpty() || txtetat.getText().isEmpty() || txtconfirmation.getText().isEmpty()
+                    txtlieu.getText().isEmpty() || txtetat.getText().isEmpty() || txtconfirmation.getText().isEmpty()
                     ) 
             {
                 Alert alert = new Alert(AlertType.WARNING);
@@ -316,8 +335,8 @@ public class EntretienController implements Initializable {
                     alert.showAndWait();
                } else {
             sr.updateEntretien(id, t);
-                    txtidc.clear();
-                    txtidr.clear();
+                    txtidc.getSelectionModel().clearSelection();
+                    txtidr.getSelectionModel().clearSelection();
                     txtlieu.clear();
                     txtdate.getEditor().clear();
                     txtconfirmation.clear();
@@ -333,7 +352,7 @@ public class EntretienController implements Initializable {
     @FXML
     private void supprimer(ActionEvent event) {
         data2 = e.getSelectionModel().getSelectedItems();
-        Connection cnx = DataBase.getInstance().getConnection();
+        Connection cnx = MaConnexion.getInstance().getConnection();
         int id;
         id = data2.get(0).getId();
         System.out.println(id);
@@ -361,8 +380,8 @@ public class EntretienController implements Initializable {
                     succDeleteBookAlert.setContentText("Recruteur supprime!");
                     succDeleteBookAlert.showAndWait();
 
-                    txtidc.clear();
-                    txtidr.clear();
+                    txtidc.getSelectionModel().clearSelection();
+                    txtidr.getSelectionModel().clearSelection();
                     txtlieu.clear();
                     txtconfirmation.clear();
                     txtetat.clear();
@@ -394,7 +413,7 @@ public class EntretienController implements Initializable {
         try {
 
             data2 = e.getSelectionModel().getSelectedItems();
-        Connection cnx = DataBase.getInstance().getConnection();
+        Connection cnx = MaConnexion.getInstance().getConnection();
             Statement stmt1 = cnx.createStatement();
             //Variable counter for keeping track of number of rows inserted.  
             int counter = 1;
@@ -408,8 +427,8 @@ public class EntretienController implements Initializable {
             //Creating Headings in Excel sheet.  
             HSSFRow rowhead = sheet.createRow((short) 0);
             rowhead.createCell((short) 1).setCellValue("Id");//Row Name1  
-            rowhead.createCell((short) 2).setCellValue("Idc");//Row Name2  
-            rowhead.createCell((short) 3).setCellValue("Idr");//Row Name3  
+            rowhead.createCell((short) 2).setCellValue("cadidature_id");//Row Name2  
+            rowhead.createCell((short) 3).setCellValue("recruteur_id");//Row Name3  
             rowhead.createCell((short) 4).setCellValue("date");//Row Name4
             rowhead.createCell((short) 5).setCellValue("lieu");//Row Name5 
             rowhead.createCell((short) 6).setCellValue("confirmation");//Row Name5 
@@ -432,8 +451,8 @@ public class EntretienController implements Initializable {
 //                dateCellStyle1.setDataFormat(createHelper.createDataFormat().getFormat("dd-MM-yyyy"));
 
                 row.createCell((short) 1).setCellValue(rs.getInt("Id"));
-                row.createCell((short) 2).setCellValue(rs.getInt("Idc"));
-                row.createCell((short) 3).setCellValue(rs.getInt("Idr"));
+                row.createCell((short) 2).setCellValue(rs.getInt("cadidature_id"));
+                row.createCell((short) 3).setCellValue(rs.getInt("recruteur_id"));
                 row.createCell((short) 4).setCellValue(rs.getString("date"));
                 row.createCell((short) 5).setCellValue(rs.getString("lieu"));
                 row.createCell((short) 6).setCellValue(rs.getInt("confirmation"));
@@ -492,8 +511,8 @@ public class EntretienController implements Initializable {
     
     @FXML
     public void notifier(ActionEvent event) throws SQLException, Exception {
-    String mailquery = "SELECT email FROM users WHERE id = ( SELECT candidat_id From candidature where id = "+txtidc.getText() +")"; // remplacer 1 avec le user connecter
-    Connection cnx = DataBase.getInstance().getConnection();
+    String mailquery = "SELECT email FROM users WHERE id = ( SELECT candidat_id From candidature where id = "+txtidc.getValue().getId() +")"; // remplacer 1 avec le user connecter
+    Connection cnx = MaConnexion.getInstance().getConnection();
         Statement st;
        
         ResultSet mailing;

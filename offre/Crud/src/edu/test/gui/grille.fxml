@@ -43,7 +43,6 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <TextField fx:id="txtide" layoutX="677.0" layoutY="101.0" prefHeight="25.0" prefWidth="150.0" />
             <Label layoutX="744.0" layoutY="214.0" text="Etat:" textFill="#2a238c">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -82,6 +81,7 @@
             </ImageView>
             <JFXRadioButton fx:id="radio" layoutX="392.0" layoutY="60.0" onAction="#radio" prefHeight="54.0" prefWidth="215.0" text="Candidats Acceptés" textFill="#272694" />
             <JFXComboBox fx:id="cetat" layoutX="683.0" layoutY="236.0" prefHeight="37.0" prefWidth="160.0" promptText="etat" />
+            <JFXComboBox fx:id="txtide" layoutX="700.0" layoutY="99.0" prefHeight="31.0" prefWidth="123.0" />
          </children>
       </AnchorPane>
       <JFXTabPane>

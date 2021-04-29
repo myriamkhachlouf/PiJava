@@ -63,6 +63,11 @@ public class Candidature {
     public void setPdf(String pdf) {
         this.pdf = pdf;
     }
+
+    @Override
+    public String toString() {
+        return "Candidature{" + "id=" + id + '}';
+    }
     
     
 }

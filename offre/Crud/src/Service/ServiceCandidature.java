@@ -134,7 +134,7 @@ cnx =MaConnexion.getInstance().getConnection();
         return list.contains(id);
     }
       
-       public ObservableList<Candidature> afficherCandidature() throws SQLException {
+       public ObservableList<Candidature> afficherCandidature(){
      Connection cnx =null;
         Statement st = null;
         ResultSet rs = null;
@@ -282,6 +282,6 @@ cnx =MaConnexion.getInstance().getConnection();
                 return filePath;
             
     } 
-   
+    
     
 }

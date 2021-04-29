@@ -6,7 +6,7 @@
 package edu.test.services;
 import edu.test.entities.grille;
 import edu.test.entities.Recruteur;
-import edu.test.utils.DataBase;
+import utils.MaConnexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,19 +28,19 @@ public class ServiceGrille {
     
 
     public ServiceGrille() {
-        con = DataBase.getInstance().getConnection();
+        con = MaConnexion.getInstance().getConnection();
     }
       public List<grille> readAll() {
 
         List<grille> arr = new ArrayList<>();
         try {
             ste = con.createStatement();
-            ResultSet rs = ste.executeQuery("select * from grille ");
+            ResultSet rs = ste.executeQuery("select * from grille_evaluation ");
             while (rs.next()) {
                 //int id=rs.getInt(1);
-                int ide = rs.getInt("ide");
+                int ide = rs.getInt("entretien_id");
                 String commentaire = rs.getString("commentaire");
-                String etat = rs.getString("etat");
+                String etat = rs.getString("admission");
 
                 
                 
@@ -59,7 +59,7 @@ public class ServiceGrille {
 
         try {
             ste = con.createStatement();
-            String requeteInsert = "INSERT INTO grille (ide,commentaire,etat) VALUES (?,?,?)";
+            String requeteInsert = "INSERT INTO grille_evaluation (entretien_id,commentaire,admission) VALUES (?,?,?)";
 
             PreparedStatement pst = con.prepareStatement(requeteInsert);
             pst.setInt(1, c.getIde());
@@ -78,7 +78,7 @@ ex.printStackTrace();
 
         try {
             ste = con.createStatement();
-            String requeteInsert = "INSERT INTO grille (ide,commentaire,etat) VALUES (?,?,?)";
+            String requeteInsert = "INSERT INTO grille_evaluation (entretien_id,commentaire,admission) VALUES (?,?,?)";
 
             PreparedStatement pst = con.prepareStatement(requeteInsert);
            pst.setInt(1, c.getIde());
@@ -95,7 +95,7 @@ ex.printStackTrace();
     }
   public boolean supprimer(grille r) throws SQLException {
 
-        String reqeute = "delete from grille  where (ide = ?) ;";
+        String reqeute = "delete from grille_evaluation  where (Id = ?) ;";
         try {
             PreparedStatement pst = con.prepareStatement(reqeute);
             pst.setInt(1, r.getIde());
@@ -116,7 +116,7 @@ ex.printStackTrace();
    public int updateRecruteur(int id, grille t) throws SQLException { 
        if(chercher(id)){
         
-        pre=con.prepareStatement("UPDATE grille SET Ide = ? , commentaire = ? , etat = ?  WHERE Idg = "+id+"");
+        pre=con.prepareStatement("UPDATE grille_evaluation SET entretien_id = ? , commentaire = ? , admission = ?  WHERE Id = "+id+"");
     try{     
              pre.setInt(1, t.getIde());
              pre.setString(2, t.getCommentaire());
@@ -136,7 +136,7 @@ ex.printStackTrace();
 
 
 public boolean chercher(int id) throws SQLException {
-        String req="select * from grille";
+        String req="select * from grille_evaluation";
         List<Integer> list = new ArrayList<>();
         
         try {

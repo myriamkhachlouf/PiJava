@@ -62,11 +62,13 @@ public class Recruteur {
     public void setDomaine(String domaine) {
         this.domaine = domaine;
     }
+
+    @Override
+    public String toString() {
+        return "Recruteur{" + "Id=" + Id + '}';
+    }
       
     
-   @Override
-    public String toString() {
-        return "Recruteur" + "id=" + Id + ", nom=" + nom + ", prenom=" + prenom + ", domaine=" + domaine + '}';
-    }
+  
     
 }

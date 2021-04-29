@@ -5,13 +5,14 @@
  */
 package edu.test.gui;
 
+import Service.ServiceCandidature;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import edu.test.entities.grille;
 import edu.test.services.ServiceGrille;
 
-import edu.test.utils.DataBase;
+import utils.MaConnexion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -38,6 +39,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import edu.test.entities.entretien;
+import edu.test.services.ServiceEntretien;
 
 /**
  * FXML Controller class
@@ -51,7 +54,7 @@ public class GrilleController implements Initializable {
     @FXML
     private JFXTextField searchTF;
     @FXML
-    private TextField txtide;
+    private JFXComboBox<entretien> txtide;
     @FXML
     private TextField txtcommentaire;
     private TextField txtetat;
@@ -76,12 +79,19 @@ public class GrilleController implements Initializable {
     private JFXComboBox<String> cetat;
     ObservableList<String> data2 = FXCollections.observableArrayList("accepté","refusé");
 
+     ServiceEntretien AC= new ServiceEntretien();
+    private void afficherCombo() {
+      ObservableList<entretien> data1 = FXCollections.observableArrayList(AC.readAll());
+        txtide.setItems(data1);
+         
+    }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        Afficher();
+       afficherCombo();
        
        eventcoursTV.getSelectionModel().selectedItemProperty().addListener(new ChangeListener(){
             @Override
@@ -90,10 +100,10 @@ public class GrilleController implements Initializable {
               if (eventcoursTV.getSelectionModel().getSelectedItem() != null) {
                     edu.test.entities.grille grille = (edu.test.entities.grille) eventcoursTV.getSelectionModel().getSelectedItem();
                     
-                    
+                     ObservableList<entretien> data1 = FXCollections.observableArrayList(AC.readAll());
                     System.out.println();
                     txtid.setText(Integer.toString(grille.getIdg()));;
-                    txtide.setText(Integer.toString(grille.getIde()));;
+                    txtide.setItems(data1);
                     txtcommentaire.setText(grille.getCommentaire());
                     cetat.setItems(data2);
 
@@ -108,15 +118,15 @@ public class GrilleController implements Initializable {
     public void Refresh() {
         data.removeAll(data);
         try {
-            Connection cnx = DataBase.getInstance().getConnection();
-            String query = "SELECT * FROM grille";
+            Connection cnx = MaConnexion.getInstance().getConnection();
+            String query = "SELECT * FROM grille_evaluation";
             Statement st;
             ResultSet rs;
             st = cnx.createStatement();
             rs = st.executeQuery(query);
             grille grille;
             while (rs.next()) {
-                grille = new grille(rs.getInt("Idg"),rs.getInt("Ide"), rs.getString("commentaire"), rs.getString("etat")); 
+                grille = new grille(rs.getInt("Id"),rs.getInt("entretien_id"), rs.getString("commentaire"), rs.getString("admission")); 
                 data.add(grille);
             }
 
@@ -124,10 +134,10 @@ public class GrilleController implements Initializable {
             ex.printStackTrace();
             System.out.println("Error on Building Data");
         }
-       id.setCellValueFactory(new PropertyValueFactory<>("Idg"));
-        idet.setCellValueFactory(new PropertyValueFactory<>("Ide"));
+       id.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        idet.setCellValueFactory(new PropertyValueFactory<>("entretien_id"));
         commentairet.setCellValueFactory(new PropertyValueFactory<>("commentaire"));
-        etatt.setCellValueFactory(new PropertyValueFactory<>("etat"));
+        etatt.setCellValueFactory(new PropertyValueFactory<>("admission"));
 
         eventcoursTV.setItems(data);
     }
@@ -146,25 +156,25 @@ public class GrilleController implements Initializable {
     
      public void Afficher() {
         try {
-            Connection cnx = DataBase.getInstance().getConnection();
-            String query = "SELECT * FROM grille";
+            Connection cnx = MaConnexion.getInstance().getConnection();
+            String query = "SELECT * FROM grille_evaluation";
             Statement st;
             ResultSet rs;
             st = cnx.createStatement();
             rs = st.executeQuery(query);
             grille grille;
             while (rs.next()) {
-                grille = new grille(rs.getInt("Idg"),rs.getInt("Ide"),rs.getString("commentaire"), rs.getString("etat") ); 
+                grille = new grille(rs.getInt("Id"),rs.getInt("entretien_id"),rs.getString("commentaire"), rs.getString("admission") ); 
                 data.add(grille);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
             System.out.println("Error on Building Data");
         }
-        id.setCellValueFactory(new PropertyValueFactory<>("Idg"));
-        idet.setCellValueFactory(new PropertyValueFactory<>("Ide"));
+        id.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        idet.setCellValueFactory(new PropertyValueFactory<>("entretien_id"));
         commentairet.setCellValueFactory(new PropertyValueFactory<>("commentaire"));
-        etatt.setCellValueFactory(new PropertyValueFactory<>("etat"));
+        etatt.setCellValueFactory(new PropertyValueFactory<>("admission"));
 
         eventcoursTV.setItems(data);;
 
@@ -184,18 +194,20 @@ ex.printStackTrace();        }
 
     @FXML
     private void ajouteron(ActionEvent event) {
-        int ide = Integer.parseInt(txtide.getText());
+         ObservableList<entretien> data1 = FXCollections.observableArrayList(AC.readAll());
+        txtide.setItems(data1);
+        int ide = txtide.getValue().getId();
          String commentaire = txtcommentaire.getText();
          String etat = cetat.getValue();
          
         grille r = new grille(ide,commentaire,etat);
         sec.ajouterpp(r);  
         Refresh();
-        txtide.clear();
+        txtide.getSelectionModel().clearSelection();
         txtcommentaire.clear();
         cetat.getSelectionModel().clearSelection();
         if(
-                    (txtide.getText().isEmpty() || txtcommentaire.getText().isEmpty() || cetat.getValue().isEmpty()))
+                    ( txtcommentaire.getText().isEmpty() || cetat.getValue().isEmpty()))
             {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Alerte !");
@@ -214,13 +226,14 @@ ex.printStackTrace();        }
         
         int idg;
         idg = Integer.parseInt(txtid.getText());
-        t.setIde(Integer.parseInt(txtide.getText()));
+        afficherCombo();
+        int ide = txtide.getValue().getId();
         t.setCommentaire(txtcommentaire.getText());
         t.setEtat(cetat.getValue());
         
         
         
-        if (txtide.getText().isEmpty() || txtcommentaire.getText().isEmpty() || cetat.getValue().isEmpty()) {
+        if (txtcommentaire.getText().isEmpty() || cetat.getValue().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Alerte !");
             alert.setHeaderText(null);
@@ -230,7 +243,7 @@ ex.printStackTrace();        }
             sr.updateRecruteur(idg, t);
         }
         Refresh();
-        txtide.clear();
+        txtide.getSelectionModel().clearSelection();
         txtcommentaire.clear();
         cetat.getSelectionModel().clearSelection();
 
@@ -258,7 +271,7 @@ ex.printStackTrace();        }
                 succDeleteBookAlert.showAndWait();
                 Refresh();
                 
-        txtide.clear();
+        txtide.getSelectionModel().clearSelection();
         txtcommentaire.clear();
         cetat.getSelectionModel().clearSelection();
         
@@ -274,25 +287,25 @@ ex.printStackTrace();        }
         data.removeAll(data);
 
          try {
-            Connection cnx = DataBase.getInstance().getConnection();
-            String query = "SELECT * FROM grille WHERE etat='accepté'";
+            Connection cnx = MaConnexion.getInstance().getConnection();
+            String query = "SELECT * FROM grille_evaluation WHERE admission='accepté'";
             Statement st;
             ResultSet rs;
             st = cnx.createStatement();
             rs = st.executeQuery(query);
             grille grille;
             while (rs.next()) {
-                grille = new grille(rs.getInt("Idg"),rs.getInt("Ide"), rs.getString("commentaire") ,rs.getString("etat")); 
+                grille = new grille(rs.getInt("Id"),rs.getInt("entretien_id"), rs.getString("commentaire") ,rs.getString("admission")); 
                 data.add(grille);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
             System.out.println("Error on Building Data");
         }
-        id.setCellValueFactory(new PropertyValueFactory<>("Idg"));
-        idet.setCellValueFactory(new PropertyValueFactory<>("Ide"));
+        id.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        idet.setCellValueFactory(new PropertyValueFactory<>("entretien_id"));
         commentairet.setCellValueFactory(new PropertyValueFactory<>("commentaire"));
-        etatt.setCellValueFactory(new PropertyValueFactory<>("etat"));
+        etatt.setCellValueFactory(new PropertyValueFactory<>("admission"));
 
         eventcoursTV.setItems(data);;
     

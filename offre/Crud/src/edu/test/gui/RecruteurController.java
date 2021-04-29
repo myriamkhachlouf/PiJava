@@ -12,7 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 import edu.test.entities.Donnee;
 import edu.test.entities.Recruteur;
 import edu.test.services.ServiceRecruteur;
-import edu.test.utils.DataBase;
+import utils.MaConnexion;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -109,7 +109,7 @@ public class RecruteurController implements Initializable {
 
     public void Afficher() {
         try {
-            Connection cnx = DataBase.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM recruteur";
             Statement st;
             ResultSet rs;
@@ -137,7 +137,7 @@ public class RecruteurController implements Initializable {
     public void Refresh() {
         data.removeAll(data);
         try {
-            Connection cnx = DataBase.getInstance().getConnection();
+            Connection cnx = MaConnexion.getInstance().getConnection();
             String query = "SELECT * FROM recruteur";
             Statement st;
             ResultSet rs;
