@@ -58,7 +58,7 @@ public class formationCrud {
 
         while (result.next()){
   
-            listType.add(new formation(result.getInt("id"),result.getInt("reference"),result.getInt("periode"),result.getString("objectif"),result.getInt("dure"),result.getInt("capacite"),result.getInt("rating")));
+            listType.add(new formation(result.getInt("id"),result.getInt("reference"),result.getInt("periode"),result.getString("objectif"),result.getInt("dure"),result.getInt("capacite"),result.getInt("rating"),result.getString("nom")));
              
           
             

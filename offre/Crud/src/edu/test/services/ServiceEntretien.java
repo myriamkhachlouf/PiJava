@@ -7,7 +7,7 @@ package edu.test.services;
 import edu.test.entities.grille;
 import edu.test.entities.Recruteur;
 import edu.test.entities.entretien;
-import utils.MaConnexion;
+import edu.test.utils.DataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +31,7 @@ public class ServiceEntretien {
     private PreparedStatement stm;
 
     public ServiceEntretien() {
-        con = MaConnexion.getInstance().getConnection();
+        con = DataBase.getInstance().getConnection();
     }
     
         public List<entretien> readAll() {
@@ -42,8 +42,8 @@ public class ServiceEntretien {
             ResultSet rs = ste.executeQuery("select * from entretien ");
             while (rs.next()) {
                 //int id=rs.getInt(1);
-                int Idc = rs.getInt("cadidature_id");
-                int Idr = rs.getInt("recruteur_id");
+                int Idc = rs.getInt("Idc");
+                int Idr = rs.getInt("Idr");
                 Date date =rs.getDate("date");
                 String lieu = rs.getString("lieu");
                 int confirmation = rs.getInt("confirmation");
@@ -65,7 +65,7 @@ public class ServiceEntretien {
 
         try {
             ste = con.createStatement();
-            String requeteInsert = "INSERT INTO entretien ( cadidature_id, recruteur_id, date, lieu, confirmation, etat) VALUES (?,?,?,?,?,?)";
+            String requeteInsert = "INSERT INTO entretien ( Idc, Idr, date, lieu, confirmation, etat) VALUES (?,?,?,?,?,?)";
 
             PreparedStatement pst = con.prepareStatement(requeteInsert);
             pst.setInt(1, c.getIdc());
@@ -108,7 +108,7 @@ ex.printStackTrace();
         }
            */
 
-           String req ="INSERT INTO entretien (cadidature_id, recruteur_id, date, lieu, confirmation, etat) VALUES (?,?,?,?,?,?)";
+           String req ="INSERT INTO entretien (Idc, Idr, date, lieu, confirmation, etat) VALUES (?,?,?,?,?,?)";
         
         try {
             
@@ -158,7 +158,7 @@ ex.printStackTrace();
        if(chercher(id)){
            
         
-        stm=con.prepareStatement("UPDATE entretien SET cadidature_id = ? , recruteur_id = ? , date = ? , lieu = ? , confirmation = ? , etat = ? WHERE Id = "+id+"");
+        stm=con.prepareStatement("UPDATE entretien SET Idc = ? , Idr = ? , date = ? , lieu = ? , confirmation = ? , etat = ? WHERE Id = "+id+"");
     try{     
              stm.setInt(1, t.getIdc());
              stm.setInt(2, t.getIdr());

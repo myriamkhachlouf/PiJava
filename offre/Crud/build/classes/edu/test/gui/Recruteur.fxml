@@ -31,7 +31,7 @@
                               <Image url="@../../../images/recherche.jpg" />
                            </image>
                         </ImageView>
-                        <TableView fx:id="a" layoutX="110.0" layoutY="100.0" prefHeight="224.0" prefWidth="446.0">
+                        <TableView fx:id="a" layoutX="110.0" layoutY="100.0" prefHeight="233.0" prefWidth="408.0">
                           <columns>
                             <TableColumn fx:id="nom" onEditCommit="#changenomCellEvent" prefWidth="131.0" text="nom" />
                               <TableColumn fx:id="prenom" onEditCommit="#changeprenomCellEvent" prefWidth="148.0" text="prenom" />
@@ -46,11 +46,6 @@
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font></Button>
-                        <Label layoutX="646.0" layoutY="67.0" prefHeight="25.0" prefWidth="41.0" text="Nom" textFill="#2c2b7c">
-                           <font>
-                              <Font name="Arial Narrow Bold" size="21.0" />
-                           </font>
-                        </Label>
                         <Label layoutX="641.0" layoutY="125.0" text="Prénom" textFill="#2c2b7c">
                            <font>
                               <Font name="System Bold" size="17.0" />
@@ -92,13 +87,21 @@
                               <Image url="@../../../images/stat1.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="600.0" layoutY="377.0" mnemonicParsing="false" onAction="#modifier" prefHeight="33.0" prefWidth="174.0" text="Modifier" />
+                        <Button layoutX="600.0" layoutY="377.0" mnemonicParsing="false" onAction="#modifier" prefHeight="33.0" prefWidth="174.0" text="Modifier">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
                         <TextField fx:id="txtid" layoutX="731.0" layoutY="93.0" visible="false" />
                         <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="616.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/edit.png" />
                            </image>
                         </ImageView>
+                        <Label layoutX="642.0" layoutY="67.0" text="Nom" textFill="#2c2b7c">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
                        
                      </children>
                   </AnchorPane>

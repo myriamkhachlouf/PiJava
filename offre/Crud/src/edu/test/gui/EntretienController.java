@@ -4,19 +4,17 @@
  * and open the template in the editor.
  */
 package edu.test.gui;
-import Entities.Candidature;
-import Service.ServiceCandidature;
 import com.codename1.l10n.DateFormat;
 import com.codename1.l10n.SimpleDateFormat;
+import com.jfoenix.controls.JFXComboBox;
 import edu.test.entities.entretien; 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import edu.test.entities.Recruteur;
 import edu.test.services.ServiceEntretien;
-import utils.MaConnexion;
-import Utils.JavaMail;
-import com.jfoenix.controls.JFXComboBox;
-import edu.test.services.ServiceRecruteur;
+import edu.test.utils.DataBase;
+import edu.test.utils.JavaMail;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -58,7 +56,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CreationHelper;
 import java.util.stream.Collectors;
-import javax.swing.JOptionPane;
+import static org.apache.xalan.xsltc.compiler.util.Type.Int;
 
 
 /**
@@ -69,9 +67,11 @@ import javax.swing.JOptionPane;
 public class EntretienController implements Initializable {
   public ObservableList<entretien> data = FXCollections.observableArrayList();
   ObservableList<entretien> data2;
+ 
+
     ServiceEntretien sec = new ServiceEntretien();
     @FXML
-    private JFXComboBox<Candidature> txtidc;
+    private TextField txtidc;
     @FXML
     private JFXTextField searchTF;
     @FXML
@@ -91,15 +91,15 @@ public class EntretienController implements Initializable {
     @FXML
     private TableColumn<entretien, Integer> id;
     @FXML
-    private JFXComboBox<Recruteur> txtidr;
+    private TextField txtidr;
     @FXML
     private TextField txtlieu;
     @FXML
     private JFXDatePicker txtdate;
     @FXML
-    private TextField txtconfirmation;
+    private JFXComboBox<String> txtconfirmation;
     @FXML
-    private TextField txtetat;
+    private JFXComboBox<String> txtetat;
     @FXML
     private Button excel;
     @FXML
@@ -108,23 +108,12 @@ public class EntretienController implements Initializable {
     /**
      * Initializes the controller class
      */
-    ServiceRecruteur DC= new ServiceRecruteur();
-    ServiceCandidature AC= new ServiceCandidature();
-    private void afficherCombo() {
-      ObservableList<Candidature> data1 = FXCollections.observableArrayList(AC.afficherCandidature());
-        txtidc.setItems(data1);
-         
-    }
-    private void afficherCombo1() {
-      ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll());
-        txtidr.setItems(data9);
-         
-    }
+    
+    
      @Override
     public void initialize(URL url, ResourceBundle rb) {  
-    afficherCombo();
+    
         Afficher();
-        afficherCombo1();
         
 
         e.getSelectionModel().selectedItemProperty().addListener(new ChangeListener(){
@@ -134,16 +123,15 @@ public class EntretienController implements Initializable {
               if (e.getSelectionModel().getSelectedItem() != null) {
                     edu.test.entities.entretien entretien = (edu.test.entities.entretien) e.getSelectionModel().getSelectedItem();
                     
-                   
-ObservableList<Candidature> data1 = FXCollections.observableArrayList(AC.afficherCandidature());    
-ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll());
+                       ObservableList<String> data3 = FXCollections.observableArrayList("0","1");
+
                     System.out.println();
-                    txtidc.setItems(data1);
-                    txtidr.setItems(data9);
+                    txtidc.setText(String.valueOf(entretien.getIdc()));
+                    txtidr.setText(String.valueOf(entretien.getIdr()));
                     txtdate.setValue(entretien.getDate().toLocalDate());
                     txtlieu.setText(String.valueOf(entretien.getLieu()));
-                    txtconfirmation.setText(Integer.toString(entretien.getConfirmation()));
-                    txtetat.setText(Integer.toString(entretien.getEtat()));
+                    txtconfirmation.setItems(data3);
+                    txtetat.setItems(data3);
                 }
             }
 
@@ -155,7 +143,7 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
     
       public void Afficher() {
         try {
-            Connection cnx = MaConnexion.getInstance().getConnection();
+            Connection cnx = DataBase.getInstance().getConnection();
             String query = "SELECT * FROM entretien";
             Statement st;
             ResultSet rs;
@@ -163,7 +151,7 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
             rs = st.executeQuery(query);
             entretien entretien;
             while (rs.next()) {
-                entretien = new entretien(rs.getInt("Id"),rs.getInt("cadidature_id"),rs.getInt("recruteur_id"), rs.getDate("date"), rs.getString("lieu"), rs.getInt("confirmation"), rs.getInt("etat"));
+                entretien = new entretien(rs.getInt("Id"),rs.getInt("Idc"),rs.getInt("Idr"), rs.getDate("date"), rs.getString("lieu"), rs.getInt("confirmation"), rs.getInt("etat"));
                 data.add(entretien);
             }
 
@@ -172,8 +160,8 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
             System.out.println("Error on Building Data");
         }
         id.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        EIdc.setCellValueFactory(new PropertyValueFactory<>("cadidature_id"));
-        EIdr.setCellValueFactory(new PropertyValueFactory<>("recruteur_id"));
+        EIdc.setCellValueFactory(new PropertyValueFactory<>("Idc"));
+        EIdr.setCellValueFactory(new PropertyValueFactory<>("Idr"));
         Edate.setCellValueFactory(new PropertyValueFactory<>("date"));
         Elieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));
         Econfirmation.setCellValueFactory(new PropertyValueFactory<>("confirmation"));
@@ -186,7 +174,7 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
     public void Refresh() {
         data.removeAll(data);
         try {
-            Connection cnx = MaConnexion.getInstance().getConnection();
+            Connection cnx = DataBase.getInstance().getConnection();
             String query = "SELECT * FROM entretien";
             Statement st;
             ResultSet rs;
@@ -194,7 +182,7 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
             rs = st.executeQuery(query);
             entretien entretien;
             while (rs.next()) {
-               entretien = new entretien(rs.getInt("Id"),rs.getInt("cadidature_id"),rs.getInt("recruteur_id"), rs.getDate("date"), rs.getString("lieu"), rs.getInt("confirmation"), rs.getInt("etat"));
+               entretien = new entretien(rs.getInt("Id"),rs.getInt("Idc"),rs.getInt("Idr"), rs.getDate("date"), rs.getString("lieu"), rs.getInt("confirmation"), rs.getInt("etat"));
                 data.add(entretien);
             }
 
@@ -203,8 +191,8 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
             System.out.println("Error on Building Data");
         }
         id.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        EIdc.setCellValueFactory(new PropertyValueFactory<>("cadidature_id"));
-        EIdr.setCellValueFactory(new PropertyValueFactory<>("recruteur_id"));
+        EIdc.setCellValueFactory(new PropertyValueFactory<>("Idc"));
+        EIdr.setCellValueFactory(new PropertyValueFactory<>("Idr"));
         Edate.setCellValueFactory(new PropertyValueFactory<>("date"));
         Elieu.setCellValueFactory(new PropertyValueFactory<>("lieu"));
         Econfirmation.setCellValueFactory(new PropertyValueFactory<>("confirmation"));
@@ -228,7 +216,7 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
          
          ServiceEntretien aa = new ServiceEntretien();
         Scanner sc = new Scanner(System.in);
-        Connection cnx = MaConnexion.getInstance().getConnection();
+        Connection cnx = DataBase.getInstance().getConnection();
         Statement st;
         ResultSet rs;
         st = cnx.createStatement();
@@ -236,21 +224,20 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
         
         
          entretien t = new entretien();
-        afficherCombo();
-        afficherCombo1();
-            t.setIdc((txtidc.getValue().getId()));
-            t.setIdr(txtidr.getValue().getId());
+        
+            t.setIdc(Integer.parseInt(txtidc.getText()));
+            t.setIdr(Integer.parseInt(txtidc.getText()));
             t.setDate(Date.valueOf(txtdate.getValue()));
             t.setLieu(txtlieu.getText());
-            t.setConfirmation(Integer.parseInt(txtconfirmation.getText()));
-            t.setEtat(Integer.parseInt(txtetat.getText()));
+            t.setConfirmation(Integer.parseInt(txtconfirmation.getValue()));
+            t.setEtat(Integer.parseInt(txtetat.getValue()));
             DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
             Calendar cal = Calendar.getInstance();
            // Date now = new Date();
             LocalDate ld = LocalDate.now(ZoneId.of("Europe/Paris"));
             
             if(
-                     txtlieu.getText().isEmpty() || txtetat.getText().isEmpty() || txtconfirmation.getText().isEmpty()
+                    txtidc.getText().isEmpty() || txtidr.getText().isEmpty() || txtlieu.getText().isEmpty() 
                     ) 
             {
                 Alert alert = new Alert(AlertType.WARNING);
@@ -276,12 +263,12 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
                else {
                     sec.ajouterpp(t);
                     Refresh();
-                    txtidc.getSelectionModel().clearSelection();
-                    txtidr.getSelectionModel().clearSelection();
+                    txtidc.clear();
+                    txtidr.clear();
                     txtdate.getEditor().clear();
                     txtlieu.clear();
-                    txtconfirmation.clear();
-                    txtetat.clear();
+                    txtconfirmation.getSelectionModel().clearSelection();
+                    txtetat.getSelectionModel().clearSelection();
                    
                }
       
@@ -293,7 +280,7 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
     @FXML
     public void modifier(ActionEvent event) throws SQLException {
         data2 = e.getSelectionModel().getSelectedItems();
-        Connection cnx = MaConnexion.getInstance().getConnection();
+        Connection cnx = DataBase.getInstance().getConnection();
         
         ServiceEntretien sr = new ServiceEntretien();
         entretien t = new entretien();
@@ -301,19 +288,18 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
         int id;
         id = data.get(0).getId();
         System.out.println(id);
-        afficherCombo1();
-        afficherCombo();
-        t.setIdc(txtidc.getValue().getId());
-        t.setIdr(txtidr.getValue().getId());
+        
+        t.setIdc(Integer.parseInt(txtidc.getText()));
+        t.setIdr(Integer.parseInt(txtidr.getText()));
         t.setLieu(txtlieu.getText());
         t.setDate(Date.valueOf(txtdate.getValue()));
-        t.setConfirmation(Integer.parseInt(txtconfirmation.getText()));
-        t.setEtat(Integer.parseInt(txtetat.getText()));
+        t.setConfirmation(Integer.parseInt(txtconfirmation.getValue()));
+        t.setEtat(Integer.parseInt(txtetat.getValue()));
         
         
         
         if(
-                    txtlieu.getText().isEmpty() || txtetat.getText().isEmpty() || txtconfirmation.getText().isEmpty()
+                    txtidc.getText().isEmpty() || txtidr.getText().isEmpty() || txtlieu.getText().isEmpty() 
                     ) 
             {
                 Alert alert = new Alert(AlertType.WARNING);
@@ -335,12 +321,12 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
                     alert.showAndWait();
                } else {
             sr.updateEntretien(id, t);
-                    txtidc.getSelectionModel().clearSelection();
-                    txtidr.getSelectionModel().clearSelection();
+                    txtidc.clear();
+                    txtidr.clear();
                     txtlieu.clear();
                     txtdate.getEditor().clear();
-                    txtconfirmation.clear();
-                    txtetat.clear();
+                    txtconfirmation.getSelectionModel().clearSelection();
+                    txtetat.getSelectionModel().clearSelection();
         }
         Refresh();
 
@@ -352,7 +338,7 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
     @FXML
     private void supprimer(ActionEvent event) {
         data2 = e.getSelectionModel().getSelectedItems();
-        Connection cnx = MaConnexion.getInstance().getConnection();
+        Connection cnx = DataBase.getInstance().getConnection();
         int id;
         id = data2.get(0).getId();
         System.out.println(id);
@@ -380,11 +366,11 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
                     succDeleteBookAlert.setContentText("Recruteur supprime!");
                     succDeleteBookAlert.showAndWait();
 
-                    txtidc.getSelectionModel().clearSelection();
-                    txtidr.getSelectionModel().clearSelection();
+                    txtidc.clear();
+                    txtidr.clear();
                     txtlieu.clear();
-                    txtconfirmation.clear();
-                    txtetat.clear();
+                    txtconfirmation.getSelectionModel().clearSelection();
+                    txtetat.getSelectionModel().clearSelection();
                 }
                 catch (SQLException ex) {
             Logger.getLogger(EntretienController.class.getName()).log(Level.SEVERE, null, ex);
@@ -413,7 +399,7 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
         try {
 
             data2 = e.getSelectionModel().getSelectedItems();
-        Connection cnx = MaConnexion.getInstance().getConnection();
+        Connection cnx = DataBase.getInstance().getConnection();
             Statement stmt1 = cnx.createStatement();
             //Variable counter for keeping track of number of rows inserted.  
             int counter = 1;
@@ -427,8 +413,8 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
             //Creating Headings in Excel sheet.  
             HSSFRow rowhead = sheet.createRow((short) 0);
             rowhead.createCell((short) 1).setCellValue("Id");//Row Name1  
-            rowhead.createCell((short) 2).setCellValue("cadidature_id");//Row Name2  
-            rowhead.createCell((short) 3).setCellValue("recruteur_id");//Row Name3  
+            rowhead.createCell((short) 2).setCellValue("Idc");//Row Name2  
+            rowhead.createCell((short) 3).setCellValue("Idr");//Row Name3  
             rowhead.createCell((short) 4).setCellValue("date");//Row Name4
             rowhead.createCell((short) 5).setCellValue("lieu");//Row Name5 
             rowhead.createCell((short) 6).setCellValue("confirmation");//Row Name5 
@@ -451,8 +437,8 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
 //                dateCellStyle1.setDataFormat(createHelper.createDataFormat().getFormat("dd-MM-yyyy"));
 
                 row.createCell((short) 1).setCellValue(rs.getInt("Id"));
-                row.createCell((short) 2).setCellValue(rs.getInt("cadidature_id"));
-                row.createCell((short) 3).setCellValue(rs.getInt("recruteur_id"));
+                row.createCell((short) 2).setCellValue(rs.getInt("Idc"));
+                row.createCell((short) 3).setCellValue(rs.getInt("Idr"));
                 row.createCell((short) 4).setCellValue(rs.getString("date"));
                 row.createCell((short) 5).setCellValue(rs.getString("lieu"));
                 row.createCell((short) 6).setCellValue(rs.getInt("confirmation"));
@@ -511,8 +497,8 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
     
     @FXML
     public void notifier(ActionEvent event) throws SQLException, Exception {
-    String mailquery = "SELECT email FROM users WHERE id = ( SELECT candidat_id From candidature where id = "+txtidc.getValue().getId() +")"; // remplacer 1 avec le user connecter
-    Connection cnx = MaConnexion.getInstance().getConnection();
+    String mailquery = "SELECT email FROM users WHERE id = ( SELECT candidat_id From candidature where id = "+txtidc.getText() +")"; // remplacer 1 avec le user connecter
+    Connection cnx = DataBase.getInstance().getConnection();
         Statement st;
        
         ResultSet mailing;
@@ -531,13 +517,13 @@ ObservableList<Recruteur> data9 = FXCollections.observableArrayList(DC.readAll()
                                 System.out.println(Email); // debug
                             
 
-                                JavaMail.sendMail(Email);
+                                
                                 //showevent2();
-                            }
-                            
-            JOptionPane.showMessageDialog(
-                    null, " Mail envoyé avec succés ");
-           
+                            }Alert succDeleteBookAlert = new Alert(Alert.AlertType.INFORMATION);
+                    succDeleteBookAlert.setTitle("envoi du mail");
+                    succDeleteBookAlert.setHeaderText("Results:");
+                    succDeleteBookAlert.setContentText("mail envoyé <3 !");
+                    succDeleteBookAlert.showAndWait();
 }
     
 

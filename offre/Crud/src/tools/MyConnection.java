@@ -14,7 +14,8 @@ import java.sql.SQLException;
  * @author Bouhejba
  */
 public class MyConnection {
-    public String url="jdbc:mysql://localhost:3306/pijava";
+        static final String jdbcDriver="com.mysql.jdbc.Driver";
+    static final String url="jdbc:mysql://127.0.0.1:3306/finale";
     public String login="root";
     public String pwd="";
     public Connection cn;

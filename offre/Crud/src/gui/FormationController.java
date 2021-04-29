@@ -88,6 +88,8 @@ public class FormationController implements Initializable {
     ObservableList<formation> listeformationt;
     @FXML
     private TextField research;
+    @FXML
+    private TableColumn<formation,String> afnom;
 
     /**
      * Initializes the controller class.
@@ -104,6 +106,8 @@ public class FormationController implements Initializable {
         afdure.setCellValueFactory(new PropertyValueFactory<>("dure"));
         afcap.setCellValueFactory(new PropertyValueFactory<>("capacite"));
         afrating.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        afnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+
         
        
         tableauformation.setItems(listeformationt);
@@ -147,9 +151,12 @@ alert.setContentText("vous étes sure ?");
         int pdure = Integer.parseInt(dure.getText());
         int pcapacite = Integer.parseInt(capacite.getText());
         int prating = Integer.parseInt(rating.getText());
+                 String Nom1 = afnom.getText();
+
+
        
 
-        formation e = new formation(1,ppassword,pperiode,Nom,pdure,pcapacite,prating);
+        formation e = new formation(1,ppassword,pperiode,Nom,pdure,pcapacite,prating,Nom1);
         formationCrud pcd = new formationCrud();
         pcd.addformation(e);
         notif.setAnimationType(Type);    

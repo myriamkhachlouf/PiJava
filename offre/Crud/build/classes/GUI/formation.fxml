@@ -24,7 +24,7 @@
       <Label layoutX="22.0" layoutY="162.0" text="dure" />
       <Label layoutX="18.0" layoutY="211.0" text="capacite" />
       <Label layoutX="22.0" layoutY="255.0" text="rating" />
-      <TableView fx:id="tableauformation" layoutX="309.0" layoutY="73.0" prefHeight="200.0" prefWidth="539.0">
+      <TableView fx:id="tableauformation" layoutX="286.0" layoutY="73.0" prefHeight="200.0" prefWidth="570.0">
         <columns>
           <TableColumn fx:id="afid" prefWidth="75.0" text="id" />
           <TableColumn fx:id="afref" prefWidth="75.0" text="reference" />
@@ -33,6 +33,7 @@
             <TableColumn fx:id="afdure" prefWidth="75.0" text="dure" />
             <TableColumn fx:id="afcap" prefWidth="75.0" text="capacite" />
             <TableColumn fx:id="afrating" prefWidth="75.0" text="rating" />
+            <TableColumn fx:id="afnom" prefWidth="75.0" text="nom" />
         </columns>
       </TableView>
       <Button layoutX="344.0" layoutY="279.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="31.0" prefWidth="166.0" text="supprimer" />

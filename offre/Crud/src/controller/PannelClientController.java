@@ -38,7 +38,6 @@ public class PannelClientController implements Initializable {
     private MenuItem btEvent;
     @FXML
     private MenuItem btForm;
-    @FXML
     private Button forum;
     @FXML
     private HBox hboximage;
@@ -56,6 +55,8 @@ public class PannelClientController implements Initializable {
     private MenuItem stageaff;
     @FXML
     private MenuItem info;
+    @FXML
+    private MenuItem Blog;
 
     /**
      * Initializes the controller class.
@@ -104,10 +105,9 @@ public class PannelClientController implements Initializable {
     @FXML
     private void StageOffre(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/Stage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/metier_Stage.fxml"));
             Parent root = loader.load();
-              
-           container_client.getScene().setRoot(root);
+           container_client.getChildren().setAll(root);
         } catch (IOException ex) {
             Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -116,10 +116,9 @@ public class PannelClientController implements Initializable {
     @FXML
     private void TravailOffre(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/Emploi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/metiersEmploi.fxml"));
             Parent root = loader.load();
-              
-           container_client.getScene().setRoot(root);
+           container_client.getChildren().setAll(root);
         } catch (IOException ex) {
             Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -127,13 +126,26 @@ public class PannelClientController implements Initializable {
 
     @FXML
     private void loadEvent(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/event.fxml"));       
+            Parent root = loader.load();
+            container_client.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
     }
 
     @FXML
     private void loadFormation(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/formation.fxml"));       
+            Parent root = loader.load();
+            container_client.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
     }
 
-    @FXML
     private void forum(ActionEvent event) {
            
          try {
@@ -171,6 +183,18 @@ public class PannelClientController implements Initializable {
             container_client.getChildren().setAll(root);
         } catch (IOException ex) {
           
+        }
+    }
+
+    @FXML
+    private void loadBlog(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_publication/BlogHomeFXML.fxml"));
+            Parent root = loader.load();
+              
+           container_client.getChildren().setAll(root);
+        } catch (IOException ex) {
+            Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

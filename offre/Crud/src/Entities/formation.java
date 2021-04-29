@@ -18,12 +18,14 @@ public class formation {
     private int dure;
     private int capacite;
     private int rating;
+    private String nom;
+
+   
     
     public formation(){
         
     }
-
-    public formation(int id, int reference, int periode, String objectif, int dure, int capacite, int rating) {
+ public formation(int id, int reference, int periode, String objectif, int dure, int capacite, int rating, String nom) {
         this.id = id;
         this.reference = reference;
         this.periode = periode;
@@ -31,9 +33,16 @@ public class formation {
         this.dure = dure;
         this.capacite = capacite;
         this.rating = rating;
+        this.nom = nom;
     }
 
-    public int getId() {
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }    public int getId() {
         return id;
     }
 

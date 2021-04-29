@@ -10,7 +10,7 @@ package edu.test.services;
 
 import edu.test.entities.Recruteur;
 import edu.test.entities.Recruteur;
-import utils.MaConnexion;
+import edu.test.utils.DataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,7 +34,7 @@ public class ServiceRecruteur {
     private PreparedStatement pre;
 
     public ServiceRecruteur() {
-        con = MaConnexion.getInstance().getConnection();
+        con = DataBase.getInstance().getConnection();
     }
 
     public List<Recruteur> readAll() {
