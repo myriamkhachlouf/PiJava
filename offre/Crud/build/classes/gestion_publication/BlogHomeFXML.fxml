@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="717.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_publication.BlogHomeFXMLController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="153.0" text="My Blog" textFill="#ff5056">
+               <font>
+                  <Font name="Edwardian Script ITC" size="36.0" />
+               </font>
+            </Label>
+            <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
+            <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="27.0" prefWidth="228.0">
+               <children>
+                  <TextField fx:id="searchbar" prefHeight="27.0" prefWidth="231.0" promptText="Search for Posts" style="-fx-background-color: rgba(0,0,0,0); -fx-border-radius: 50; -fx-border-color: #D7D7D7;" />
+                  <ImageView fitHeight="14.0" fitWidth="30.0" onMouseClicked="#SearchForPosts" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_search_24px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <ComboBox fx:id="comboboxTri" onAction="#select" prefWidth="150.0" promptText="Posted" style="-fx-background-color: #ff5070;" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="43.0" prefWidth="214.0" text="Recently Added">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </padding>
+            </Label>
+            <ScrollPane prefHeight="226.0" prefWidth="868.0" style="-fx-background-color: rgba(0,0,0,0);">
+               <content>
+                  <HBox fx:id="CardLayout" alignment="CENTER_LEFT" prefHeight="234.0" prefWidth="574.0" spacing="20.0" style="-fx-background-color: rgba(0,0,0,0);">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding></HBox>
+               </content>
+            </ScrollPane>
+            <Label prefHeight="46.0" prefWidth="214.0" text="All Posts">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+            </Label>
+            <ScrollPane prefHeight="331.0" prefWidth="842.0" style="-fx-background-color: rgba(0,0,0,0);" VBox.vgrow="ALWAYS">
+               <content>
+                  <GridPane fx:id="PostContainer" prefHeight="0.0" prefWidth="0.0">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

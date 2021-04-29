@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="o" prefHeight="462.0" prefWidth="706.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_publication.PublicationFXMLController">
+    <stylesheets>
+        <URL value="@publicationfxml.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="PostsTable" layoutY="80.0" prefHeight="262.0" prefWidth="706.0" style="-fx-background-radius: 30;">
+        <columns>
+          <TableColumn fx:id="postidcol" prefWidth="47.99999922513962" style="-fx-background-radius: 3;" text="ID" />
+          <TableColumn fx:id="titlecol" prefWidth="412.0000228881836" style="-fx-background-radius: 3;" text="Title" />
+            <TableColumn fx:id="createdatcol" minWidth="3.20001220703125" prefWidth="106.39999389648438" style="-fx-background-radius: 3;" text="Created At" />
+            <TableColumn fx:id="updatedatcol" prefWidth="88.0" style="-fx-background-radius: 3;" text="Updated At" />
+            <TableColumn fx:id="viewscol" prefWidth="51.199951171875" style="-fx-background-radius: 3;" text="views" />
+        </columns>
+         <effect>
+            <Blend />
+         </effect>
+      </TableView>
+      <Text fx:id="lbPostedby" layoutX="4.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.33670043945312">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Button fx:id="newPostbtn" layoutX="549.0" layoutY="360.0" mnemonicParsing="false" onAction="#AddPostWindow" prefHeight="26.0" prefWidth="145.0" style="-fx-background-radius: 10px 10px 10px 10px;" text="Add new Post" />
+      <Button fx:id="UpdatePostBTN" layoutX="548.0" layoutY="421.0" mnemonicParsing="false" onAction="#UpdatePost" prefHeight="26.0" prefWidth="146.0" style="-fx-background-radius: 10px 10px 10px 10px;" text="Update Post" />
+      <Button fx:id="DeletePostBTN" layoutX="396.0" layoutY="421.0" mnemonicParsing="false" onAction="#DeletePost" prefHeight="26.0" prefWidth="122.0" style="-fx-background-radius: 10px 10px 10px 10px;" text="Delete Post" />
+      <Button fx:id="newHome" layoutX="641.0" layoutY="14.0" mnemonicParsing="false" onAction="#newHome" text="Home" />
+      <ImageView fx:id="refreshicon" fitHeight="26.0" fitWidth="30.0" layoutX="666.0" layoutY="50.0" onMouseClicked="#LoadData" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image_publication/icons8_reset_48px.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="moredetails" fitHeight="29.0" fitWidth="32.0" layoutY="420.0" onMouseClicked="#MoreDetails" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image_publication/icons8_more_info_48px_1.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="textreasons" layoutX="18.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason for deleting this Post :">
+         <font>
+            <Font name="Berlin Sans FB" size="14.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="tareasons" layoutX="37.0" layoutY="373.0" prefHeight="78.0" prefWidth="342.0" />
+      <ImageView fx:id="sendmail" fitHeight="26.0" fitWidth="20.0" layoutX="389.0" layoutY="372.0" onMouseClicked="#SendMail" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image_publication/send_email_48px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="filterBar" layoutX="209.0" layoutY="35.0" prefHeight="26.0" prefWidth="262.0" promptText="Search for a Post" />
+      <Button fx:id="postdashboard" layoutX="518.0" layoutY="13.0" mnemonicParsing="false" onAction="#goToPostDashboard" prefHeight="26.0" prefWidth="106.0" text="DashBoard" />
+   </children>
+</AnchorPane>

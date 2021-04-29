@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="909.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#D91F4E,#FF854C);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_publication.PostDashBoardFXMLController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="910.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" text="ADMIN DASHBOARD" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Medium Cond" size="30.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Pane maxHeight="-Infinity" prefHeight="1.0" prefWidth="654.0" style="-fx-background-color: #F3ABB5;" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="593.0" prefWidth="776.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="111.0" prefWidth="810.0" style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 10;">
+               <children>
+                  <Label prefHeight="34.0" prefWidth="169.0" text="Posts Details" textFill="#ffd6dc">
+                     <font>
+                        <Font name="Franklin Gothic Medium Cond" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="810.0" spacing="20.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="107.0" prefWidth="175.0" spacing="5.0">
+                           <children>
+                              <ImageView fitHeight="54.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/bookmark_100px.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="PostNumber" alignment="CENTER" prefHeight="34.0" prefWidth="71.0" text="3 New" textAlignment="CENTER" textFill="#ffd6dc">
+                                 <font>
+                                    <Font name="Franklin Gothic Medium Cond" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="26.0" prefWidth="48.0" text="Posts" textAlignment="CENTER" textFill="#f3abb5">
+                                 <font>
+                                    <Font name="Franklin Gothic Medium Cond" size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Pane maxHeight="-Infinity" prefHeight="60.0" prefWidth="1.0" style="-fx-background-color: #F3ABB5;" />
+                        <VBox alignment="CENTER" prefHeight="107.0" prefWidth="175.0" spacing="5.0">
+                           <children>
+                              <ImageView fitHeight="54.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/permanent_job_48px.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="PosterNumber" alignment="CENTER" prefHeight="34.0" prefWidth="70.0" text="150 New" textAlignment="CENTER" textFill="#ffd6dc">
+                                 <font>
+                                    <Font name="Franklin Gothic Medium Cond" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="26.0" prefWidth="86.0" text="Posters" textAlignment="CENTER" textFill="#f3abb5">
+                                 <font>
+                                    <Font name="Franklin Gothic Medium Cond" size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox prefHeight="237.0" prefWidth="790.0" spacing="20.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <children>
+                  <VBox prefHeight="245.0" prefWidth="377.0" style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 10;">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="178.0" text="Posts Per Month" textFill="#ffd6dc">
+                           <font>
+                              <Font name="Franklin Gothic Medium Cond" size="28.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <BarChart fx:id="PostsBarChart" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="339.0">
+                          <xAxis>
+                            <CategoryAxis fx:id="MonthsIdBar" prefHeight="15.0" prefWidth="303.0" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="PostsNumberBar" label="Posts" prefHeight="166.0" prefWidth="45.0" side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="245.0" prefWidth="365.0" style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 10;">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="211.0" text="Posts Per Entreprise" textFill="#ffd6dc">
+                           <font>
+                              <Font name="Franklin Gothic Medium Cond" size="28.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <PieChart fx:id="PostsPerEntreprisePie" />
+                        <Label fx:id="valueNumber" prefHeight="18.0" prefWidth="74.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox minHeight="-Infinity" prefHeight="190.0" prefWidth="810.0" style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 10;">
+               <children>
+                  <Label prefHeight="34.0" prefWidth="178.0" text="Top 5 Posts" textFill="#ffd6dc">
+                     <font>
+                        <Font name="Franklin Gothic Medium Cond" size="28.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="PostsTable" prefHeight="262.0" prefWidth="706.0" style="-fx-region-border: 10;">
+                     <columns>
+                        <TableColumn fx:id="postidcol" prefWidth="47.99999922513962" text="ID" />
+                        <TableColumn fx:id="titlecol" prefWidth="412.0000228881836" text="Title" />
+                        <TableColumn fx:id="createdatcol" minWidth="3.20001220703125" prefWidth="106.39999389648438" text="Created At" />
+                        <TableColumn fx:id="updatedatcol" prefWidth="88.0" text="Updated At" />
+                        <TableColumn fx:id="viewscol" prefWidth="51.199951171875" text="views" />
+                     </columns>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>
