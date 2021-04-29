@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Styletheme.skin;
+package Style.theme.skin;
 
 import com.sun.javafx.scene.control.skin.TextFieldSkin;
 import javafx.event.EventHandler;
