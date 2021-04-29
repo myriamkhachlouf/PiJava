@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
@@ -188,4 +189,13 @@
          </children>
       </AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@../Style/theme/css/fonts.css" />
+      <URL value="@../Style/theme/css/skeleton.css" />
+      <URL value="@../Style/theme/css/material-color.css" />
+      <URL value="@../Style/theme/css/typographic.css" />
+      <URL value="@../Style/theme/css/bootstrap.css" />
+      <URL value="@../Style/theme/css/shape.css" />
+      <URL value="@../Style/theme/css/helpers.css" />
+   </stylesheets>
 </AnchorPane>

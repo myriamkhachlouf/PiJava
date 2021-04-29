@@ -26,7 +26,7 @@
             <Image url="@../images/magnifying-glass.png" />
          </image>
       </ImageView>
-      <Button fx:id="TRIASC" layoutX="706.0" layoutY="233.0" onAction="#TRIASC" prefHeight="34.0" prefWidth="115.0" text="TRI ASC" />
+      <Button fx:id="TRIASC" layoutX="706.0" layoutY="233.0" onAction="#TRIASC" prefHeight="34.0" prefWidth="115.0" stylesheets="@../manther/mobile_buttons.css" text="TRI ASC" />
       <Button fx:id="TRIDESC" layoutX="706.0" layoutY="316.0" onAction="#TRIDESC" prefHeight="34.0" prefWidth="115.0" text="TRI DESC" />
       <Button fx:id="Btn_supprimeremploi1" layoutX="563.0" layoutY="729.0" onAction="#stat" prefHeight="33.0" prefWidth="125.0" text="Statistiques" />
       <Button fx:id="post" layoutX="313.0" layoutY="731.0" mnemonicParsing="false" onAction="#postuler" prefHeight="31.0" prefWidth="115.0" text="Postuler !" />

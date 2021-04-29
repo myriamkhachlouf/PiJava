@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gn;
+package Style;
 
 import com.gn.decorator.GNDecorator;
 import javafx.application.Application;
@@ -36,15 +36,15 @@ public class App extends Application {
         
         decorator.fullBody();
         decorator.getScene().getStylesheets().addAll(
-                getClass().getResource("/com/gn/theme/css/fonts.css").toExternalForm(),
-                getClass().getResource("/com/gn/theme/css/material-color.css").toExternalForm(),
-                getClass().getResource("/com/gn/theme/css/skeleton.css").toExternalForm(),
-                getClass().getResource("/com/gn/theme/css/bootstrap.css").toExternalForm(),
-                getClass().getResource("/com/gn/theme/css/shape.css").toExternalForm(),
-                getClass().getResource("/com/gn/theme/css/typographic.css").toExternalForm(),
-                getClass().getResource("/com/gn/theme/css/helpers.css").toExternalForm(),
-                getClass().getResource("/com/gn/theme/css/light-green.css").toExternalForm(),
-                getClass().getResource("/com/gn/theme/css/master.css").toExternalForm()
+                getClass().getResource("/theme/css/fonts.css").toExternalForm(),
+                getClass().getResource("/theme/css/material-color.css").toExternalForm(),
+                getClass().getResource("/theme/css/skeleton.css").toExternalForm(),
+                getClass().getResource("/theme/css/bootstrap.css").toExternalForm(),
+                getClass().getResource("/theme/css/shape.css").toExternalForm(),
+                getClass().getResource("/theme/css/typographic.css").toExternalForm(),
+                getClass().getResource("/theme/css/helpers.css").toExternalForm(),
+                getClass().getResource("/theme/css/light-green.css").toExternalForm(),
+                getClass().getResource("/theme/css/master.css").toExternalForm()
         );
 //
         decorator.getStage().getIcons().add(new Image("/com/gn/theme/img/logo_1.png"));
