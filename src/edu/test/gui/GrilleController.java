@@ -5,6 +5,8 @@
  */
 package edu.test.gui;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import edu.test.entities.grille;
 import edu.test.services.ServiceGrille;
@@ -52,7 +54,6 @@ public class GrilleController implements Initializable {
     private TextField txtide;
     @FXML
     private TextField txtcommentaire;
-    @FXML
     private TextField txtetat;
     @FXML
     private TableView<grille> eventcoursTV;
@@ -69,6 +70,11 @@ public class GrilleController implements Initializable {
     private TableColumn<grille, Integer> id;
     @FXML
     private TextField txtid;
+    @FXML
+    private JFXRadioButton radio;
+    @FXML
+    private JFXComboBox<String> cetat;
+    ObservableList<String> data2 = FXCollections.observableArrayList("accepté","refusé");
 
     /**
      * Initializes the controller class.
@@ -89,7 +95,8 @@ public class GrilleController implements Initializable {
                     txtid.setText(Integer.toString(grille.getIdg()));;
                     txtide.setText(Integer.toString(grille.getIde()));;
                     txtcommentaire.setText(grille.getCommentaire());
-                    txtetat.setText(String.valueOf(grille.getEtat()));
+                    cetat.setItems(data2);
+
                    
                 }
             }
@@ -147,7 +154,7 @@ public class GrilleController implements Initializable {
             rs = st.executeQuery(query);
             grille grille;
             while (rs.next()) {
-                grille = new grille(rs.getInt("Idg"),rs.getInt("Ide"), rs.getString("etat"), rs.getString("commentaire")); 
+                grille = new grille(rs.getInt("Idg"),rs.getInt("Ide"),rs.getString("commentaire"), rs.getString("etat") ); 
                 data.add(grille);
             }
         } catch (Exception ex) {
@@ -179,14 +186,23 @@ ex.printStackTrace();        }
     private void ajouteron(ActionEvent event) {
         int ide = Integer.parseInt(txtide.getText());
          String commentaire = txtcommentaire.getText();
-         String etat = txtetat.getText();
+         String etat = cetat.getValue();
          
         grille r = new grille(ide,commentaire,etat);
         sec.ajouterpp(r);  
         Refresh();
         txtide.clear();
         txtcommentaire.clear();
-        txtetat.clear();
+        cetat.getSelectionModel().clearSelection();
+        if(
+                    (txtide.getText().isEmpty() || txtcommentaire.getText().isEmpty() || cetat.getValue().isEmpty()))
+            {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Alerte !");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Veuillez remplir le formulaire");
+                    alert.showAndWait();
+            }
 
     
     }
@@ -200,11 +216,11 @@ ex.printStackTrace();        }
         idg = Integer.parseInt(txtid.getText());
         t.setIde(Integer.parseInt(txtide.getText()));
         t.setCommentaire(txtcommentaire.getText());
-        t.setEtat(txtetat.getText());
+        t.setEtat(cetat.getValue());
         
         
         
-        if (txtide.getText().isEmpty() || txtcommentaire.getText().isEmpty() || txtetat.getText().isEmpty()) {
+        if (txtide.getText().isEmpty() || txtcommentaire.getText().isEmpty() || cetat.getValue().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Alerte !");
             alert.setHeaderText(null);
@@ -216,7 +232,7 @@ ex.printStackTrace();        }
         Refresh();
         txtide.clear();
         txtcommentaire.clear();
-        txtetat.clear();
+        cetat.getSelectionModel().clearSelection();
 
     }
 
@@ -244,14 +260,46 @@ ex.printStackTrace();        }
                 
         txtide.clear();
         txtcommentaire.clear();
-        txtetat.clear();
+        cetat.getSelectionModel().clearSelection();
+        
 
             } else if (optionDeleteBookAlert.get() == ButtonType.CANCEL) {
             }
         
         }
     }
+
+    @FXML
+    private void radio(ActionEvent event) {
+        data.removeAll(data);
+
+         try {
+            Connection cnx = DataBase.getInstance().getConnection();
+            String query = "SELECT * FROM grille WHERE etat='accepté'";
+            Statement st;
+            ResultSet rs;
+            st = cnx.createStatement();
+            rs = st.executeQuery(query);
+            grille grille;
+            while (rs.next()) {
+                grille = new grille(rs.getInt("Idg"),rs.getInt("Ide"), rs.getString("commentaire") ,rs.getString("etat")); 
+                data.add(grille);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
+        id.setCellValueFactory(new PropertyValueFactory<>("Idg"));
+        idet.setCellValueFactory(new PropertyValueFactory<>("Ide"));
+        commentairet.setCellValueFactory(new PropertyValueFactory<>("commentaire"));
+        etatt.setCellValueFactory(new PropertyValueFactory<>("etat"));
+
+        eventcoursTV.setItems(data);;
+    
+    
+    }
  
+    
 
 }
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
@@ -15,22 +17,22 @@
 
 <AnchorPane id="AnchorPane" prefHeight="510.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.test.gui.GrilleController">
    <children>
-      <AnchorPane fx:id="Produitbtn1" layoutX="14.0" layoutY="27.0" minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="886.0">
+      <AnchorPane fx:id="Produitbtn1" layoutX="14.0" layoutY="26.0" minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="886.0">
          <children>
-            <JFXTextField fx:id="searchTF" accessibleRole="BUTTON" alignment="TOP_LEFT" layoutX="209.0" layoutY="52.0" onKeyTyped="#filter" prefHeight="31.0" prefWidth="174.0" promptText="Search" unFocusColor="#568058" />
+            <JFXTextField fx:id="searchTF" accessibleRole="BUTTON" alignment="TOP_LEFT" layoutX="136.0" layoutY="66.0" onKeyTyped="#filter" prefHeight="31.0" prefWidth="174.0" promptText="Search" unFocusColor="#568058" />
             <TextField fx:id="txtcommentaire" layoutX="649.0" layoutY="153.0" prefHeight="54.0" prefWidth="224.0" />
             <Label layoutX="649.0" layoutY="74.0" text="Id del'entretien relatif à la Grille:" textFill="#40238c">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="47.0" fitWidth="52.0" layoutX="350.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="47.0" fitWidth="52.0" layoutX="277.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/recherche.jpg" />
                </image>
             </ImageView>
         <AnchorPane layoutX="-372.0" layoutY="-343.0" minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="658.0" />
-            <TableView fx:id="eventcoursTV" layoutX="-2.0" layoutY="100.0" prefHeight="254.0" prefWidth="639.0">
+            <TableView fx:id="eventcoursTV" layoutX="-2.0" layoutY="128.0" prefHeight="254.0" prefWidth="639.0">
                <columns>
                   <TableColumn fx:id="idet" prefWidth="156.0" text="Id de l'entretien" />
                   <TableColumn fx:id="commentairet" prefWidth="209.0" text="commentaire" />
@@ -47,7 +49,6 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtetat" layoutX="666.0" layoutY="240.0" />
             <Label layoutX="711.0" layoutY="132.0" prefHeight="27.0" prefWidth="116.0" text="Commentaire :" textFill="#23308c">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -79,6 +80,8 @@
                   <Image url="@../../../images/edit.png" />
                </image>
             </ImageView>
+            <JFXRadioButton fx:id="radio" layoutX="392.0" layoutY="60.0" onAction="#radio" prefHeight="54.0" prefWidth="215.0" text="Candidats Acceptés" textFill="#272694" />
+            <JFXComboBox fx:id="cetat" layoutX="683.0" layoutY="236.0" prefHeight="37.0" prefWidth="160.0" promptText="etat" />
          </children>
       </AnchorPane>
       <JFXTabPane>
