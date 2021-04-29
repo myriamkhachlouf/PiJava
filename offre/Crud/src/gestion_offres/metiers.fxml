@@ -9,37 +9,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import org.controlsfx.control.Rating?>
 
-<AnchorPane id="AnchorPane" fx:id="fils" prefHeight="809.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_offres.MetiersController">
+<AnchorPane id="AnchorPane" fx:id="fils" prefHeight="852.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_offres.MetiersController">
    <children>
-      <ImageView fitHeight="809.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/background.jpg" />
-         </image>
-      </ImageView>
       <Button fx:id="Btn_precedent" layoutX="23.0" layoutY="27.0" onAction="#precedent" prefHeight="33.0" prefWidth="115.0" stylesheets="@dark_theme_1.css" text="Précédent" />
-      <TableView fx:id="table" layoutX="103.0" layoutY="317.0" prefHeight="350.0" prefWidth="309.0" rotate="5.0" stylesheets="@dark_theme_1.css">
+      <TableView fx:id="table" layoutX="122.0" layoutY="188.0" prefHeight="409.0" prefWidth="447.0">
         <columns>
           <TableColumn fx:id="idoffre" prefWidth="40.468647480010986" text="id" />
-          <TableColumn fx:id="idpromooffre" prefWidth="72.48966979980469" text="id_Entreprise" />
-            <TableColumn fx:id="nomoffre" prefWidth="70.68510437011719" text="nom" />
-            <TableColumn fx:id="imageoffre" prefWidth="55.48216247558594" text="image" />
-            <TableColumn fx:id="typeoffre" prefWidth="66.90565490722656" text="type" />
+          <TableColumn fx:id="idpromooffre" prefWidth="102.0" text="id_Entreprise" />
+            <TableColumn fx:id="nomoffre" prefWidth="94.0" text="nom" />
+            <TableColumn fx:id="imageoffre" prefWidth="121.0" text="image" />
+            <TableColumn fx:id="typeoffre" prefWidth="84.0" text="type" />
         </columns>
       </TableView>
-      <Button fx:id="Btn_supprimer" layoutX="393.0" layoutY="745.0" onAction="#supprimer_offre" prefHeight="33.0" prefWidth="125.0" stylesheets="@dark_theme_1.css" text="Supprimer" />
-      <Button fx:id="Stage" layoutX="393.0" layoutY="27.0" mnemonicParsing="false" onAction="#suivantStage" prefHeight="33.0" prefWidth="125.0" stylesheets="@dark_theme_1.css" text="Stage" />
-      <Button fx:id="Emploi" layoutX="393.0" layoutY="72.0" mnemonicParsing="false" onAction="#suivantEmploi" prefHeight="33.0" prefWidth="125.0" stylesheets="@dark_theme_1.css" text="Emploi" />
-      <Button fx:id="Btn_rate" layoutX="330.0" layoutY="699.0" onAction="#rate" prefHeight="34.0" prefWidth="92.0" stylesheets="@dark_theme_1.css" text="Rate !" />
+      <Button fx:id="Btn_supprimer" layoutX="697.0" layoutY="745.0" onAction="#supprimer_offre" prefHeight="33.0" prefWidth="125.0" stylesheets="@dark_theme_1.css" text="Supprimer" />
+      <Button fx:id="Stage" layoutX="713.0" layoutY="21.0" mnemonicParsing="false" onAction="#suivantStage" prefHeight="33.0" prefWidth="125.0" stylesheets="@dark_theme_1.css" text="Stage" />
+      <Button fx:id="Emploi" layoutX="713.0" layoutY="66.0" mnemonicParsing="false" onAction="#suivantEmploi" prefHeight="33.0" prefWidth="125.0" stylesheets="@dark_theme_1.css" text="Emploi" />
+      <Button fx:id="Btn_rate" layoutX="713.0" layoutY="672.0" onAction="#rate" prefHeight="34.0" prefWidth="92.0" stylesheets="@dark_theme_1.css" text="Rate !" />
       <Button fx:id="Btn_showrating" layoutX="53.0" layoutY="745.0" onAction="#showrating" prefHeight="34.0" prefWidth="143.0" stylesheets="@dark_theme_1.css" text="Show Info" />
-      <TextField fx:id="search" layoutX="191.0" layoutY="268.0" onKeyTyped="#recherche" prefHeight="19.0" prefWidth="174.0" promptText="Search" rotate="5.0" />
-      <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="139.0" layoutY="256.0" rotate="5.0">
+      <TextField fx:id="search" layoutX="335.0" layoutY="114.0" onKeyTyped="#recherche" prefHeight="19.0" prefWidth="174.0" promptText="Search" />
+      <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="276.0" layoutY="113.0" rotate="5.0">
          <image>
             <Image url="@../images/magnifying-glass.png" />
          </image>
       </ImageView>
-      <Button fx:id="TRIASC" layoutX="422.0" layoutY="428.0" onAction="#TRIASC" prefHeight="34.0" prefWidth="115.0" stylesheets="@dark_theme_1.css" text="TRI ASC" />
-      <Button fx:id="TRIDESC" layoutX="422.0" layoutY="492.0" onAction="#TRIDESC" prefHeight="34.0" prefWidth="115.0" stylesheets="@dark_theme_1.css" text="TRI DESC" />
+      <Button fx:id="TRIASC" layoutX="718.0" layoutY="299.0" onAction="#TRIASC" prefHeight="34.0" prefWidth="115.0" stylesheets="@dark_theme_1.css" text="TRI ASC" />
+      <Button fx:id="TRIDESC" layoutX="718.0" layoutY="363.0" onAction="#TRIDESC" prefHeight="34.0" prefWidth="115.0" stylesheets="@dark_theme_1.css" text="TRI DESC" />
       <Button fx:id="Btn_stat" layoutX="229.0" layoutY="745.0" onAction="#stat" prefHeight="33.0" prefWidth="125.0" stylesheets="@dark_theme_1.css" text="Statistiques" />
-      <Rating fx:id="rating" layoutX="84.0" layoutY="700.0" prefHeight="33.0" prefWidth="176.0" />
+      <Rating fx:id="rating" layoutX="499.0" layoutY="673.0" prefHeight="33.0" prefWidth="176.0" />
    </children>
 </AnchorPane>
