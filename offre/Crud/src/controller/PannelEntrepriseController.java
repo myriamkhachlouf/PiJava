@@ -267,6 +267,18 @@ public class PannelEntrepriseController implements Initializable {
         }
     }
 
+    @FXML
+    private void candidature(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/metiers_candidature.fxml"));       
+            Parent root = loader.load();
+            container_client.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
+        
+    }
+
     
     }
     

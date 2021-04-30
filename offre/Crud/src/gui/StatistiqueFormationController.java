@@ -45,7 +45,7 @@ public class StatistiqueFormationController implements Initializable {
     @FXML
     private void retour(ActionEvent event) {
         try {
-            Parent loader = FXMLLoader.load(getClass().getResource("formation.fxml"));
+            Parent loader = FXMLLoader.load(getClass().getResource("/gui/PannelEntrepriseFXML.fxml"));
             Scene scene = new Scene(loader);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             // AdminPageController apc= loader.getController();

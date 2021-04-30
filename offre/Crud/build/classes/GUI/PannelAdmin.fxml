@@ -59,7 +59,7 @@
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Button>
-                              <Button fx:id="ListePartner1" layoutX="14.0" layoutY="32.0" mnemonicParsing="false" onAction="#ListePartner" prefHeight="32.0" prefWidth="217.0" text="Statistique des Utilisateurs" textAlignment="CENTER">
+                              <Button fx:id="ListePartner1" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#ListePartner" prefHeight="32.0" prefWidth="217.0" text="Statistique des Utilisateurs" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -80,11 +80,11 @@
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Button>
-                              <Button fx:id="btnEvent" layoutX="32.0" layoutY="30.0" mnemonicParsing="false" onAction="#gest_event" prefHeight="32.0" prefWidth="217.0" text="Les Evenements">
+                              <Button fx:id="btnEvent" layoutX="32.0" layoutY="49.0" mnemonicParsing="false" onAction="#gest_event" prefHeight="32.0" prefWidth="217.0" text="Les Evenements">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Button>
-                              <Button fx:id="FormStat" layoutX="21.0" layoutY="63.0" mnemonicParsing="false" onAction="#StatForm" prefHeight="32.0" prefWidth="217.0" text="Les Formateur">
+                              <Button fx:id="FormStat" layoutX="32.0" layoutY="100.0" mnemonicParsing="false" onAction="#StatForm" prefHeight="32.0" prefWidth="217.0" text="Les Formateur">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Button>
@@ -104,10 +104,15 @@
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Button>
-                              <Button fx:id="ConsulterOffres" layoutX="38.0" layoutY="30.0" mnemonicParsing="false" onAction="#ConsulterOffres" prefHeight="32.0" prefWidth="217.0" text="Consulter des offres">
+                              <Button fx:id="ConsulterOffres" layoutX="38.0" layoutY="47.0" mnemonicParsing="false" onAction="#ConsulterOffres" prefHeight="32.0" prefWidth="217.0" text="Consulter des offres">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Button>
+                              <Button fx:id="ConsulterOffres1" layoutX="38.0" layoutY="100.0" mnemonicParsing="false" onAction="#ConsulterCandidatures" prefHeight="32.0" prefWidth="217.0" text="Consulter Les Candidatures">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                   </content>
@@ -160,7 +165,7 @@
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font></Button>
-                              <Button fx:id="StatPubl" layoutX="7.0" layoutY="47.0" mnemonicParsing="false" onAction="#StatPubli" prefHeight="32.0" prefWidth="217.0" text="Statistiques">
+                              <Button fx:id="StatPubl" layoutX="7.0" layoutY="68.0" mnemonicParsing="false" onAction="#StatPubli" prefHeight="32.0" prefWidth="217.0" text="Statistiques">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>

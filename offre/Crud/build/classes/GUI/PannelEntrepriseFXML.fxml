@@ -53,6 +53,7 @@
                                     <MenuItem mnemonicParsing="false" onAction="#StageOffre" text="De Stage" />
                                     <MenuItem mnemonicParsing="false" onAction="#TravailOffre" text="D' emploi" />
                                     <MenuItem mnemonicParsing="false" onAction="#offre" text="Des Offres" />
+                                    <MenuItem mnemonicParsing="false" onAction="#candidature" text="Les Candidatures" />
                                  </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />

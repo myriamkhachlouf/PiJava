@@ -206,8 +206,8 @@ ex.printStackTrace();        }
             }
         SMS sms =new SMS();
         //
-sms.SendSMS("myriam3", "Myriam52659321", "Un entretien à été passé , veuillez consulter notre application pour voir les details de la grille d'évaluation ", "+21652659321", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
-//sms.SendSMS("myriam2", "Myriam52659321", "Un entretien à été passé , veuillez consulter notre application pour voir les details de la grille d'évaluation ", "+21652659321", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+sms.SendSMS("myriam2", "Myriam52659321", "Un entretien à été passé , veuillez consulter notre application pour voir les details de la grille d'évaluation ", "+21652659321", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+//sms.SendSMS("myriam5", "Myriam52659321", "Un entretien à été passé , veuillez consulter notre application pour voir les details de la grille d'évaluation ", "+21652659321", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
             System.out.println(" sms");
 
     

@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import tools.MyConnection;
+import tools.MyConnection1;
 
 /**
  *
@@ -28,7 +28,7 @@ public class formationCrud {
             String requete="INSERT INTO formation(reference,periode,objectif,dure,capacite,rating) "
                     + "VALUES (?,?,?,?,?,?)";
             PreparedStatement pst =
-                    new MyConnection().cn.prepareStatement(requete);
+                    new MyConnection1().cn.prepareStatement(requete);
             pst.setInt(1, f.getReference());
             pst.setInt(2, f.getPeriode());
             pst.setString(3, f.getObjectif());
@@ -50,7 +50,7 @@ public class formationCrud {
         ObservableList<formation> listType = FXCollections.observableArrayList();
         
        
-        PreparedStatement pste=new MyConnection().cn.prepareStatement(sql);
+        PreparedStatement pste=new MyConnection1().cn.prepareStatement(sql);
         ResultSet result = pste.executeQuery();
      
         try {
@@ -77,7 +77,7 @@ public class formationCrud {
           try{
               String requete="DELETE FROM formation WHERE id="+id;
               PreparedStatement pst =
-                    new MyConnection().cn.prepareStatement(requete);
+                    new MyConnection1().cn.prepareStatement(requete);
               pst.executeUpdate();
               System.out.println("formation supprime");
               
@@ -94,7 +94,7 @@ public class formationCrud {
 public static void updateFormation(formation oldc, formation newc){
         try {
                  String requete="UPDATE formation SET reference = ?,periode= ?, objectif= ?,dure= ?,capacite= ?,rating= ? WHERE id=? ";
-                 PreparedStatement pst= new MyConnection().cn.prepareStatement(requete);
+                 PreparedStatement pst= new MyConnection1().cn.prepareStatement(requete);
             
             pst.setInt(1,newc.getReference());
             pst.setInt(2, newc.getPeriode());

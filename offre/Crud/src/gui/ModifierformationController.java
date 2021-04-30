@@ -90,7 +90,7 @@ alert.setContentText("vous étes sure ?");
         notif.setNotificationType(NotificationType.SUCCESS);
         notif.showAndDismiss(javafx.util.Duration.millis(3000)); 
         try {
-        Parent loader = FXMLLoader.load(getClass().getResource("formation.fxml"));
+        Parent loader = FXMLLoader.load(getClass().getResource("PannelEntrepriseFXML.fxml"));
             //  Parent root  = loader.load();
             Scene  scene = new Scene(loader);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -112,7 +112,12 @@ alert.setContentText("vous étes sure ?");
         tc.addformateur(tp);
         SMS sms =new SMS();
         //sms.SendSMS("arbi098", "Mohamed55590231", "test test weldek behi nhebek baba ", "+21622597255", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
-            System.out.println("test sms");
+        sms.SendSMS("arbi1", "Myriam52659321", "test test weldek behi nhebek baba ", "+21622597255", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+        
+       // sms.SendSMS("arbi10", "Myriam52659321", "test test weldek behi nhebek baba ", "+21622597255", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+            
+            System.out.println("test sms");    
+        System.out.println("test sms");
            
         notif.setAnimationType(Type);    
         notif.setTitle(title);
@@ -178,7 +183,7 @@ alert.setContentText("vous étes sure ?");
  
     public static void generate_qr(String image_name,String qrCodeData) {
         try {
-            String filePath = "C:\\Users\\Bouhejba\\Desktop"+image_name+".png";
+            String filePath = "D:\\wamp64\\www\\PiJava\\offre\\Crud\\src\\qr arbi"+image_name+".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);

@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import entities.donnéeevent;
 import java.net.URL;
 import java.time.LocalDate;
@@ -20,6 +23,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,6 +38,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -44,6 +49,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -96,6 +102,8 @@ public class EventController implements Initializable {
     @FXML
     private TextField photo_p;
     private Image image;
+    @FXML
+    private Button pdfarbi;
   
     /**
      * Initializes the controller class.
@@ -499,7 +507,51 @@ alert.setContentText("vous étes sure ?");
             }
     }
 
-   
+    @FXML
+    private void pdf(ActionEvent event) {
+        try {
+            Document document = new Document() {
+            };
+            PdfWriter.getInstance(document, new FileOutputStream("D:\\wamp64\\www\\PiJava\\offre\\Crud\\event.pdf"));
+            document.open();
+            PdfPTable table = new PdfPTable(6);
+            table.setWidthPercentage(100);
+            table.getDefaultCell().setBorder(2);
+            table.addCell("nom");
+            table.addCell("prenom");
+            table.addCell("domaine");
+
+            com.itextpdf.text.Paragraph p = new com.itextpdf.text.Paragraph();
+            p.add("Liste Des Recruteurs");
+            p.setAlignment(com.itextpdf.text.Element.ALIGN_CENTER);
+            document.add(p);
+              Class.forName("com.mysql.jdbc.Driver");
+
+            MyConnection cn = MyConnection.getinstance();
+            Statement st = cn.getConnexion().createStatement();
+
+            ResultSet rs = st.executeQuery("SELECT * FROM evenement");
+            while (rs.next()) {
+                table.addCell(rs.getString("nom"));
+                table.addCell(rs.getString("description"));
+                table.addCell(rs.getString("email"));
+
+            }
+            document.add(table);
+           
+
+        } catch (Exception e) {
+
+            System.out.println("Error PDF");
+            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+        }
     }
+
+
+    }
+
+   
+    
     
 

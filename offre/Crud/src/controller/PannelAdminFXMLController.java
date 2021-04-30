@@ -53,8 +53,6 @@ public class PannelAdminFXMLController implements Initializable {
     @FXML
     private TitledPane GestionEntre;
     @FXML
-    private Button ListEntr;
-    @FXML
     private Button StatEntr;
     @FXML
     private TitledPane GestionReclam;
@@ -70,6 +68,8 @@ public class PannelAdminFXMLController implements Initializable {
     private Button StatPubl;
     @FXML
     private AnchorPane container_admin;
+    @FXML
+    private Button ConsulterOffres1;
     
     public AnchorPane getContainer_admin() {
         return container_admin;
@@ -211,9 +211,6 @@ public class PannelAdminFXMLController implements Initializable {
         
     }
 
-    @FXML
-    private void ListeEntre(ActionEvent event) {
-    }
 
     @FXML
     private void StatEntre(ActionEvent event) {
@@ -249,6 +246,18 @@ public class PannelAdminFXMLController implements Initializable {
 
     @FXML
     private void StatPubli(ActionEvent event) {
+    }
+
+    @FXML
+    private void ConsulterCandidatures(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/metriers_candidature.fxml"));       
+            Parent root = loader.load();
+            container_admin.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
+        
     }
     
 }
