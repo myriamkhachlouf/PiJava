@@ -7,6 +7,8 @@ package gestion_offres;
 
 import Entities.Stage;
 import Entities.Offres;
+import Entities.users;
+import Service.UsersService;
 import utils.MaConnexion;
 import java.io.IOException;
 import java.net.URL;
@@ -141,6 +143,25 @@ ObservableList<Stage> stageList = FXCollections.observableArrayList();
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         showstage();
+         UsersService US=new UsersService();
+    int id = MaConnexion.getInstance().connectedUserID;
+            users u=US.getUserByID(id);
+            if (u.getRoles().equals("[\"ROLE_CANDIDAT\"]")==true||u.getRoles().equals("[\"ROLE_ADMIN\"]")==true){
+            postuler.setVisible(true);
+            
+            }
+            else{
+                postuler.setVisible(false);
+            }
+            
+             if (u.getRoles().equals("[\"ROLE_ENTREPRISE\"]")==true||u.getRoles().equals("[\"ROLE_ADMIN\"]")==true){
+             Btn_supprimer2.setVisible(true);
+             Btn_precedent2.setVisible(true);
+             }
+            else{
+                Btn_supprimer2.setVisible(false);
+                Btn_precedent2.setVisible(false);
+            }
     }    
 
     @FXML

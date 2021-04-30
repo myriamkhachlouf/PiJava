@@ -24,6 +24,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Service.UsersService;
+import java.io.File;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,6 +40,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import javax.mail.internet.AddressException;
 import org.controlsfx.control.Notifications;
@@ -59,7 +61,7 @@ public class CandidatureController implements Initializable {
     @FXML
     private Button Btn_modifier4;
     @FXML
-    private TextField tfpdf;
+    private Button tfpdf;
     @FXML
     private ComboBox<Offres> idoffre_candidature;
     @FXML
@@ -67,7 +69,7 @@ public class CandidatureController implements Initializable {
     @FXML
     private DatePicker date_candidature;
     ServiceOffres AC= new ServiceOffres();
-  
+  String urlInserted;
     UsersService DC= new UsersService();
     int user_id =MaConnexion.getInstance().connectedUserID;
       String role=new UsersService().getUserByID(user_id).getRoles();
@@ -93,14 +95,14 @@ public class CandidatureController implements Initializable {
            int id = Integer.parseInt(tfid_candidature.getText());
         int offre_id = idoffre_candidature.getValue().getId();
         int candidat_id =user_id;
-        String pdf = tfpdf.getText();
+        String pdf = urlInserted;
         LocalDate date = date_candidature.getValue();
         String Date = date.toString();
         Candidature e = new Candidature(id,candidat_id,offre_id,Date,pdf);
         sr.ModifierCandidature(id,e);
         
            tfid_candidature.clear();
-                  tfpdf.clear();
+                  
                   Notifications notificationBuilder = Notifications.create()
                 .title("Candidature Modifié")
                 .text("Votre Candidature a été Modifié avec succès")
@@ -117,7 +119,7 @@ public class CandidatureController implements Initializable {
         int id = Integer.parseInt(tfid_candidature.getText());
         int offre_id = idoffre_candidature.getValue().getId();
         int candidat_id =user_id;
-        String pdf = tfpdf.getText();
+        String pdf = urlInserted;
         LocalDate date = date_candidature.getValue();
         String Date = date.toString();
         Candidature A = new Candidature(id,candidat_id,offre_id,Date,pdf);
@@ -153,6 +155,46 @@ public class CandidatureController implements Initializable {
                 notificationBuilder.show();
                  String qr=aS.QR(A,user_id);
                 aS.sendRes(A, user_id, qr);
+    }
+
+    @FXML
+    private void upload(ActionEvent event) {
+         FileChooser fc = new FileChooser();
+        //fc.setInitialDirectory(" ");
+        fc.getExtensionFilters().addAll();
+        //--for single file
+        File selectedFile = fc.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            //listView.getItems().add(selectedFile.getAbsolutePath());
+            urlInserted = "file:///" + selectedFile.getAbsolutePath();
+            String a="";
+            for (int i=0;i<urlInserted.length();i++){
+                
+                
+                a=a+urlInserted.charAt(i);
+                if (urlInserted.charAt(i) =='\\'){
+                    
+                     a=a+"\\" ;
+                }
+            
+            
+            }
+            
+            urlInserted=a;
+            
+            
+            tfpdf.setText(selectedFile.getAbsolutePath());
+            
+
+            //imageView1.setText(selectedFile.getName());
+            /*
+            Image image1 = new Image(selectedFile.toURI().toString());
+            imageView1.setImage(image1);
+             */
+        } else {
+            System.out.println("Not valid file");
+        }
     }
 
     

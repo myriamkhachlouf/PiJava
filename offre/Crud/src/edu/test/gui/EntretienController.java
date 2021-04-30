@@ -14,7 +14,7 @@ import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import edu.test.entities.Recruteur;
 import edu.test.services.ServiceEntretien;
 import edu.test.utils.DataBase;
-import edu.test.utils.JavaMail;
+import Utils.JavaMail;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -517,7 +517,7 @@ public class EntretienController implements Initializable {
                                 System.out.println(Email); // debug
                             
 
-                                
+                                  JavaMail.sendMail(Email);
                                 //showevent2();
                             }Alert succDeleteBookAlert = new Alert(Alert.AlertType.INFORMATION);
                     succDeleteBookAlert.setTitle("envoi du mail");

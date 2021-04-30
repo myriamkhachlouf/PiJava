@@ -6,7 +6,9 @@
 package gestion_offres;
 
 import Entities.Offres;
+import Entities.users;
 import Service.ServiceOffres;
+import Service.UsersService;
 import utils.MaConnexion;
 import java.io.IOException;
 import static java.lang.Math.round;
@@ -145,6 +147,19 @@ public class MetiersController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         showaliment();
+        UsersService US=new UsersService();
+    int id = MaConnexion.getInstance().connectedUserID;
+            users u=US.getUserByID(id);
+            if (u.getRoles().equals("[\"ROLE_ENTREPRISE\"]")==true||u.getRoles().equals("[\"ROLE_ADMIN\"]")==true){
+            Btn_stat.setVisible(true);
+            Btn_supprimer.setVisible(true);
+            Btn_precedent.setVisible(true);
+            }
+            else{
+                Btn_stat.setVisible(false);
+                Btn_supprimer.setVisible(false);
+                Btn_precedent.setVisible(false);
+            }
     }   
     @FXML
     private void precedent(ActionEvent event) throws IOException {

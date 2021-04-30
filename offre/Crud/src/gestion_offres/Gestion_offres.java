@@ -19,7 +19,7 @@ public class Gestion_offres extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/PannelAdmin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/singnin.fxml"));
         
         Scene scene = new Scene(root);
         

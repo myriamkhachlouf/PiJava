@@ -10,40 +10,50 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane_login" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SigninController">
+<AnchorPane prefHeight="859.0" prefWidth="1080.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SigninController">
    <children>
-      <ImageView fitHeight="175.0" fitWidth="607.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/recrutement.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="112.0" layoutY="255.0" text="Email">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="112.0" layoutY="297.0" text="Mot de passe">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button fx:id="btn_login" layoutX="262.0" layoutY="329.0" mnemonicParsing="false" onAction="#login1" style="-fx-background-color: #2f85c3;" text="Se connecter" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <Label layoutX="209.0" layoutY="164.0" prefHeight="34.0" prefWidth="195.0" text="Connectez-Vous" textAlignment="CENTER" textFill="#2f85c3">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="type" layoutX="226.0" layoutY="211.0" prefHeight="26.0" prefWidth="150.0" promptText="Choisir type" />
-      <TextField fx:id="txt_mail" layoutX="226.0" layoutY="254.0" prefHeight="26.0" prefWidth="150.0" promptText="Entrer votre mail" text="mohamed.hachicha@esprit.tn" />
-      <PasswordField fx:id="txt_password" layoutX="224.0" layoutY="296.0" prefHeight="26.0" prefWidth="150.0" promptText="Entrer votre mot de passe" text="88" />
-      <Button fx:id="btn_login1" layoutX="242.0" layoutY="362.0" mnemonicParsing="false" onAction="#forgotPass" prefHeight="24.0" prefWidth="127.0" style="-fx-background-color: #4e5a51;" text="Mot de passe oublié?" textFill="WHITE">
-         <font>
-            <Font name="Times New Roman Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="inscri" layoutX="454.0" layoutY="254.0" mnemonicParsing="false" onAction="#inscription" text="Inscrivez vous" />
+      <AnchorPane id="AnchorPane" fx:id="pane_login" layoutX="199.0" layoutY="59.0" prefHeight="794.0" prefWidth="1025.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <AnchorPane layoutX="270.0" layoutY="122.0" prefHeight="558.0" prefWidth="755.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="253.0" layoutY="298.0" text="Email">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="205.0" layoutY="354.0" text="Mot de passe">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btn_login" layoutX="355.0" layoutY="419.0" mnemonicParsing="false" onAction="#login1" style="-fx-background-color: #2f85c3;" text="Se connecter" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="291.0" layoutY="174.0" prefHeight="34.0" prefWidth="195.0" text="Connectez-Vous" textAlignment="CENTER" textFill="#2f85c3">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="type" layoutX="314.0" layoutY="222.0" prefHeight="26.0" prefWidth="150.0" promptText="Choisir type" />
+                  <TextField fx:id="txt_mail" layoutX="314.0" layoutY="295.0" prefHeight="26.0" prefWidth="150.0" promptText="Entrer votre mail" stylesheets="@../Style/theme/css/login.css" text="mohamed.hachicha@esprit.tn" />
+                  <PasswordField fx:id="txt_password" layoutX="325.0" layoutY="351.0" prefHeight="26.0" prefWidth="150.0" promptText="Entrer votre mot de passe" stylesheets="@../Style/theme/css/login.css" text="88" />
+                  <Button fx:id="btn_login1" layoutX="336.0" layoutY="470.0" mnemonicParsing="false" onAction="#forgotPass" prefHeight="24.0" prefWidth="127.0" style="-fx-background-color: #4e5a51;" text="Mot de passe oublié?" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="inscri" layoutX="614.0" layoutY="494.0" mnemonicParsing="false" onAction="#inscription" text="Inscrivez vous" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="291.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/unnamed.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="62.0" layoutY="240.0" prefHeight="791.0" prefWidth="372.0" style="-fx-background-color: linear-gradient(to right top, #c32fac, #7b72e9, #009bfb, #00b6e9, #12c9c9);" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="19.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

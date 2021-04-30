@@ -26,9 +26,9 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="870.0" prefHeight="87.0" prefWidth="330.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <ImageView fitHeight="84.0" fitWidth="92.0" onMouseClicked="#accueilAdmin" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="90.0" fitWidth="91.0" onMouseClicked="#accueilAdmin" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/21.png" />
+                        <Image url="@../images/icons8-admin-settings-male-100.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="28.0" prefWidth="146.0" text="Administrateur" textFill="#031251">
@@ -120,10 +120,6 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF;">
                            <children>
-                              <Button fx:id="ListEntr" layoutX="28.0" layoutY="-2.0" mnemonicParsing="false" onAction="#ListeEntre" prefHeight="32.0" prefWidth="217.0" text="Liste des entretiens" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font></Button>
                               <Button fx:id="StatEntr" layoutX="28.0" layoutY="30.0" mnemonicParsing="false" onAction="#StatEntre" prefHeight="32.0" prefWidth="218.0" text="Statistiques">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
@@ -188,6 +184,11 @@
             <AnchorPane fx:id="container_admin" layoutX="24.0" layoutY="33.0" prefHeight="781.0" prefWidth="868.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="33.0" />
          </children>
       </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="37.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/unnamed.png" />
+         </image>
+      </ImageView>
    </children>
    <stylesheets>
       <URL value="@../Style/theme/css/fonts.css" />

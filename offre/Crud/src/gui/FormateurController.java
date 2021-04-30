@@ -39,6 +39,9 @@ import tools.MyConnection;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
+import edu.test.utils.mailxd;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 /**
  * FXML Controller class
  *
@@ -67,10 +70,11 @@ public class FormateurController implements Initializable {
         
         
         // TODO
-    }    
+    }  
+       
 
     @FXML
-    private void ajouterformateur(ActionEvent event) throws IOException {
+    private void ajouterformateur(ActionEvent event) throws IOException, Exception {
         
     if ((tnom.getText().equals(""))&&(tprenom.getText().equals(""))&&(tstatut.getText().equals(""))&&(temail.getText().equals(""))&&(typecontrat.getText().equals(""))&&(tpassword.getText().equals("")))
             {
@@ -107,9 +111,9 @@ alert.setContentText("vous étes sure ?");
         formateurCrud tc=new formateurCrud();
         tc.addformateur(tp);
         SMS sms =new SMS();
-        sms.SendSMS("arbi098", "Mohamed55590231", "test test weldek behi nhebek baba ", "+21622597255", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+        //sms.SendSMS("arbi098", "Mohamed55590231", "test test weldek behi nhebek baba ", "+21622597255", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
             System.out.println("test sms");
-       
+           
         notif.setAnimationType(Type);    
         notif.setTitle(title);
         notif.setNotificationType(NotificationType.SUCCESS);
@@ -132,7 +136,7 @@ alert.setContentText("vous étes sure ?");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-        Parent loader = FXMLLoader.load(getClass().getResource("aficherFormateur.fxml"));
+        Parent loader = FXMLLoader.load(getClass().getResource("PannelEntrepriseFXML.fxml"));
             //  Parent root  = loader.load();
             Scene  scene = new Scene(loader);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -141,7 +145,7 @@ alert.setContentText("vous étes sure ?");
             window.show();
             
             }else
-        {Parent loader = FXMLLoader.load(getClass().getResource("formateur.fxml"));
+        {Parent loader = FXMLLoader.load(getClass().getResource("PannelEntrepriseFXML.fxml"));
         Scene scene = new Scene(loader);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         // AdminPageController apc= loader.getController();
@@ -150,6 +154,7 @@ alert.setContentText("vous étes sure ?");
         window.show();
      
         }
+                 
     
     }
     }

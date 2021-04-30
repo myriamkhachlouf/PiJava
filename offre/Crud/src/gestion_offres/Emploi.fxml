@@ -5,45 +5,38 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="filss" prefHeight="809.0" prefWidth="536.0" stylesheets="@dark_theme_1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_offres.EmploiController">
+<AnchorPane id="AnchorPane" fx:id="filss" prefHeight="810.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_offres.EmploiController">
    <children>
       <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <ImageView fitHeight="809.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/background.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="134.0" layoutY="298.0" prefHeight="21.0" prefWidth="48.0" rotate="6.0" text="id:">
+      <Label layoutX="320.0" layoutY="193.0" prefHeight="21.0" prefWidth="48.0" text="id:">
          <rotationAxis>
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <TextField fx:id="tfid_emploi" layoutX="229.0" layoutY="303.0" prefHeight="37.0" prefWidth="143.0" rotate="5.0" />
-      <Button fx:id="Btn_modifier" layoutX="410.0" layoutY="737.0" onAction="#modifier_emploi" text="Modifier" />
-      <Label layoutX="126.0" layoutY="359.0" prefHeight="21.0" prefWidth="69.0" rotate="7.0" text="id offre:">
+      <TextField fx:id="tfid_emploi" layoutX="426.0" layoutY="185.0" prefHeight="37.0" prefWidth="143.0" />
+      <Button fx:id="Btn_modifier" layoutX="122.0" layoutY="677.0" onAction="#modifier_emploi" text="Modifier" />
+      <Label layoutX="309.0" layoutY="268.0" prefHeight="21.0" prefWidth="69.0" text="Offre:">
          <rotationAxis>
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <TextField fx:id="tfsalaire_emploi" layoutX="216.0" layoutY="437.0" prefHeight="37.0" prefWidth="143.0" rotate="5.0" />
-      <ComboBox fx:id="idoffre_emploi" layoutX="222.0" layoutY="362.0" prefHeight="43.0" prefWidth="146.0" rotate="5.0" styleClass="table-view" />
-      <Label layoutX="115.0" layoutY="434.0" prefHeight="21.0" prefWidth="98.0" rotate="8.0" text="salaire:">
+      <TextField fx:id="tfsalaire_emploi" layoutX="427.0" layoutY="408.0" prefHeight="37.0" prefWidth="143.0" />
+      <ComboBox fx:id="idoffre_emploi" layoutX="425.0" layoutY="257.0" prefHeight="43.0" prefWidth="146.0" styleClass="table-view" />
+      <Label layoutX="319.0" layoutY="416.0" prefHeight="21.0" prefWidth="98.0" text="salaire:">
          <rotationAxis>
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <Label layoutX="107.0" layoutY="501.0" prefHeight="21.0" prefWidth="91.0" rotate="8.0" text="type contrat:">
+      <Label layoutX="298.0" layoutY="512.0" prefHeight="21.0" prefWidth="91.0" text="type contrat:">
          <rotationAxis>
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <ComboBox fx:id="idtype_emploi" layoutX="205.0" layoutY="504.0" onAction="#tt" prefHeight="43.0" prefWidth="146.0" rotate="5.0" styleClass="table-view" />
-      <Button fx:id="Btn_suivant" layoutX="410.0" layoutY="34.0" onAction="#Suivant" prefHeight="33.0" prefWidth="103.0" text="Suivant" />
-      <Button fx:id="Btn_ajouter" layoutX="410.0" layoutY="697.0" onAction="#ajouter_emploi" prefHeight="33.0" prefWidth="103.0" text="Ajouter" />
+      <ComboBox fx:id="idtype_emploi" layoutX="425.0" layoutY="501.0" onAction="#tt" prefHeight="43.0" prefWidth="146.0" styleClass="table-view" />
+      <Button fx:id="Btn_suivant" layoutX="776.0" layoutY="34.0" onAction="#Suivant" prefHeight="33.0" prefWidth="103.0" text="Suivant" />
+      <Button fx:id="Btn_ajouter" layoutX="740.0" layoutY="676.0" onAction="#ajouter_emploi" prefHeight="33.0" prefWidth="103.0" text="Ajouter" />
       <Button fx:id="Btn_precedent1" layoutX="23.0" layoutY="34.0" onAction="#precedentt" prefHeight="33.0" prefWidth="124.0" text="Précédent" />
    </children>
 </AnchorPane>

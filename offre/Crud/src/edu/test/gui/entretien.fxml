@@ -45,7 +45,7 @@
                   <Image url="@../../../images/recherche.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="706.0" layoutY="348.0" mnemonicParsing="false" onAction="#ajouteron" prefHeight="36.0" prefWidth="175.0" styleClass="button2" text="Ajouter" textFill="#121d39">
+            <Button layoutX="706.0" layoutY="383.0" mnemonicParsing="false" onAction="#ajouteron" prefHeight="36.0" prefWidth="175.0" styleClass="button2" text="Ajouter" textFill="#121d39">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -84,22 +84,22 @@
                </font>
             </Label>
             <JFXDatePicker fx:id="txtdate" layoutX="752.0" layoutY="134.0" prefHeight="31.0" prefWidth="175.0" />
-            <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="729.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="729.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/valider.png" />
                </image>
             </ImageView>
-            <Button layoutX="706.0" layoutY="389.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="34.0" prefWidth="174.0" text="Supprimer" textFill="#0a0f2f">
+            <Button layoutX="706.0" layoutY="424.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="34.0" prefWidth="174.0" text="Supprimer" textFill="#0a0f2f">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="705.0" layoutY="431.0" mnemonicParsing="false" onAction="#modifier" prefHeight="34.0" prefWidth="174.0" text="Modifier" textFill="#0a0f2f">
+            <Button layoutX="706.0" layoutY="467.0" mnemonicParsing="false" onAction="#modifier" prefHeight="34.0" prefWidth="174.0" text="Modifier" textFill="#0a0f2f">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="728.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="728.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Corbeille1.png" />
                </image>
@@ -124,13 +124,13 @@
                   <Image url="@../../../images/mailing.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="727.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="722.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/edit.png" />
                </image>
             </ImageView>
             <JFXComboBox fx:id="txtconfirmation" layoutX="834.0" layoutY="238.0" />
-            <JFXComboBox fx:id="txtetat" layoutX="834.0" layoutY="292.0" />
+            <JFXComboBox fx:id="txtetat" layoutX="834.0" layoutY="282.0" />
          </children>
       </AnchorPane>
    </children>

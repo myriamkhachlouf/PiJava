@@ -25,6 +25,9 @@ import javafx.stage.Stage;
 import Entities.users;
 import Entities.UserSession;
 import Service.UsersService;
+import java.io.File;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import utils.MaConnexion;
 
 
@@ -97,7 +100,7 @@ public class SigninController implements Initializable {
                 root = FXMLLoader.load(getClass().getResource("/gui/PannelAdmin.fxml"));  
             }
             else if (u.getRoles().equals("[\"ROLE_CANDIDAT\"]")==true){
-                root = FXMLLoader.load(getClass().getResource("/gui/PannelClient.fxml"));  
+                root = FXMLLoader.load(getClass().getResource("/here/PannelClient.fxml"));  
             }
             else{
                 root = FXMLLoader.load(getClass().getResource("/gui/PannelEntrepriseFXML.fxml")); 
@@ -108,6 +111,10 @@ public class SigninController implements Initializable {
             mainstage.setScene(scene);
             mainstage.show();
             UserSession.getInstance(type.getValue().toString(),txt_mail.getText());
+            String path="D:\\wamp64\\www\\PiJava\\offre\\Crud\\src\\Style\\intro.mp3";
+            Media media =new Media(new File(path).toURI().toString());
+            MediaPlayer mediaplayer = new MediaPlayer(media);
+            mediaplayer.play();
         }
 
                 

@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +23,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  * FXML Controller class
@@ -57,6 +60,8 @@ public class PannelClientController implements Initializable {
     private MenuItem info;
     @FXML
     private MenuItem Blog;
+    @FXML
+    private MenuItem Offre;
 
     /**
      * Initializes the controller class.
@@ -165,14 +170,23 @@ public class PannelClientController implements Initializable {
     @FXML
     private void LogoutBox(MouseEvent event) {
          
-         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/khedmtech/gui/singin.fxml"));
+      
+            try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/singnin.fxml"));
             Parent root = loader.load();
-              
-           forum.getScene().setRoot(root);
+            //SingninController sc = loader.getController();
+
+              container_client.getScene().setRoot(root);
+
         } catch (IOException ex) {
-            Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
+         String path="D:\\wamp64\\www\\PiJava\\offre\\Crud\\src\\Style\\outro.mp3";
+            Media media =new Media(new File(path).toURI().toString());
+            MediaPlayer mediaplayer = new MediaPlayer(media);
+            mediaplayer.play();
+    
+    
     }
 
     @FXML
@@ -190,6 +204,18 @@ public class PannelClientController implements Initializable {
     private void loadBlog(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_publication/BlogHomeFXML.fxml"));
+            Parent root = loader.load();
+              
+           container_client.getChildren().setAll(root);
+        } catch (IOException ex) {
+            Logger.getLogger(PannelClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void offre(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gestion_offres/metiers.fxml"));
             Parent root = loader.load();
               
            container_client.getChildren().setAll(root);

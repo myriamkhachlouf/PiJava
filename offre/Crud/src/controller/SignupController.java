@@ -44,6 +44,8 @@ import javax.swing.JOptionPane;
 import Entities.users;
 
 import Service.UsersService;
+import javafx.scene.image.Image;
+import org.controlsfx.control.Notifications;
 import utils.MaConnexion;
 
 
@@ -115,6 +117,7 @@ public class SignupController implements Initializable {
     /**
      * Initializes the controller class.
      */
+     Image img=new Image("/images/icon 1.png");
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       type_up.getItems().addAll("[\"ROLE_CANDIDAT\"]","[\"ROLE_ENTREPRISE\"]");  
@@ -142,6 +145,15 @@ public class SignupController implements Initializable {
         UsersService US=new UsersService();
         US.add(u);
         JOptionPane.showMessageDialog(null,"user saved");
+          Notifications notificationBuilder = Notifications.create()
+                .title("Compte ajouté")
+                .text("Votre Compte a été ajouté avec succès")
+                .graphic(new ImageView(img))
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT);
+        notificationBuilder.darkStyle();
+                notificationBuilder.show();
+
          
         /*Notifications notificationBuilder = Notifications.create()
                 .title("User saved")

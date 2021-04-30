@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +20,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  * FXML Controller class
@@ -122,6 +125,10 @@ public class PannelAdminFXMLController implements Initializable {
         } catch (IOException ex) {
            
         }
+         String path="D:\\wamp64\\www\\PiJava\\offre\\Crud\\src\\Style\\outro.mp3";
+            Media media =new Media(new File(path).toURI().toString());
+            MediaPlayer mediaplayer = new MediaPlayer(media);
+            mediaplayer.play();
     
     }
 
@@ -210,6 +217,14 @@ public class PannelAdminFXMLController implements Initializable {
 
     @FXML
     private void StatEntre(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/test/gui/BarChartEvent.fxml"));       
+            Parent root = loader.load();
+            container_admin.getChildren().setAll(root);
+        } catch (IOException ex) {
+          
+        }
+        
     }
 
     @FXML

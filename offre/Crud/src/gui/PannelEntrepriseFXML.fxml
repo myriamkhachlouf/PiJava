@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <VBox fillWidth="false" prefHeight="990" prefWidth="1980" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PannelEntrepriseController">
    <children>
@@ -68,6 +67,7 @@
                                     <MenuItem fx:id="btEvent" mnemonicParsing="false" onAction="#loadEvent" text="Evenement" />
                                     <MenuItem fx:id="btForm" mnemonicParsing="false" onAction="#loadFormation" text="Formations" />
                                     <MenuItem fx:id="btForm2" mnemonicParsing="false" onAction="#loadFormateur" text="Formateur" />
+                                    <MenuItem fx:id="consulter" mnemonicParsing="false" onAction="#consulter" text="Consulter Formateur" />
                                  </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />
@@ -112,6 +112,11 @@
                   </HBox>
                   <HBox fx:id="hboximage" layoutX="14.0" layoutY="14.0" prefHeight="64.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0">
                      <children>
+                        <ImageView fx:id="khedmtch1" fitHeight="113.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/giphy%20(8).gif" />
+                           </image>
+                        </ImageView>
                         <ImageView fx:id="khedmtch" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </HBox>
@@ -167,17 +172,22 @@
                            <children>
                               <AnchorPane prefHeight="390.0" prefWidth="1151.0" style="-fx-background-color: #F0F8FF;">
                                  <children>
-                                    <ImageView fitHeight="364.0" fitWidth="804.0" layoutX="195.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="409.0" fitWidth="607.0" layoutX="-126.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../Images/emlpoi.jpg" />
+                                          <Image url="@../images/téléchargé%20(1).png" />
                                        </image>
                                     </ImageView>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="365.0" layoutX="351.0" layoutY="-3.0" opacity="0.79" stroke="WHITE" strokeType="INSIDE" width="254.0" />
-                                    <Text layoutX="398.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khedmtech">
-                                       <font>
-                                          <Font name="System Bold" size="30.0" />
-                                       </font>
-                                    </Text>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1e1e1" height="403.0" layoutX="479.0" layoutY="-11.0" opacity="0.79" stroke="WHITE" strokeType="INSIDE" width="389.0" />
+                                    <ImageView fitHeight="273.0" fitWidth="320.0" layoutX="511.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/unnamed.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="405.0" fitWidth="727.0" layoutX="867.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/téléchargé.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                                  <HBox.margin>
                                     <Insets />

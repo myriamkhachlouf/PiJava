@@ -157,6 +157,17 @@
                                        </image>
                                     </ImageView>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="365.0" layoutX="351.0" layoutY="-3.0" opacity="0.79" stroke="WHITE" strokeType="INSIDE" width="254.0" />
+                                    <ImageView fitHeight="413.0" fitWidth="528.0" layoutX="75.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/giphy%20(4).gif" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="244.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/unnamed.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="420.0" opacity="0.79" stroke="WHITE" strokeType="INSIDE" width="286.0" />
                                     <Text layoutX="398.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khedmtech">
                                        <font>
                                           <Font name="System Bold" size="30.0" />
@@ -167,6 +178,11 @@
                                     <Insets />
                                  </HBox.margin>
                               </AnchorPane>
+                              <ImageView fitHeight="421.0" fitWidth="559.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/helper.gif" />
+                                 </image>
+                              </ImageView>
                            </children>
                            <padding>
                               <Insets left="50.0" />

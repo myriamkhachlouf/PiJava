@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import edu.test.utils.mailxd;
 import entities.formateur;
 import java.io.IOException;
 import java.net.URL;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,11 +32,17 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import entities.donnéeformateur;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import tools.MyConnection;
 
 /**
  * FXML Controller class
@@ -66,6 +74,10 @@ public class AficherFormateurController implements Initializable {
     private TextField research;
     @FXML
     private Button retour;
+    @FXML
+    private Button mail;
+    @FXML
+    private TextField maail;
 
     /**
      * Initializes the controller class.
@@ -86,9 +98,21 @@ public class AficherFormateurController implements Initializable {
     }   catch (SQLException ex) {
             System.out.println("hhhhhh ");
         }
-
-    
+tableauformateur.getSelectionModel().selectedItemProperty().addListener(new ChangeListener(){
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+    entities.formateur r = (entities.formateur) tableauformateur.getSelectionModel().getSelectedItem();
+              if (tableauformateur.getSelectionModel().getSelectedItem() != null) {
+                    entities.formateur entretien = (entities.formateur) tableauformateur.getSelectionModel().getSelectedItem();
+                    
+                    
+                    System.out.println();
+                    maail.setText(String.valueOf(entretien.getId()));
+              System.out.println(maail.getText());
+              }
     }    
+        });
+ }
 
     @FXML
     private void suppFormateur(ActionEvent event) throws IOException {
@@ -251,7 +275,31 @@ public class AficherFormateurController implements Initializable {
         });
         
     }
+public void mail() throws SQLException, Exception {
+    String mailquery = "SELECT email FROM formateur WHERE id = "+maail.getText()+""; // remplacer 1 avec le user connecter
+    Connection cnx = MyConnection.getinstance().getConnexion();
+        Statement st;
+       
+        ResultSet mailing;
+                               System.out.println(mailquery);
+    
+    
+    PreparedStatement stm1l = cnx.prepareStatement(mailquery);
+                            mailing = stm1l.executeQuery(mailquery);
+                            
+                            
+                            
+                            if (mailing.next()) {
+                                String Email = mailing.getString("email");
+                                 
+                                System.out.println(mailquery);
+                                System.out.println(Email); // debug
+                            
 
+                                mailxd.sendMail(Email);
+                                //showevent2();
+                            }
+}
     @FXML
     private void retour(ActionEvent event) throws IOException {
         Parent loader = FXMLLoader.load(getClass().getResource("formateur.fxml"));
@@ -261,6 +309,12 @@ public class AficherFormateurController implements Initializable {
         window.setTitle("Affichage page");
         window.setScene(scene);
         window.show();
+    }
+
+    @FXML
+    private void mail(ActionEvent event) throws Exception {
+        mail();
+        
     }
     
 }

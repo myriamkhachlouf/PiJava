@@ -7,6 +7,8 @@ package gestion_offres;
 
 import Entities.Emplois;
 import Entities.Offres;
+import Entities.users;
+import Service.UsersService;
 import utils.MaConnexion;
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +26,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -134,6 +137,27 @@ public class MetiersEmploiController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         showemploi();
+         UsersService US=new UsersService();
+    int id = MaConnexion.getInstance().connectedUserID;
+            users u=US.getUserByID(id);
+            if (u.getRoles().equals("[\"ROLE_CANDIDAT\"]")==true||u.getRoles().equals("[\"ROLE_ADMIN\"]")==true){
+            post.setVisible(true);
+            
+            }
+            else{
+                post.setVisible(false);
+            }
+            
+             if (u.getRoles().equals("[\"ROLE_ENTREPRISE\"]")==true||u.getRoles().equals("[\"ROLE_ADMIN\"]")==true){
+             Btn_supprimeremploi1.setVisible(true);
+            Btn_supprimeremploi.setVisible(true);
+            Btn_precedent.setVisible(true);
+             }
+            else{
+                Btn_supprimeremploi1.setVisible(false);
+            Btn_supprimeremploi.setVisible(false);
+            Btn_precedent.setVisible(false);
+            }
     }    
 
     @FXML
@@ -271,11 +295,14 @@ public class MetiersEmploiController implements Initializable {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/gestion_offres/Stat_emploi.fxml"));
          fils1.getChildren().setAll(pane);
     }
-
+   
     @FXML
     private void postuler(ActionEvent event) throws IOException {
+        
+        
          AnchorPane pane = FXMLLoader.load(getClass().getResource("/gestion_offres/Candidature.fxml"));
          fils1.getChildren().setAll(pane);
+        
     }
 
 

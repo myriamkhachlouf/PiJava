@@ -23,5 +23,7 @@
       <Button layoutX="289.0" layoutY="317.0" mnemonicParsing="false" onAction="#modifier" text="modifier" />
       <TextField fx:id="research" layoutX="35.0" layoutY="51.0" onAction="#research" onKeyTyped="#searchRecord" />
       <Button fx:id="retour" layoutX="14.0" layoutY="365.0" mnemonicParsing="false" onAction="#retour" text="retour" />
+      <Button fx:id="mail" layoutX="486.0" layoutY="317.0" mnemonicParsing="false" onAction="#mail" text="mail" />
+      <TextField fx:id="maail" layoutX="393.0" layoutY="36.0" />
    </children>
 </AnchorPane>

@@ -8,6 +8,7 @@ package edu.test.gui;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import com.teknikindustries.bulksms.SMS;
 import edu.test.entities.grille;
 import edu.test.services.ServiceGrille;
 
@@ -195,7 +196,7 @@ ex.printStackTrace();        }
         txtcommentaire.clear();
         cetat.getSelectionModel().clearSelection();
         if(
-                    (txtide.getText().isEmpty() || txtcommentaire.getText().isEmpty() || cetat.getValue().isEmpty()))
+                    (txtide.getText().isEmpty() || txtcommentaire.getText().isEmpty()))
             {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Alerte !");
@@ -203,6 +204,11 @@ ex.printStackTrace();        }
                     alert.setContentText("Veuillez remplir le formulaire");
                     alert.showAndWait();
             }
+        SMS sms =new SMS();
+        //
+sms.SendSMS("myriam3", "Myriam52659321", "Un entretien à été passé , veuillez consulter notre application pour voir les details de la grille d'évaluation ", "+21652659321", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+//sms.SendSMS("myriam2", "Myriam52659321", "Un entretien à été passé , veuillez consulter notre application pour voir les details de la grille d'évaluation ", "+21652659321", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+            System.out.println(" sms");
 
     
     }
